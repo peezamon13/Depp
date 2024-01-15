@@ -147,7 +147,11 @@
 /******/ 		__webpack_require__.f.require = (chunkId, promises) => {
 /******/ 			// "1" is the signal for "already loaded"
 /******/ 			if(!installedChunks[chunkId]) {
+<<<<<<< HEAD
 /******/ 				if("pages/api/auth/[...nextauth]" == chunkId) {
+=======
+/******/ 				if("webpack-api-runtime" != chunkId) {
+>>>>>>> 1690b243788fe65c7b402a6ded2e89d638555a21
 /******/ 					installChunk(require("./" + __webpack_require__.u(chunkId)));
 /******/ 				} else installedChunks[chunkId] = 1;
 /******/ 			}
