@@ -17,9 +17,10 @@ const Header = () => {
   return (
     <div
       className={`h-[5.5rem] z-50 relative w-full ${
-        router.asPath === "/" ? "bg-transparent fixed" : "bg-secondary"
+        router.asPath === "/" ? "bg-transparent fixed" : "bg-[secondary]"
       }`}
     >
+      <div className="bg-secondary py-3">
       <div className="container mx-auto text-white flex justify-between items-center h-full">
         <Logo />
         <nav
@@ -34,7 +35,7 @@ const Header = () => {
               }}`}
               onClick={() => setIsMenuModal(false)}
             >
-              <Link href="/">Home</Link>
+              <Link href="/">หน้าแรก</Link>
             </li>
             <li
               className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
@@ -42,9 +43,9 @@ const Header = () => {
               }`}
               onClick={() => setIsMenuModal(false)}
             >
-              <Link href="/menu">Menu</Link>
+              <Link href="/menu">เมนู</Link>
             </li>
-            <li
+            {/* <li
               className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
                 router.asPath === "/about" && "text-primary"
               }`}
@@ -59,7 +60,7 @@ const Header = () => {
               onClick={() => setIsMenuModal(false)}
             >
               <Link href="/reservation">Book Table</Link>
-            </li>
+            </li> */}
           </ul>
           {isMenuModal && (
             <button
@@ -90,6 +91,11 @@ const Header = () => {
               )}
             </span>
           </Link>
+          
+          <button onClick={() => setIsSearchModal(true)}>
+            <FaSearch className="hover:text-primary transition-all cursor-pointer" />
+          </button>
+
           <Link href="/cart">
             <span className="relative">
               <FaShoppingCart
@@ -100,12 +106,10 @@ const Header = () => {
               </span>
             </span>
           </Link>
-          <button onClick={() => setIsSearchModal(true)}>
-            <FaSearch className="hover:text-primary transition-all cursor-pointer" />
-          </button>
-          <a href="#" className="md:inline-block hidden sm">
+          
+          {/* <a href="#" className="md:inline-block hidden sm">
             <button className="btn-primary">Order Online</button>
-          </a>
+          </a> */}
           <button
             className="sm:hidden inline-block"
             onClick={() => setIsMenuModal(true)}
@@ -113,6 +117,7 @@ const Header = () => {
             <GiHamburgerMenu className="text-xl hover:text-primary transition-all" />
           </button>
         </div>
+      </div>
       </div>
       {isSearchModal && <Search setIsSearchModal={setIsSearchModal} />}
     </div>

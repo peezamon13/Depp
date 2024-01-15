@@ -76,9 +76,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-center mt-10">
-          © 2022 All Rights Reserved By Free Html Templates
-        </p>
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ const Password = ({ user }) => {
     {
       id: 1,
       name: "password",
-      type: "password",
+      type: "text",
       placeholder: "Your Password",
       value: values.password,
       errorMessage: errors.password,

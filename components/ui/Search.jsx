@@ -45,11 +45,11 @@ const Search = ({ setIsSearchModal }) => {
     <div className="fixed top-0 left-0 w-screen h-screen z-50 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-60 grid place-content-center">
       <OutsideClickHandler onOutsideClick={() => setIsSearchModal(false)}>
         <div className="w-full h-full grid place-content-center relative">
-          <div className="relative z-50 md:w-[600px] w-[370px]  bg-white border-2 p-10 rounded-3xl">
-            <Title addClass="text-[40px] text-center">Search</Title>
+          <div className="relative z-50 md:w-[600px] w-[370px]  bg-white border-2 p-10 rounded-1xl">
+            <Title addClass="text-[40px] text-center">ค้นหา</Title>
             <Input
               type="text"
-              placeholder="Search..."
+              placeholder="ค้นหา..."
               onChange={handleSearch}
             />
             {product.length > 0 ? (
@@ -68,18 +68,18 @@ const Search = ({ setIsSearchModal }) => {
                         <Image
                           src={item?.img}
                           alt={item.title}
-                          width={48}
-                          height={48}
+                          width={50}
+                          height={50}
                           priority
                         />
                       </div>
                       <span className="font-bold">{item.title}</span>
-                      <span className="font-bold">${item.prices[0]}</span>
+                      <span className="font-bold">฿{item.prices[0]}</span>
                     </li>
                   ))
                 ) : (
                   <span className="w-full text-center block font-bold my-6">
-                    No Products Found
+                    ไม่พบรายการอาหาร
                   </span>
                 )}
               </ul>
