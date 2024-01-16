@@ -5,7 +5,7 @@ import MenuItem from "./MenuItem";
 const MenuWrapper = ({ categoryList, productList }) => {
   const [active, setActive] = useState(0);
   const [filter, setFilter] = useState([]);
-  const [productLimit, setProductLimit] = useState(3);
+  // const [productLimit, setProductLimit] = useState();
 
   useEffect(() => {
     setFilter(
@@ -42,16 +42,16 @@ const MenuWrapper = ({ categoryList, productList }) => {
       <div className="mt-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 min-h-[450px]">
         {filter.length > 0 &&
           filter
-            .slice(0, productLimit)
+            .slice(0)
             .map((product) => <MenuItem key={product._id} product={product} />)}
       </div>
       <div className="flex items-center justify-center my-8">
-        <button
+        {/* <button
           className="btn-primary"
           onClick={() => setProductLimit(productLimit + 3)}
         >
           View More
-        </button>
+        </button> */}
       </div>
     </div>
   );
