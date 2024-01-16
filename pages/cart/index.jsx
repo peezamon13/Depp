@@ -84,35 +84,35 @@ const Cart = ({ userList }) => {
           {cart.products.length > 0 ? (
             <div className="max-h-[40rem] overflow-auto">
               <table
-                className="w-full text-sm text-center text-gray-500 min-w-[591px] lg:min-w-[650px] xl:min-w-[1000px] 2xl:min-w-[1250px] lg:min-h-[500px] 
-              md:min-h-[300px]  lg:text-lg"
+                className="w-full text-sm text-center text-gray-500 lg:text-lg"
               >
                 <thead className="text-xs text-gray-400 uppercase bg-gray-700">
                   <tr>
-                    <th scope="col" className="py-3 px-0">
-                      PRODUCT
+                    <th scope="col" className="py-3 px-4">
+                      อาหาร
                     </th>
-                    <th scope="col" className="py-3 px-6">
-                      EXTRAS
+                    <th scope="col" className="py-3 px-4">
+                      พิเศษ
                     </th>
-                    <th scope="col" className="py-3 px-2">
-                      PRICE
+                    
+                    <th scope="col" className="py-3 px-4">
+                      จำนวน
                     </th>
-                    <th scope="col" className="py-3 px-6">
-                      QUANTITY
+                    <th scope="col" className="py-3 px-4">
+                      ราคา
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {cart.products.map((product) => (
                     <tr
-                      className="transition-all bg-secondary border-gray-700 hover:bg-primary"
+                      className="transition-all bg-secondary border-gray-700"
                       key={product._id}
                     >
-                      <td className="py-4 px-0 font-medium whitespace-nowrap hover:text-white ">
-                        <span className="text-purple-600">{product.title}</span>
+                      <td className="py-4 px-3 font-medium whitespace-normal hover:text-white ">
+                        <span className="text-blue-500">{product.title}</span>
                       </td>
-                      <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                      <td className="py-4 px-4 font-medium whitespace-normal hover:text-white">
                         {product.extras.length > 0
                           ? product.extras.map((item) => (
                               <span key={item._id}>
@@ -120,29 +120,30 @@ const Cart = ({ userList }) => {
                                 <br />
                               </span>
                             ))
-                          : "No Extras"}
+                          : "-"}
                       </td>
-                      <td className="py-4 px-2 font-medium whitespace-nowrap hover:text-white">
-                        ${product.price}
-                      </td>
-                      <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                      <td className="py-4 px-1 font-medium whitespace-nowrap hover:text-white">
                         <button>
                           <i
-                            className="fa-solid fa-chevron-left mr-3 text-primary"
+                            className="fa-solid fa-subtract mr-2 text-primary"
                             onClick={() => quantityChange(0, product)}
                           ></i>
                         </button>
                         {product.foodQuantity}
                         <button>
                           <i
-                            className="fa-solid fa-chevron-right ml-3 text-primary"
+                            className="fa-solid fa-add ml-2 text-primary"
                             onClick={() => quantityChange(1, product)}
                           ></i>
                         </button>
                       </td>
+                      <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                        ${product.price}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
+
               </table>
             </div>
           ) : (
@@ -157,12 +158,11 @@ const Cart = ({ userList }) => {
             </div>
           )}
         </div>
-        <div className="bg-secondary min-h-[calc(100vh_-_433px)] md:h-screen flex flex-col justify-center text-white p-12 lg:w-auto md:w-[250px] w-full   md:text-start !text-center">
-          <Title addClass="text-[40px]">CART TOTAL</Title>
+        
 
-          <div className="mt-6">
-            <b>Subtotal: </b>${cart.total} <br />
-            <b className=" inline-block my-1">Discount: </b>$0.00 <br />
+          <div className="flex-center mt-1  item-center">
+            {/* <b>Subtotal: </b>${cart.total} <br />
+            <b className=" inline-block my-1">Discount: </b>$0.00 <br /> */}
             <b>Total: </b>${cart.total}
           </div>
 
@@ -175,7 +175,7 @@ const Cart = ({ userList }) => {
             </button>
           </div>
         </div>
-      </div>
+      
     </div>
   );
 };
@@ -192,6 +192,4 @@ export const getServerSideProps = async () => {
 
 export default Cart;
 
-{
-  /* */
-}
+
