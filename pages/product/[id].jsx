@@ -5,7 +5,6 @@ import { addProduct } from "../../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Link from "next/link";
-import Swal from 'sweetalert2'
 
 const Index = ({ food }) => {
   const [prices, setPrices] = useState(food.prices);
@@ -14,8 +13,6 @@ const Index = ({ food }) => {
   const [extraItems, setExtraItems] = useState(food?.extraOptions);
   const [extras, setExtras] = useState([]);
   const cart = useSelector((state) => state.cart);
-
-  const Swal = require('sweetalert2');
 
   const findCart = cart.products.find((item) => item._id === food._id);
 
@@ -55,15 +52,9 @@ const Index = ({ food }) => {
         quantity: 1,
       })
     );
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "ซื้อสำเร็จ",
-      width: "50%",
-      showConfirmButton: false,
-      timer: 1500
-    });
   };
+  
+
   console.log(food);
 
   return (
@@ -80,13 +71,13 @@ const Index = ({ food }) => {
       
       <div className="md:flex-1  text-center w-full">
         <Title addClass="text-4xl">{food.title}</Title>
-        <span className="text-black text-2xl font-bold underline underline-offset-1 my-4 inline-block">
-          {price}฿
+        <span className="text-primary text-2xl font-bold underline underline-offset-1 my-4 inline-block">
+          ${price}
         </span>
     
       </div>
 
-        <div className="w-full flex justify-between grid grid-cols-3 items-center my-1 gap-x-1 px-7 gap-1">
+        <div className="w-full flex justify-center items-center my-1 gap-x-2 text-center">
           {extraItems.map((item) => (
             <label className="flex items-center gap-x-1" key={item._id}>
               <input
@@ -98,22 +89,24 @@ const Index = ({ food }) => {
             </label>
           ))}
           </div>
-        {/* <div className="w-full flex justify-center item-center">
+        <div className="w-full flex justify-center item-center">
           <input 
           type="text"
           className="border border-gray-300 p-0.5 rounded-md w-[70%]" 
-          placeholder="เพิ่มเติม..."
-          name="mored"/>
-        </div> */}
-        <div className="w-full flex justify-center item-center btn-center ">
-          <button
-            className="btn-primary justify-center item-center"
-            onClick={handleClick}>
-            เพิ่มเข้าตะกร้า
-          </button>
+          placeholder="Type something..."/>
+        </div>
+       <div className="w-full flex justify-center item-center btn-center ">
+        <button
+          className="btn-primary justify-center item-center"
+          onClick={handleClick}
+          
+          >
+          Add to Cart
+        </button>
         <Link href="/menu"> 
-          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  "> กลับ </a> 
+          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  "> Back </a> 
         </Link>
+        
       </div> 
     </div>
   );

@@ -31,7 +31,7 @@ const MenuWrapper = ({ categoryList, productList }) => {
                 key={category._id}
                 onClick={() => {
                   setActive(index);
-                  setProductLimit(3);
+                 
                 }}
               >
                 {category.title}
