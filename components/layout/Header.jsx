@@ -17,11 +17,10 @@ const Header = () => {
   return (
     <div
       className={`h-[5.5rem] z-50 relative w-full ${
-        router.asPath === "/" ? "bg-transparent fixed" : "bg-[secondary]"
+        router.asPath === "/" ? "bg-transparent fixed" : "bg-secondary"
       }`}
     >
-      <div className="bg-secondary py-3 px-5">
-      <div className="container mx-auto text-white flex justify-between items-center h-full">
+      <div className="flex  bg-black mx-auto text-white flex justify-between items-center h-full">
         <Logo />
         <nav
           className={`sm:static absolute top-0 left-0 sm:w-auto sm:h-auto w-full h-screen sm:text-white text-black sm:bg-transparent bg-white sm:flex hidden z-50 ${
@@ -29,6 +28,38 @@ const Header = () => {
           }`}
         >
           <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
+            <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/" && "text-primary"
+              }}`}
+              onClick={() => setIsMenuModal(false)}
+            >
+              <Link href="/">Home</Link>
+            </li>
+            <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/menu" && "text-primary"
+              }`}
+              onClick={() => setIsMenuModal(false)}
+            >
+              <Link href="/menu">Menu</Link>
+            </li>
+            {/* <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/about" && "text-primary"
+              }`}
+              onClick={() => setIsMenuModal(false)}
+            >
+              <Link href="/about">About</Link>
+            </li>
+            <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/reservation" && "text-primary"
+              }`}
+              onClick={() => setIsMenuModal(false)}
+            >
+              <Link href="/reservation">Book Table</Link>
+            </li> */}
           </ul>
           {isMenuModal && (
             <button
@@ -59,11 +90,6 @@ const Header = () => {
               )}
             </span>
           </Link>
-          
-          <button onClick={() => setIsSearchModal(true)}>
-            <FaSearch className="hover:text-primary transition-all cursor-pointer" />
-          </button>
-
           <Link href="/cart">
             <span className="relative">
               <FaShoppingCart
@@ -74,8 +100,19 @@ const Header = () => {
               </span>
             </span>
           </Link>
+          <button onClick={() => setIsSearchModal(true)}>
+            <FaSearch className="hover:text-primary transition-all cursor-pointer" />
+          </button>
+          {/* <a href="#" className="md:inline-block hidden sm">
+            <button className="btn-primary">Order Online</button>
+          </a> */}
+          <button
+            className="sm:hidden inline-block"
+            onClick={() => setIsMenuModal(true)}
+          >
+            <GiHamburgerMenu className="text-xl hover:text-primary transition-all" />
+          </button>
         </div>
-      </div>
       </div>
       {isSearchModal && <Search setIsSearchModal={setIsSearchModal} />}
     </div>
