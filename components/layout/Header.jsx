@@ -20,7 +20,7 @@ const Header = () => {
         router.asPath === "/" ? "bg-transparent fixed" : "bg-secondary"
       }`}
     >
-      <div className="container mx-auto text-white flex justify-between items-center h-full">
+      <div className="flex  bg-black mx-auto text-white flex justify-between items-center h-full">
         <Logo />
         <nav
           className={`sm:static absolute top-0 left-0 sm:w-auto sm:h-auto w-full h-screen sm:text-white text-black sm:bg-transparent bg-white sm:flex hidden z-50 ${
@@ -44,7 +44,7 @@ const Header = () => {
             >
               <Link href="/menu">Menu</Link>
             </li>
-            <li
+            {/* <li
               className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
                 router.asPath === "/about" && "text-primary"
               }`}
@@ -59,7 +59,7 @@ const Header = () => {
               onClick={() => setIsMenuModal(false)}
             >
               <Link href="/reservation">Book Table</Link>
-            </li>
+            </li> */}
           </ul>
           {isMenuModal && (
             <button
@@ -103,9 +103,9 @@ const Header = () => {
           <button onClick={() => setIsSearchModal(true)}>
             <FaSearch className="hover:text-primary transition-all cursor-pointer" />
           </button>
-          <a href="#" className="md:inline-block hidden sm">
+          {/* <a href="#" className="md:inline-block hidden sm">
             <button className="btn-primary">Order Online</button>
-          </a>
+          </a> */}
           <button
             className="sm:hidden inline-block"
             onClick={() => setIsMenuModal(true)}
