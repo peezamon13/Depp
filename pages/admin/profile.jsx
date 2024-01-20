@@ -57,7 +57,7 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(1)}
           >
-            <i className="fa fa-motorcycle"></i>
+            <i className="fa fa-list"></i>
             <button className="ml-1">Orders</button>
           </li>
           <li
@@ -75,8 +75,8 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(3)}
           >
-            <i className="fa fa-window-maximize"></i>
-            <button className="ml-1">Footer</button>
+            <i className="fa fa-bar-chart"></i>
+            <button className="ml-1">Report</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
@@ -85,15 +85,6 @@ const Profile = () => {
             <i className="fa-solid fa-house"></i>
             <button className="ml-1">
               Go to the site <br /> (New Tab)
-            </button>
-          </li>
-          <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
-            onClick={() => push("/")}
-          >
-            <i className="fa-solid fa-house"></i>
-            <button className="ml-1">
-              Go to the site <br /> (current tab)
             </button>
           </li>
           <li
