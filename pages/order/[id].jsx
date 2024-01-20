@@ -11,8 +11,8 @@ const Order = ({ order }) => {
   return (
     <div className="overflow-x-auto">
       <div className="min-h-[calc(100vh_-_433px)] flex  justify-center items-center flex-col p-10  min-w-[1000px]">
-        <div className=" flex items-center flex-1  w-full max-h-28">
-          <table className="w-full text-sm text-center text-gray-500">
+        <div className=" flex items-center w-[45%] max-h-28">
+          <table className=" text-sm text-center text-gray-500">
             <thead className="text-xs text-gray-400 uppercase bg-gray-700">
               <tr>
                 <th scope="col" className="py-3 px-6">
@@ -30,7 +30,7 @@ const Order = ({ order }) => {
               </tr>
             </thead>
             <tbody>
-              <tr className="transition-all bg-secondary border-gray-700 hover:bg-primary ">
+              <tr className="transition-all bg-secondary border-gray-700  ">
                 <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
                   {order._id.substring(0, 5)}
                 </td>
@@ -47,46 +47,37 @@ const Order = ({ order }) => {
             </tbody>
           </table>
         </div>
-        <div className="flex justify-between w-full p-10 bg-primary mt-6">
-          <div className={`relative flex flex-col ${statusClass(0)}`}>
-            <Image
-              src="/images/paid.png"
-              alt=""
-              width={40}
-              height={40}
-              objectFit="contain"
-            />
-            <span>Payment</span>
-          </div>
-          <div className={`relative flex flex-col ${statusClass(1)}`}>
+        <div className="flex justify-between w-[45%] p-10 bg-primary mt-6">
+          
+          <div className={` flex flex-col ${statusClass(0)}`}>
             <Image
               src="/images/bake.png"
               alt=""
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               objectFit="contain"
             />
-            <span>Preparing</span>
+            <span className="text-sm">Preparing</span>
           </div>
-          <div className={`relative flex flex-col ${statusClass(2)}`}>
+          <div className={` flex flex-col ${statusClass(1)}`}>
             <Image
               src="/images/bike.png"
               alt=""
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               objectFit="contain"
             />
-            <span>On the way</span>
+            <span className="text-sm">Finish</span>
           </div>
-          <div className={`relative flex flex-col ${statusClass(3)}`}>
+          <div className={` flex flex-col ${statusClass(2)}`}>
             <Image
-              src="/images/delivered.png"
+              src="/images/paid.png"
               alt=""
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               objectFit="contain"
             />
-            <span>Delivered</span>
+            <span className="text-sm">Payment</span>
           </div>
         </div>
       </div>
