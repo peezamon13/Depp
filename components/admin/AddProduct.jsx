@@ -229,51 +229,7 @@ const AddProduct = ({ setIsProductModal }) => {
             </div>
             <div className="flex flex-col text-sm mt-4">
               <span className="font-semibold mb-1">Prices</span>
-              {category === "pizza" ? (
-                <div className="flex justify-between gap-4 md:flex-row flex-col items-center">
-                  <input
-                    type="number"
-                    className={`border border-gray-400 p-1 text-sm outline-none md:w-28
-                ${errors.smallPrice && touched.smallPrice && "border-red-500"}`}
-                    placeholder="small"
-                    name="smallPrice"
-                    onChange={(e) => {
-                      changePrice(e, 0);
-                      handleChange(e);
-                    }}
-                    onBlur={handleBlur}
-                  />
-                  <input
-                    type="number"
-                    className={`border border-gray-400 p-1 text-sm outline-none md:w-28
-                ${
-                  errors.mediumPrice && touched.mediumPrice && "border-red-500"
-                }`}
-                    placeholder="medium"
-                    name="mediumPrice"
-                    onChange={(e) => {
-                      changePrice(e, 1);
-                      handleChange(e);
-                    }}
-                    value={values.mediumPrice}
-                    onBlur={handleBlur}
-                  />
-                  <input
-                    type="number"
-                    className={`border border-gray-400 p-1 text-sm outline-none md:w-28
-                ${errors.largePrice && touched.largePrice && "border-red-500"}`}
-                    placeholder="large"
-                    name="largePrice"
-                    onChange={(e) => {
-                      changePrice(e, 2);
-                      handleChange(e);
-                    }}
-                    value={values.largePrice}
-                    onBlur={handleBlur}
-                  />
-                </div>
-              ) : (
-                <input
+              <input
                   type="number"
                   className={`border border-gray-400 p-1 text-sm outline-none md:w-28
             ${errors.smallPrice && touched.smallPrice && "border-red-500"}`}
@@ -286,7 +242,6 @@ const AddProduct = ({ setIsProductModal }) => {
                   value={values.smallPrice}
                   onBlur={handleBlur}
                 />
-              )}
             </div>
             <div className="flex flex-col text-sm mt-4 mb-16">
               <span className="font-semibold mb-1">Extras</span>

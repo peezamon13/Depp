@@ -45,14 +45,6 @@ return (
             .slice(0, productLimit)
             .map((product) => <MenuItem key={product._id} product={product} />)}
       </div>
-      {/* <div className="flex items-center justify-center my-8">
-        { <button
-          className="btn-primary"
-          onClick={() => setProductLimit(productLimit + 3)}
-        >
-          View More
-        </button> }
-      </div> */}
     </div>
   );
 };

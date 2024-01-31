@@ -20,7 +20,7 @@ const Header = () => {
         router.asPath === "/" ? "bg-transparent fixed" : "bg-[secondary]"
       }`}
     >
-      <div className="bg-secondary py-3">
+      <div className="bg-secondary py-3 px-5">
       <div className="container mx-auto text-white flex justify-between items-center h-full">
         <Logo />
         <nav
@@ -29,38 +29,6 @@ const Header = () => {
           }`}
         >
           <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
-            <li
-              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
-                router.asPath === "/" && "text-primary"
-              }}`}
-              onClick={() => setIsMenuModal(false)}
-            >
-              <Link href="/">หน้าแรก</Link>
-            </li>
-            <li
-              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
-                router.asPath === "/menu" && "text-primary"
-              }`}
-              onClick={() => setIsMenuModal(false)}
-            >
-              <Link href="/menu">เมนู</Link>
-            </li>
-            {/* <li
-              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
-                router.asPath === "/about" && "text-primary"
-              }`}
-              onClick={() => setIsMenuModal(false)}
-            >
-              <Link href="/about">About</Link>
-            </li>
-            <li
-              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
-                router.asPath === "/reservation" && "text-primary"
-              }`}
-              onClick={() => setIsMenuModal(false)}
-            >
-              <Link href="/reservation">Book Table</Link>
-            </li> */}
           </ul>
           {isMenuModal && (
             <button
@@ -106,16 +74,6 @@ const Header = () => {
               </span>
             </span>
           </Link>
-          
-          {/* <a href="#" className="md:inline-block hidden sm">
-            <button className="btn-primary">Order Online</button>
-          </a> */}
-          <button
-            className="sm:hidden inline-block"
-            onClick={() => setIsMenuModal(true)}
-          >
-            <GiHamburgerMenu className="text-xl hover:text-primary transition-all" />
-          </button>
         </div>
       </div>
       </div>

@@ -60,22 +60,22 @@ const Category = () => {
 
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5">
-      <Title addClass="text-[40px]">Category</Title>
+      <Title addClass="text-[40px]">ประเภท</Title>
       <div className="mt-5">
         <div className="flex gap-4 flex-1 items-center">
           <Input
-            placeholder="Add a new Category..."
+            placeholder="เพิ่มประเภท..."
             onChange={(e) => setInputText(e.target.value)}
             value={inputText}
           />
           <button className="btn-primary" onClick={handleCreate}>
-            Add
+            เพิ่ม
           </button>
         </div>
         <div className="mt-10  max-h-[40rem] overflow-auto p-4 flex flex-col justify-center ">
           {categories.map((category) => (
             <div
-              className="flex justify-between mt-4 border p-3 items-center border-r-4 border-b-8 border-primary rounded-lg hover:border-secondary transition-all"
+              className="flex justify-between mt-4 border p-3 items-center border-r-4 border-b-8 border-black rounded-lg transition-all"
               key={category._id}
             >
               <b className="sm:text-xl text-md">{category.title}</b>
@@ -83,7 +83,7 @@ const Category = () => {
                 className="btn-primary !bg-danger text-sm sm:text-base"
                 onClick={(e) => handleDelete(e, category._id)}
               >
-                Delete
+                ลบ
               </button>
             </div>
           ))}

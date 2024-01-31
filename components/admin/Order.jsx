@@ -68,7 +68,7 @@ const Order = () => {
 
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5  lg:max-w-[70%] xl:max-w-none flex flex-col justify-center">
-      <Title addClass="text-[40px]">Products</Title>
+      <Title addClass="text-[40px]">ออเดอร์</Title>
       <div className="overflow-x-auto w-full mt-5">
         <table className="w-full text-sm text-center text-gray-500">
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
@@ -77,16 +77,19 @@ const Order = () => {
                 PRODUCT ID
               </th>
               <th scope="col" className="py-3 px-6">
-                CUSTOMER
+                ชื่อผู้ใช้
               </th>
               <th scope="col" className="py-3 px-6">
-                Products
+                ชื่ออาหาร
               </th>
               <th scope="col" className="py-3">
-                EXTRAS
+                พิเศษ
               </th>
               <th scope="col" className="py-3 px-6">
-                TOTAL
+                ราคา
+              </th>
+              <th scope="col" className="py-3 px-6">
+                วันที่
               </th>
               <th scope="col" className="py-3 px-6">
                 PAYMENT
@@ -109,7 +112,7 @@ const Order = () => {
                     key={order._id}
                   >
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white gap-x-1 ">
-                      {order?._id.substring(0, 7)}
+                      {order?._id.substring(0, 6)}
                     </td>
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                       {order?.customer}
@@ -135,11 +138,16 @@ const Order = () => {
                       })}
                     </td>
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                      ${order?.total}
+                      {order?.total}฿
                     </td>
 
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                      {order?.method === 0 ? "Cash" : "Card"}
+                      {order.createdAt.substring(0, 10)}{" "}
+                      {order.createdAt.substring(11, 16)}
+                    </td>
+
+                    <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                      {order?.method === 0  ? "เงินสด" : "ไม่เงินสด"}
                     </td>
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                       {status[order?.status]}
