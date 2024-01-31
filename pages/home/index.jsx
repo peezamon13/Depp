@@ -9,12 +9,12 @@ import Reservation from "../../components/Reservation";
 const Index = ({ categoryList, productList }) => {
   return (
     <React.Fragment>
-      <Carousel />
-      <Campaigns />
+      {/* <Carousel />
+      <Campaigns /> */}
       <MenuWrapper categoryList={categoryList} productList={productList} />
-      <About />
-      <Reservation />
-      <Customers />
+      {/* <About />
+      <Reservation /> */}
+      {/* <Customers /> */}
     </React.Fragment>
   );
 };

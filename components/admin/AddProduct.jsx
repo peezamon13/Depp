@@ -68,11 +68,11 @@ const AddProduct = ({ setIsProductModal }) => {
     setBtnDisabled(true);
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "food-ordering");
+    formData.append("upload_preset", "upload");
 
     try {
       const uploadRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/dp5whpvw0/image/upload",
+        "https://api.cloudinary.com/v1_1/dau01gr6x/image/upload",
         formData
       );
       const { url } = uploadRes.data;

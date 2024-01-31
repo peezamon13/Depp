@@ -1,5 +1,6 @@
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 
 const Order = ({ order }) => {
   const status = order?.status;
@@ -8,11 +9,12 @@ const Order = ({ order }) => {
     if (index - status === 1) return "animate-pulse";
     if (index - status > 1) return "";
   };
+
   return (
-    <div className="overflow-x-auto">
-      <div className="min-h-[calc(100vh_-_433px)] flex  justify-center items-center flex-col p-10  min-w-[1000px]">
-        <div className=" flex items-center flex-1  w-full max-h-28">
-          <table className="w-full text-sm text-center text-gray-500">
+    <div className="overflow-x-auto flex justify-center items-center h-screen">
+      <div className="container p-5 md:p-10 min-w-[320px] md:min-w-[600px] lg:min-w-[800px] bg-white rounded-md">
+        <div className="flex flex-col md:flex-row items-center w-full max-h-28">
+          <table className="text-sm text-center text-gray-500 w-full">
             <thead className="text-xs text-gray-400 uppercase bg-gray-700">
               <tr>
                 <th scope="col" className="py-3 px-6">
@@ -30,7 +32,7 @@ const Order = ({ order }) => {
               </tr>
             </thead>
             <tbody>
-              <tr className="transition-all bg-secondary border-gray-700 hover:bg-primary ">
+              <tr className="transition-all bg-secondary border-gray-700  ">
                 <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
                   {order._id.substring(0, 5)}
                 </td>
@@ -47,47 +49,57 @@ const Order = ({ order }) => {
             </tbody>
           </table>
         </div>
-        <div className="flex justify-between w-full p-10 bg-primary mt-6">
-          <div className={`relative flex flex-col ${statusClass(0)}`}>
-            <Image
-              src="/images/paid.png"
-              alt=""
-              width={40}
-              height={40}
-              objectFit="contain"
-            />
-            <span>Payment</span>
-          </div>
-          <div className={`relative flex flex-col ${statusClass(1)}`}>
-            <Image
-              src="/images/bake.png"
-              alt=""
-              width={40}
-              height={40}
-              objectFit="contain"
-            />
-            <span>Preparing</span>
-          </div>
-          <div className={`relative flex flex-col ${statusClass(2)}`}>
-            <Image
-              src="/images/bike.png"
-              alt=""
-              width={40}
-              height={40}
-              objectFit="contain"
-            />
-            <span>On the way</span>
-          </div>
-          <div className={`relative flex flex-col ${statusClass(3)}`}>
-            <Image
-              src="/images/delivered.png"
-              alt=""
-              width={40}
-              height={40}
-              objectFit="contain"
-            />
-            <span>Delivered</span>
-          </div>
+
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-2">Products in the Order:</h3>
+          <table className="w-full text-sm text-center text-gray-500">
+            <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+              <tr>
+                <th scope="col" className="py-3 px-6">
+                  Product
+                </th>
+                <th scope="col" className="py-3 px-6">
+                  Quantity
+                </th>
+                <th scope="col" className="py-3 px-6">
+                  Extras
+                </th>
+                <th scope="col" className="py-3 px-6">
+                  Price
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {order?.products.map((product) => (
+                <tr key={product._id}>
+                  <td className="py-4 px-6 font-medium whitespace-nowrap">
+                    {product.title}
+                  </td>
+                  <td className="py-4 px-6 font-medium whitespace-nowrap">
+                    {product.foodQuantity}
+                  </td>
+                  <td className="py-4 px-6 font-medium whitespace-nowrap">
+                    {product.extras &&
+                      product.extras.length > 0 &&
+                      product.extras.map((extra) => (
+                        <span key={extra._id}>{extra.text}, </span>
+                      ))}
+                  </td>
+                  <td className="py-4 px-6 font-medium whitespace-nowrap">
+                    ${product.price}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="flex justify-end mt-8">
+          <Link href="/menu">
+            <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-8">
+              Back To Menu
+            </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -106,3 +118,4 @@ export const getServerSideProps = async ({ params }) => {
 };
 
 export default Order;
+ 
