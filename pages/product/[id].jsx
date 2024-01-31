@@ -5,6 +5,7 @@ import { addProduct } from "../../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Link from "next/link";
+import Swal from 'sweetalert2'
 
 const Index = ({ food }) => {
   const [prices, setPrices] = useState(food.prices);
@@ -52,10 +53,18 @@ const Index = ({ food }) => {
         quantity: 1,
       })
     );
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "ซื้อสำเร็จ",
+      width: "50%",
+      showConfirmButton: false,
+      timer: 700
+    });
+  
+    console.log(food);
   };
   
-
-  console.log(food);
 
   return (
     <div className="flex items-center md:h-[calc(100vh_-_88px)] gap-3 py-10 flex-wrap ">
@@ -77,7 +86,7 @@ const Index = ({ food }) => {
     
       </div>
 
-        <div className="w-full flex justify-center items-center my-1 gap-x-2 text-center">
+        <div className="w-full flex justify-between grid grid-cols-3 items-center my-1 gap-x-1 px-7 gap-1">
           {extraItems.map((item) => (
             <label className="flex items-center gap-x-1" key={item._id}>
               <input

@@ -38,6 +38,7 @@ const Cart = ({ userList }) => {
         title: product.title,
         foodQuantity: product.foodQuantity,
         extras: product.extras,
+        price: product.price,
       };
     });
     setProductState(productTitles);
@@ -138,7 +139,7 @@ const Cart = ({ userList }) => {
                         </button>
                       </td>
                       <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                        ${product.price}
+                        ${product.prices}
                       </td>
                     </tr>
                   ))}
@@ -158,6 +159,7 @@ const Cart = ({ userList }) => {
             </div>
           )}
         </div>
+        
         
 
           <div className="flex-center mt-1  item-center">
