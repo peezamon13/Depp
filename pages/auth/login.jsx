@@ -36,7 +36,7 @@ const Login = () => {
         setCurrentUser(
           res.data?.find((user) => user.email === session?.user?.email)
         );
-        session && push("/profile/" + currentUser?._id);
+        session && push("/menu/" );
       } catch (err) {
         console.log(err);
       }
@@ -96,6 +96,14 @@ const Login = () => {
           <button className="btn-primary" type="submit">
             LOGIN
           </button>
+          {/* <button
+            className="btn-primary !bg-secondary"
+            type="button"
+            onClick={() => signIn("github")}
+          >
+            <i className="fa fa-github mr-2 text-lg"></i>
+            GITHUB
+          </button> */}
           <Link href="/auth/register">
             <span className="text-sm underline cursor-pointer text-secondary">
               Do you no have a account?

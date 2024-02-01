@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Index = ({ categoryList, productList }) => {
   return (
-    <div className="pt-10">
+    <div className="pt-3">
       <MenuWrapper categoryList={categoryList} productList={productList} />
     </div>
   );

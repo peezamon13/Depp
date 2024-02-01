@@ -5,7 +5,6 @@ import { useFormik } from "formik";
 import { profileSchema } from "../../schema/profile";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { string } from "yup";
 
 const Account = ({ user }) => {
   const onSubmit = async (values, actions) => {
@@ -30,6 +29,8 @@ const Account = ({ user }) => {
         phoneNumber: user?.phoneNumber,
         email: user?.email,
         address: user?.address,
+        job: user?.job,
+        bio: user?.bio,
       },
       onSubmit,
       validationSchema: profileSchema,
@@ -39,7 +40,7 @@ const Account = ({ user }) => {
       id: 1,
       name: "fullName",
       type: "text",
-      placeholder: "ชื่อ",
+      placeholder: "Your Full Name",
       value: values.fullName,
       errorMessage: errors.fullName,
       touched: touched.fullName,
@@ -48,7 +49,7 @@ const Account = ({ user }) => {
       id: 2,
       name: "phoneNumber",
       type: "string",
-      placeholder: "เบอร์",
+      placeholder: "Your Phone Number",
       value: values.phoneNumber,
       errorMessage: errors.phoneNumber,
       touched: touched.phoneNumber,
@@ -57,7 +58,7 @@ const Account = ({ user }) => {
       id: 3,
       name: "email",
       type: "email",
-      placeholder: "อีเมล",
+      placeholder: "Your Email Address",
       value: values.email,
       errorMessage: errors.email,
       touched: touched.email,
@@ -66,15 +67,33 @@ const Account = ({ user }) => {
       id: 4,
       name: "address",
       type: "text",
-      placeholder: "ที่อยู่",
+      placeholder: "Your Address",
       value: values.address,
       errorMessage: errors.address,
       touched: touched.address,
     },
+    {
+      id: 5,
+      name: "job",
+      type: "text",
+      placeholder: "Your Job",
+      value: values.job,
+      errorMessage: errors.job,
+      touched: touched.job,
+    },
+    {
+      id: 6,
+      name: "bio",
+      type: "text",
+      placeholder: "Your Bio",
+      value: values.bio,
+      errorMessage: errors.bio,
+      touched: touched.bio,
+    },
   ];
   return (
     <form className="lg:p-8 flex-1 lg:mt-0 mt-5" onSubmit={handleSubmit}>
-      <Title addClass="text-[40px]">บัญขี</Title>
+      <Title addClass="text-[40px]">Account Settings</Title>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4">
         {inputs.map((input) => (
           <Input
@@ -86,7 +105,7 @@ const Account = ({ user }) => {
         ))}
       </div>
       <button className="btn-primary mt-4" type="submit">
-        อัพเดท
+        Update
       </button>
     </form>
   );

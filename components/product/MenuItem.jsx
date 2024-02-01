@@ -24,9 +24,9 @@ const MenuItem = ({ product }) => {
 
   return (
   <Link href={`/product/${product._id}`}>
-    <div className="bg-secondary rounded-3xl h-[330px] relative">
-      <div className="w-full  bg-[#f1f2f3] h-[170px] grid place-content-center rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl ">
-          <div className="relative w-36 h-36 hover:scale-110 transition-all">
+    <div className="bg-secondary rounded-3xl h-[240px] relative">
+      <div className="w-full  bg-[#f1f2f3] h-[140px] grid place-content-center rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl ">
+          <div className="relative w-32 h-32 hover:scale-110 transition-all">
             <Image
               src={product.img}
               alt=""
@@ -37,7 +37,7 @@ const MenuItem = ({ product }) => {
       </div>
       <div className="p-[25px] text-white ">
         <h4 className="text-xl font-semibold mb-3 ">{product.title}</h4>
-        <p className="text-[15px]">{product.desc}</p>
+        {/* <p className="text-[15px]">{product.desc}</p> */}
         <div className="flex justify-between items-center mt-4">
           <span>${product.prices[0]}</span>
        
