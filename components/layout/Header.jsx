@@ -20,6 +20,7 @@ const Header = () => {
         router.asPath === "/" ? "bg-transparent fixed" : "bg-black"
       }`}
     >
+      <div className="bg-secondary py-3 px-5">
       <div className="flex  bg-black mx-auto text-white  justify-between items-center h-full mx-3">
         
         <Logo />
@@ -74,6 +75,7 @@ const Header = () => {
         
           <div className="mx-1"></div>
         </div>
+      </div>
       </div>
       {isSearchModal && <Search setIsSearchModal={setIsSearchModal} />}
     </div>
