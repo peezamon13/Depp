@@ -5,7 +5,6 @@ const Index = ({ categoryList, productList }) => {
   return (
     <React.Fragment>
       <MenuWrapper categoryList={categoryList} productList={productList} />
-      bas
     </React.Fragment>
   );
 };
