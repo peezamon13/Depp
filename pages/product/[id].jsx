@@ -112,7 +112,7 @@ const Index = ({ food }) => {
           >
           Add to Cart
         </button>
-        <Link href="/home"> 
+        <Link href="/menu"> 
           <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  "> Back To Menu</a> 
         </Link>
         

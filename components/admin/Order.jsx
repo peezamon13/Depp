@@ -97,7 +97,9 @@ const Order = () => {
               <th scope="col" className="py-3 px-6">
                 STATUS
               </th>
-              
+              <th scope="col" className="py-3 px-6">
+                Delete Order
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -150,7 +152,15 @@ const Order = () => {
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                       {status[order?.status]}
                     </td>
-                 
+                    <td className="py-4 px-1 font-small whitespace-nowrap hover:text-white flex gap-3 justify-center">   
+                      <button
+                        className="btn-primary !bg-yellow-600 w-28 !pl-0 !pr-0"
+                        onClick={() => handleDelete(order?._id)}
+                      >
+                        Delete Order
+                      </button>
+                      
+                    </td>
                   </tr>
                 ))}
           </tbody>

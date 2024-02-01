@@ -95,7 +95,7 @@ const Order = ({ order }) => {
         </div>
 
         <div className="flex justify-end mt-8">
-          <Link href="/home">
+          <Link href="/menu">
             <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-8">
               Back To Menu
             </a>
