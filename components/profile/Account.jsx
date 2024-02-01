@@ -48,7 +48,7 @@ const Account = ({ user }) => {
     {
       id: 2,
       name: "phoneNumber",
-      type: "number",
+      type: "string",
       placeholder: "Your Phone Number",
       value: values.phoneNumber,
       errorMessage: errors.phoneNumber,
