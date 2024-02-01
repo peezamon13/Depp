@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
 
+
 const Logo = () => {
   return (
-    <Link href="/">
+    <Link href="/menu">
       <span className="text-[2rem] font-dancing font-bold cursor-pointer">
-        Feane
+        ร้านป้าแอ๊ว
       </span>
     </Link>
   );
