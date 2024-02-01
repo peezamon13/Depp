@@ -188,24 +188,6 @@ const AddProduct = ({ setIsProductModal }) => {
               )}
             </div>
             <div className="flex flex-col text-sm mt-4">
-              <span className="font-semibold mb-1">Description</span>
-              <textarea
-                className={`border border-gray-400 h-16 p-3 text-sm outline-none rounded-md ${
-                  errors.desc && touched.desc
-                    ? "border-red-500"
-                    : "border-gray-400"
-                }`}
-                placeholder="Write a Description"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-                name="desc"
-              />
-              {errors.desc && touched.desc && (
-                <span className="text-xs mt-1 text-danger">{errors.desc}</span>
-              )}
-            </div>
-            <div className="flex flex-col text-sm mt-4">
               <span className="font-semibold mb-1">Select Category</span>
               <select
                 className="border border-gray-400  p-2 text-sm outline-none rounded-md"
