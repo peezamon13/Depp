@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import { profileSchema } from "../../schema/profile";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { string } from "yup";
 
 const Account = ({ user }) => {
   const onSubmit = async (values, actions) => {
@@ -46,7 +47,7 @@ const Account = ({ user }) => {
     {
       id: 2,
       name: "phoneNumber",
-      type: "number",
+      type: "string",
       placeholder: "เบอร์",
       value: values.phoneNumber,
       errorMessage: errors.phoneNumber,

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Input from "../components/form/Input";
-import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import Home from "./home";
 import axios from "axios";
@@ -9,7 +8,7 @@ export default function Index({ categoryList, productList }) {
   return (
     <div className="">
       <Head>
-        <title>Feane</title>
+        <title>ป้าแอ๊ว</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

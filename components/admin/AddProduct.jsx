@@ -15,7 +15,6 @@ const AddProduct = ({ setIsProductModal }) => {
   const [imageUrl, setImageUrl] = useState();
 
   const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("");
   const [prices, setPrices] = useState([]);
   const [extra, setExtra] = useState("");
@@ -45,7 +44,6 @@ const AddProduct = ({ setIsProductModal }) => {
       initialValues: {
         image: imageUrl,
         title: title,
-        desc: desc,
         category: category,
         smallPrice: prices[0],
         mediumPrice: prices[1],
@@ -80,7 +78,6 @@ const AddProduct = ({ setIsProductModal }) => {
       const newProuct = {
         img: url,
         title,
-        desc,
         prices,
         category: category.toLowerCase(),
         extraOptions,
@@ -200,7 +197,6 @@ const AddProduct = ({ setIsProductModal }) => {
                 }`}
                 placeholder="Write a Description"
                 onChange={(e) => {
-                  setDesc(e.target.value);
                   handleChange(e);
                 }}
                 name="desc"
