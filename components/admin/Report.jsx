@@ -1,4 +1,4 @@
-import IncomeReport from "../IncomeReport";
+import IncomeReport from "../../schema/IncomeReport";
 
 const IncomeReportPage = () => {
 
