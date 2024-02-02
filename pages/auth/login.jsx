@@ -36,7 +36,7 @@ const Login = () => {
         setCurrentUser(
           res.data?.find((user) => user.email === session?.user?.email)
         );
-        session && push("/Profile/" );
+        session && push("/profile/" );
       } catch (err) {
         console.log(err);
       }
