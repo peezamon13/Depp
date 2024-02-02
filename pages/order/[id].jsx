@@ -62,7 +62,7 @@ const Order = ({ order }) => {
                   Quantity
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  Extras
+                  Option
                 </th>
                 <th scope="col" className="py-3 px-6">
                   Price

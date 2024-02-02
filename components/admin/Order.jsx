@@ -74,7 +74,7 @@ const Order = () => {
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
-                PRODUCT ID
+                ORDER ID
               </th>
               <th scope="col" className="py-3 px-6">
                 CUSTOMER
@@ -83,7 +83,7 @@ const Order = () => {
                 Products
               </th>
               <th scope="col" className="py-3">
-                EXTRAS
+                OPTION
               </th>
               <th scope="col" className="py-3 px-6">
                 TOTAL

@@ -1,14 +1,14 @@
 import Head from "next/head";
 import Input from "../components/form/Input";
 import Header from "../components/layout/Header";
-import Home from "./home";
+import Login from "../pages/auth/login";
 import axios from "axios";
 
 export default function Index({ categoryList, productList }) {
   return (
     <div className="">
       <Head>
-        <title>Feane</title>
+        <title>ร้านป้า</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -17,7 +17,8 @@ export default function Index({ categoryList, productList }) {
           crossOrigin="true"
         />
       </Head>
-      <Home categoryList={categoryList} productList={productList} />
+      <Login  />
+      
     </div>
   );
 }
