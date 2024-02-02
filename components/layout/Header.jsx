@@ -20,7 +20,7 @@ const Header = () => {
         router.asPath === "/" ? "bg-transparent fixed" : "bg-black"
       }`}
     >
-      <div className="bg-secondary py-3 px-5">
+      <div className="bg-black py-3 px-5">
       <div className="flex  bg-black mx-auto text-white  justify-between items-center h-full mx-3">
         
         <Logo />
