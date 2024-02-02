@@ -15,7 +15,6 @@ const AddProduct = ({ setIsProductModal }) => {
   const [imageUrl, setImageUrl] = useState();
 
   const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("");
   const [prices, setPrices] = useState([]);
   const [extra, setExtra] = useState("");
@@ -45,7 +44,6 @@ const AddProduct = ({ setIsProductModal }) => {
       initialValues: {
         image: imageUrl,
         title: title,
-        desc: desc,
         category: category,
         smallPrice: prices[0],
         mediumPrice: prices[1],
@@ -80,7 +78,6 @@ const AddProduct = ({ setIsProductModal }) => {
       const newProuct = {
         img: url,
         title,
-        desc,
         prices,
         category: category.toLowerCase(),
         extraOptions,
@@ -188,25 +185,6 @@ const AddProduct = ({ setIsProductModal }) => {
               />
               {errors.title && touched.title && (
                 <span className="text-xs mt-1 text-danger">{errors.title}</span>
-              )}
-            </div>
-            <div className="flex flex-col text-sm mt-4">
-              <span className="font-semibold mb-1">Description</span>
-              <textarea
-                className={`border border-gray-400 h-16 p-3 text-sm outline-none rounded-md ${
-                  errors.desc && touched.desc
-                    ? "border-red-500"
-                    : "border-gray-400"
-                }`}
-                placeholder="Write a Description"
-                onChange={(e) => {
-                  setDesc(e.target.value);
-                  handleChange(e);
-                }}
-                name="desc"
-              />
-              {errors.desc && touched.desc && (
-                <span className="text-xs mt-1 text-danger">{errors.desc}</span>
               )}
             </div>
             <div className="flex flex-col text-sm mt-4">
