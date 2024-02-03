@@ -7,6 +7,7 @@ import Category from "../../components/admin/Category";
 import Order from "../../components/admin/Order";
 import Products from "../../components/admin/Products";
 import { toast } from "react-toastify";
+import Stock from "../../components/admin/Stock";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
@@ -62,6 +63,15 @@ const Profile = () => {
             <button className="ml-1">ประเภท</button>
           </li>
           <li
+            className={`border w-full p-3 cursor-pointer transition-all ${
+              tabs === 3 && "bg-black text-white"
+            }`}
+            onClick={() => setTabs(3)}
+          >
+            <i className="fa fa-ellipsis-h"></i>
+            <button className="ml-1">Stock</button>
+          </li>
+          <li
             className={`border w-full p-3 cursor-pointer transition-all`}
             onClick={() => window.open("/", "_blank")}
           >
@@ -84,6 +94,7 @@ const Profile = () => {
       {tabs === 0 && <Products />}
       {tabs === 1 && <Order />}
       {tabs === 2 && <Category />}
+      {tabs === 3 && <Stock />}
     </div>
   );
 };
