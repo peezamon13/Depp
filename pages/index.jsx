@@ -2,6 +2,7 @@ import Head from "next/head";
 import Input from "../components/form/Input";
 import Header from "../components/layout/Header";
 import Login from "../pages/auth/login";
+import Home from "./home";
 import axios from "axios";
 
 export default function Index({ categoryList, productList }) {
@@ -17,7 +18,7 @@ export default function Index({ categoryList, productList }) {
           crossOrigin="true"
         />
       </Head>
-      <Login  />
+      <Home categoryList={categoryList} productList={productList} />
       
     </div>
   );
