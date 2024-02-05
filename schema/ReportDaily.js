@@ -77,20 +77,20 @@ const OrderReport = () => {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-  
+
     // Find orders for the selected date
     const ordersForSelectedDate = dailyReport.find(
       (entry) => entry.date === date.toLocaleDateString()
     );
-  
+
     // Check if ordersForSelectedDate is defined and has orders
-    if (ordersForSelectedDate && ordersForSelectedDate.orders.length >= 0) {
+    if (ordersForSelectedDate && ordersForSelectedDate.orders.length > 0) {
       setSelectedOrders([...ordersForSelectedDate.orders]);
     } else {
-      setSelectedOrders([]);
+      // No orders for the selected date, set selectedOrders to an empty array
+      setSelectedOrders([])
     }
   };
-  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -123,6 +123,9 @@ const OrderReport = () => {
                   <th scope="col" className="py-3 px-6">
                     Total Income
                   </th>
+                  <th scope="col" className="py-3 px-6">
+                    Orders
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -134,15 +137,19 @@ const OrderReport = () => {
                     <td className="py-4 px-6 font-medium whitespace-nowrap">
                       ${entry.total}
                     </td>
+                    <td className="py-4 px-6 font-medium whitespace-nowrap">
+                      {entry.orders.length}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
 
-            {/* New table for individual orders */}
+            <div className="overflow-x-auto w-full mt-5 max-h-[500px] overflow-auto" >
+              {/* New table for individual orders */}
             <h3>Orders on {selectedDate.toLocaleDateString()}</h3>
             {selectedOrders && selectedOrders.length > 0 ? (
-              <table className="w-full text-sm text-center text-gray-500">
+              <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
                 <thead className="text-xs text-gray-400 uppercase bg-gray-700">
                   <tr>
                     <th scope="col" className="py-3 px-6">
@@ -152,18 +159,22 @@ const OrderReport = () => {
                       Product
                     </th>
                     <th scope="col" className="py-3 px-6">
-                      Total
+                      Price
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {selectedOrders.map((order) => (
+                  {selectedOrders.map((order, index) => (
                     <tr key={order.id}>
                       <td className="py-4 px-6 font-medium whitespace-nowrap">
-                        {order?.id}
+                        {index + 1}
                       </td>
                       <td className="py-4 px-6 font-medium whitespace-nowrap">
-                        {order?.product}
+                        {order?.products.map((product, index) => (
+                          <span key={index}>
+                            {product.title} * {product.foodQuantity} <br />
+                          </span>
+                        ))}
                       </td>
                       <td className="py-4 px-6 font-medium whitespace-nowrap">
                         ${order?.total}
@@ -175,6 +186,7 @@ const OrderReport = () => {
             ) : (
               <p>No orders for the selected date.</p>
             )}
+            </div>
           </>
         )}
       </div>
