@@ -8,6 +8,7 @@ import Order from "../../components/admin/Order";
 import Products from "../../components/admin/Products";
 import { toast } from "react-toastify";
 import Stock from "../../components/admin/Stock.jsx";
+import Report from "../../components/admin/Report"
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
@@ -44,6 +45,7 @@ const Profile = () => {
             <i className="fa fa-cutlery"></i>
             <button className="ml-1 ">รายการอาหาร</button>
           </li>
+
           <li
             className={`border w-full p-3 cursor-pointer transition-all ${
               tabs === 1 && "bg-black text-white"
@@ -53,6 +55,7 @@ const Profile = () => {
             <i className="fa fa-motorcycle"></i>
             <button className="ml-1">ออเดอร์อาหาร</button>
           </li>
+
           <li
             className={`border w-full p-3 cursor-pointer transition-all ${
               tabs === 2 && "bg-black text-white"
@@ -62,6 +65,7 @@ const Profile = () => {
             <i className="fa fa-ellipsis-h"></i>
             <button className="ml-1">ประเภท</button>
           </li>
+
           <li
             className={`border w-full p-3 cursor-pointer transition-all ${
               tabs === 3 && "bg-black text-white"
@@ -71,6 +75,17 @@ const Profile = () => {
             <i className="fa fa-ellipsis-h"></i>
             <button className="ml-1">Stock</button>
           </li>
+
+          <li
+            className={`border w-full p-3 cursor-pointer transition-all ${
+              tabs === 4 && "bg-black text-white"
+            }`}
+            onClick={() => setTabs(4)}
+          >
+            <i className="fa fa-ellipsis-h"></i>
+            <button className="ml-1">Report</button>
+          </li>
+
           <li
             className={`border w-full p-3 cursor-pointer transition-all`}
             onClick={() => window.open("/", "_blank")}
@@ -80,21 +95,24 @@ const Profile = () => {
               หน้าเว็บร้าน <br /> (New Tab)
             </button>
           </li>
+
           <li
             className={`border w-full p-3 cursor-pointer transition-all ${
-              tabs === 4 && "bg-black text-white"
+              tabs === 5 && "bg-black text-white"
             }`}
             onClick={closeAdminAccount}
           >
             <i className="fa fa-sign-out"></i>
             <button className="ml-1">ล็อคเอาท์</button>
           </li>
+          
         </ul>
       </div>
       {tabs === 0 && <Products />}
       {tabs === 1 && <Order />}
       {tabs === 2 && <Category />}
       {tabs === 3 && <Stock />}
+      {tabs === 4 && <Report />}
     </div>
   );
 };

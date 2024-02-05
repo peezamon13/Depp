@@ -57,6 +57,15 @@ const Stock = () => {
         }
       };
 
+      const stockChange = (type) => {
+        if (type === 0) {
+            
+        }
+        if (type === 1) {
+
+        }
+    };
+
     return (
         <div className="lg:p-8 flex-1 lg:mt-0 mt-5">
             <Title addClass="text-[40px]">ประเภท</Title>
@@ -84,6 +93,9 @@ const Stock = () => {
                         >
                             <b className="sm:text-xl text-md">{stock.title}</b>
                             <b className="sm:text-xl text-md">{stock.yamato}</b>
+                            <button>
+                                <i className="fa-solid fa-add ml-3 text-white" onClick={stockChange(1)}></i>
+                            </button>
                             <button
                                 className="btn-primary !bg-danger text-sm sm:text-base"
                                 onClick={(e) => handleDelete(e, stock._id)}

@@ -7,7 +7,7 @@ const StockSchema = new mongoose.Schema(
             required: true,
         },
         yamato: {
-            type: Number,
+            type: String,
           },
     },{ timestamps: true }
 );
