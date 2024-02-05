@@ -1,7 +1,8 @@
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Report from "../../schema/IncomeReport";
+import ReportD from "../../schema/ReportDaily";
+import ReportM from "../../schema/ReportMonthly";
 import { useState } from "react";
 import Category from "../../components/admin/Category";
 import Order from "../../components/admin/Order";
@@ -75,7 +76,16 @@ const Profile = () => {
             onClick={() => setTabs(3)}
           >
             <i className="fa fa-bar-chart"></i>
-            <button className="ml-1">Report</button>
+            <button className="ml-1">Report Daily</button>
+          </li>
+          <li
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
+              tabs === 4 && "bg-primary text-white"
+            }`}
+            onClick={() => setTabs(4)}
+          >
+            <i className="fa fa-bar-chart"></i>
+            <button className="ml-1">Report Monthly</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
@@ -88,7 +98,7 @@ const Profile = () => {
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 4 && "bg-primary text-white"
+              tabs === 5 && "bg-primary text-white"
             }`}
             onClick={closeAdminAccount}
           >
@@ -100,7 +110,8 @@ const Profile = () => {
       {tabs === 0 && <Products />}
       {tabs === 1 && <Order />}
       {tabs === 2 && <Category />}
-      {tabs === 3 && <Report />}
+      {tabs === 3 && <ReportD />}
+      {tabs === 4 && <ReportM />}
     </div>
   );
 };

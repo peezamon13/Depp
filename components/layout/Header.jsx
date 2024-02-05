@@ -21,7 +21,7 @@ const Header = () => {
       }`}
     >
       <div className="bg-black py-3 px-5">
-      <div className="flex  bg-black mx-auto text-white  justify-between items-center h-full mx-3">
+      <div className="flex  bg-black mx-auto text-white  justify-around items-center h-full mx-3">
         
         <Logo />
         <nav
@@ -39,6 +39,7 @@ const Header = () => {
             </button>
           )}
         </nav>
+        <div className="flex w-5"></div>
         <div className="flex gap-x-4 items-center">
           <Link href="/auth/login">
             <span>
@@ -73,7 +74,7 @@ const Header = () => {
             <FaSearch className="hover:text-primary transition-all cursor-pointer" />
           </button>
         
-          <div className="mx-1"></div>
+         
         </div>
       </div>
       </div>
