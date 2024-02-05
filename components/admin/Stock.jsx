@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Stock = () => {
-    const [stocks, setStocks] = useState([""]);
+    const [stocks, setStocks] = useState([]);
     const [inputText, setInputText] = useState("");
     const [inputTex1, setText1] = useState("");
 
@@ -23,8 +23,7 @@ const Stock = () => {
 
     const handleCreate = async () => {
         try {
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/stocks`,
-            {
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/stocks`, {
                 title: inputText,
                 yamato: inputTex1,
             });
@@ -32,37 +31,56 @@ const Stock = () => {
             setInputText("");
             setText1("");
             toast.success("Category Created", {
-            position: "bottom-left",
+                position: "bottom-left",
             });
-        }catch (error) {
+        } catch (error) {
             console.log(error);
         }
     };
 
+        const handleSubmit = async (e, id) => {
+            try {
+                if (confirm("Are you sure you want to delete this category?")) {
+                    await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`);
+                    setStocks(stocks.filter((cat) => cat._id !== id));
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
     const handleDelete = async (e, id) => {
         e.preventDefault();
         try {
-          if (confirm("Are you sure you want to delete this category?")) {
-            await axios.delete(
-              `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`
-            );
-            setCategories(stocks.filter((cat) => cat._id !== id));
-            toast.warning("Category Deleted", {
-              position: "bottom-left",
-              theme: "colored",
-            });
-          }
+            if (confirm("Are you sure you want to delete this category?")) {
+                await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`);
+                setStocks(stocks.filter((cat) => cat._id !== id));
+                toast.warning("Category Deleted", {
+                    position: "bottom-left",
+                    theme: "colored",
+                });
+            }
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-      };
+    };
 
-      const stockChange = (type) => {
-        if (type === 0) {
-            
-        }
-        if (type === 1) {
-
+    const stockChange = async (type, id) => {
+        try {
+            const updatedStocks = stocks.map((stock) => {
+                if (stock._id === id) {
+                    if (type === 0) {
+                        stock.yamato -= 1;
+                    } else if (type === 1) {
+                        stock.yamato += 1;
+                    }
+                }
+                return stock;
+            });
+            setStocks(updatedStocks);
+            // You can also make an API call here to update the backend with the new value
+        } catch (error) {
+            console.log(error);
         }
     };
 
@@ -92,9 +110,20 @@ const Stock = () => {
                             key={stock._id}
                         >
                             <b className="sm:text-xl text-md">{stock.title}</b>
-                            <b className="sm:text-xl text-md">{stock.yamato}</b>
-                            <button>
-                                <i className="fa-solid fa-add ml-3 text-white" onClick={stockChange(1)}></i>
+                            <div>
+                                <button onClick={() => stockChange(0, stock._id)}>
+                                    <i className="fa-solid fa-subtract ml-3 text-black"></i>
+                                </button>
+                                <b className="sm:text-xl text-md">{stock.yamato}</b>
+                                <button onClick={() => stockChange(1, stock._id)}>
+                                    <i className="fa-solid fa-add ml-3 text-black"></i>
+                                </button>
+                            </div>
+                            <button
+                                className="btn-primary bg-blue text-sm sm:text-base"
+                                onClick={(e) => handleSubmit(e, stock._id)}
+                            >
+                                อัพเดท
                             </button>
                             <button
                                 className="btn-primary !bg-danger text-sm sm:text-base"

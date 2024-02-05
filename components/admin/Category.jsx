@@ -11,8 +11,7 @@ const Category = () => {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/categories`
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/categories`
         );
         setCategories(res?.data);
       } catch (error) {

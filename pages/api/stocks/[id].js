@@ -16,12 +16,21 @@ const handler = async (req, res) => {
       console.log(err);
     }
   }
+  
   if (method === "DELETE") {
     try {
       const stock = await Stock.findByIdAndDelete(id);
       res.status(200).json(stock);
     } catch (err) {
       console.log(err);
+    }
+  }
+  if (method === "PUT") {
+    try {
+      const stock = await Stock.findByIdAndUpdate(id);
+      res.status(200).json(stock);
+    } catch (error) {
+      console.log(error);
     }
   }
 };
