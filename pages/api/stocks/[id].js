@@ -1,7 +1,7 @@
 import dbConnect from "../../../util/dbConnect";
 import Stock from "../../../models/Stock";
 
-const handler = async (req, res) => {
+const handler = async (req, res) => { 
     await dbConnect();
     const {
         method,

@@ -4,7 +4,7 @@ import Title from "../ui/Title";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Stock = () => {
+const Stock = () => { 
     const [stocks, setStocks] = useState([]);
     const [inputText, setInputText] = useState("");
     const [inputTex1, setText1] = useState("");
