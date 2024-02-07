@@ -122,170 +122,95 @@ const AddProduct = ({ setIsProductModal }) => {
                                         handleOnchange(e);
                                         handleChange(e);
                                     }}
-                                    name="image"/>
-                <button className="btn-primary !rounded-none !bg-blue-600 pointer-events-none">
-                  Choose an Image
-                </button>
-                {errors.image && touched.image && (
-                  <span className="text-xs mt-1 text-danger">
-                    {errors.image}
-                  </span>
-                )}
-
-                {imageSrc && (
-                  <div>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      className="rounded-full border-2 border-primary"
-                      src={imageSrc}
-                      alt=""
-                      width={90}
-                      height={90}
-                    />
-                  </div>
-                )}
-              </label>
-            </div>
-            <div className="flex flex-col text-sm mt-4">
-              <span className="font-semibold mb-1">Title</span>
-              <input
-                type="text"
-                className={`border border-gray-400 h-8 p-3 text-sm outline-none rounded-md 
-                ${
-                  errors.title && touched.title
-                    ? "border-red-500"
-                    : "border-gray-400"
-                }`}
-                placeholder="Write a Title"
-                name="title"
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                  handleChange(e);
-                }}
-              />
-              {errors.title && touched.title && (
-                <span className="text-xs mt-1 text-danger">{errors.title}</span>
-              )}
-            </div>
-            <div className="flex flex-col text-sm mt-4">
-              <span className="font-semibold mb-1">Select Category</span>
-              <select
-                className="border border-gray-400  p-2 text-sm outline-none rounded-md"
-                onChange={(e) => setCategory(e.target.value)}
-              >
-                <option value="">Select a Category</option>
-                {categories.length > 0 &&
-                  categories.map((category) => (
-                    <option
-                      key={category._id}
-                      value={category.title.toLowerCase()}
-                    >
-                      {category.title}
-                    </option>
-                  ))}
-              </select>
-            </div>
-            <div className="flex flex-col text-sm mt-4">
-              <span className="font-semibold mb-1">Prices</span>
-              <input
-                  type="number"
-                  className={`border border-gray-400 p-1 text-sm outline-none md:w-28
-            ${errors.smallPrice && touched.smallPrice && "border-red-500"}`}
-                  placeholder="Price"
-                  name="smallPrice"
-                  onChange={(e) => {
-                    changePrice(e, 0);
-                    handleChange(e);
-                  }}
-                  value={values.smallPrice}
-                  onBlur={handleBlur}
-                />
-            </div>
-            <div className="flex flex-col text-sm mt-4 mb-16">
-              <span className="font-semibold mb-1">Extras</span>
-              <div className="flex gap-4 md:flex-row flex-col items-center">
-                <input
-                  type="text"
-                  className="border border-gray-400 p-1 text-sm outline-none"
-                  placeholder="Item"
-                  name="text"
-                  onChange={(e) => {
-                    setExtra({ ...extra, [e.target.name]: e.target.value });
-                  }}
-                />
-                <input
-                  type="number"
-                  className="border border-gray-400 p-1 text-sm outline-none"
-                  placeholder="Price"
-                  name="price"
-                  onChange={(e) => {
-                    setExtra({ ...extra, [e.target.name]: e.target.value });
-                  }}
-                />
-                <button
-                  className="btn-primary right-8 absolute"
-                  onClick={handleExtra}
-                >
-                  Add
-                </button>
-              </div>
-              <div className="mt-2 ">
-                {extraOptions.map((option, index) => (
-                  <span
-                    className="inline-block border border-orange-600 text-orange-700 p-2 rounded-xl text-xs mr-2 my-2"
-                    key={index}
-                  >
-                    {option.text}{" "}
-                    <span className="ml-3 text-emerald-600 ">
-                      {option.price}$
-                    </span>
-                    <button
-                      className="ml-2 rounded-full bg-red-700 text-white px-1 m-0"
-                      onClick={() => {
-                        setExtraOptions(
-                          extraOptions.filter((item) => item !== option)
-                        );
-                      }}
-                    >
-                      X
-                    </button>
-                  </span>
-                ))}
-              </div>
-            </div>
-            {btnDisabled ? (
-              <button
-                className="btn-primary !bg-green-400 right-8 bottom-6 absolute focus:outline-none cursor-not-allowed"
-                type="submit"
-                disabled
-              >
-                <CircularProgress size={25} />
-              </button>
-            ) : (
-              <button
-                className="btn-primary !bg-success right-8 bottom-6 absolute"
-                onClick={handleCreate}
-                type="submit"
-              >
-                Create
-              </button>
-            )}
-
-            <button
-              className="absolute  top-4 right-4"
-              onClick={() => {
-                if (confirm("Are you sure you want to exit?")) {
-                  setIsProductModal(false);
-                }
-              }}
-            >
-              <GiCancel size={25} className=" transition-all" />
-            </button>
-          </form>
+                                    name="image"
+                                />
+                                    <button className="btn-primary !rounded-none !bg-blue-600 pointer-events-none">
+                                        Choose an Image
+                                    </button>
+                                    {errors.image && touched.image && (
+                                        <span className="text-xs mt-1 text-danger">
+                                            {errors.image}
+                                        </span>
+                                    )}
+                                    {imageSrc && (
+                                        <div>
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img className="rounded-full border-2 border-primary" src={imageSrc} alt="" width={90} height={90} />
+                                        </div>
+                                    )}
+                            </label>
+                        </div>
+                        <div className="flex flex-col text-sm mt-4">
+                            <span className="font-semibold mb-1">Title</span>
+                            <input type="text" className={`border border-gray-400 h-8 p-3 text-sm outline-none rounded-md ${errors.title && touched.title ? "border-red-500" : "border-gray-400"}`}
+                                placeholder="Write a Title" name="title" onChange={(e) => {setTitle(e.target.value); handleChange(e);}}
+                            />
+                            {errors.title && touched.title && (<span className="text-xs mt-1 text-danger">{errors.title}</span>)}
+                        </div>
+                        <div className="flex flex-col text-sm mt-4">
+                            <span className="font-semibold mb-1">Select Category</span>
+                            <select className="border border-gray-400  p-2 text-sm outline-none rounded-md" onChange={(e) => setCategory(e.target.value)}>
+                                <option value="">Select a Category</option>
+                                {categories.length > 0 && categories.map((category) => (
+                                    <option key={category._id} value={category.title.toLowerCase()}>
+                                        {category.title}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="flex flex-col text-sm mt-4">
+                            <span className="font-semibold mb-1">Prices</span>
+                            <input type="number" className={`border border-gray-400 p-1 text-sm outline-none md:w-28
+                                ${errors.smallPrice && touched.smallPrice && "border-red-500"}`} 
+                                placeholder="Price" name="smallPrice" onChange={(e) => {changePrice(e, 0); handleChange(e);}} value={values.smallPrice} onBlur={handleBlur}
+                            />
+                        </div>
+                        <div className="flex flex-col text-sm mt-4 mb-16">
+                            <span className="font-semibold mb-1">Extras</span>
+                            <div className="flex gap-4 md:flex-row flex-col items-center">
+                                <input type="text" className="border border-gray-400 p-1 text-sm outline-none" placeholder="Item" name="text" 
+                                    onChange={(e) => {setExtra({ ...extra, [e.target.name]: e.target.value });}}/>
+                                <input type="number" className="border border-gray-400 p-1 text-sm outline-none" placeholder="Price" name="price"
+                                    onChange={(e) => {setExtra({ ...extra, [e.target.name]: e.target.value });}}/>
+                                <button className="btn-primary right-8 absolute" onClick={handleExtra}>
+                                    Add
+                                </button>
+                            </div>
+                            <div className="mt-2 ">
+                                {extraOptions.map((option, index) => (
+                                    <span className="inline-block border border-orange-600 text-orange-700 p-2 rounded-xl text-xs mr-2 my-2" key={index}>
+                                        {option.text}{" "}
+                                        <span className="ml-3 text-emerald-600 ">
+                                            {option.price}$
+                                        </span>
+                                        <button className="ml-2 rounded-full bg-red-700 text-white px-1 m-0" onClick={() => {setExtraOptions(extraOptions.filter((item) => item !== option));}}>
+                                            X
+                                        </button>
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                        {btnDisabled ? (
+                            <button className="btn-primary !bg-green-400 right-8 bottom-6 absolute focus:outline-none cursor-not-allowed" type="submit" disabled>
+                                <CircularProgress size={25} />
+                            </button>
+                        ) : (                           
+                            <button className="btn-primary !bg-success right-8 bottom-6 absolute" onClick={handleCreate} type="submit">
+                                Create
+                            </button>
+                        )}
+                        <button className="absolute  top-4 right-4" onClick={() => {
+                            if (confirm("Are you sure you want to exit?")) {
+                                setIsProductModal(false);
+                            }
+                        }}>
+                            <GiCancel size={25} className=" transition-all" />
+                        </button>
+                    </form>
+                </div>
+            </OutsideClickHandler>
         </div>
-      </OutsideClickHandler>
-    </div>
-  );
+    );
 };
 
 export default AddProduct;
