@@ -64,25 +64,35 @@ const Stock = () => {
             console.log(error);
         }
     };
-
-    const stockChange = async (type, id) => {
+//_________________________________________________________________________________________
+    const handleStatusNext = async (id) => {
+        const item = stocks.find((order) => order._id === id);
+        const currentStatus = yamato;
+    
         try {
-            const updatedStocks = stocks.map((stock) => {
-                if (stock._id === id) {
-                    if (type === 0) {
-                        stock.yamato -= 1;
-                    } else if (type === 1) {
-                        stock.yamato += 1;
-                    }
-                }
-                return stock;
-            });
-            setStocks(updatedStocks);
-            // You can also make an API call here to update the backend with the new value
+          const res = await axios.put(
+            `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`,
+            { yamato: yamato + 1 }
+          );
+          setStocks([res.data, ...stocks.filter((order) => order._id !== id)]);
         } catch (error) {
-            console.log(error);
+          console.log(error);
         }
-    };
+      };
+    
+      const handleStatusPrior = async (id) => {
+    
+        try {
+          const res = await axios.put(
+            `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`,
+            { yamato: yamato - 1 }
+          );
+          setStocks([res.data, ...stocks.filter((order) => order._id !== id)]);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+//_________________________________________________________________________________________
 
     return (
         <div className="lg:p-8 flex-1 lg:mt-0 mt-5">
@@ -111,20 +121,21 @@ const Stock = () => {
                         >
                             <b className="sm:text-xl text-md">{stock.title}</b>
                             <div>
-                                <button onClick={() => stockChange(0, stock._id)}>
-                                    <i className="fa-solid fa-subtract ml-3 text-black"></i>
+                                <button
+                                    className="btn-primary w-24 !pl-0 !pr-0"
+                                    onClick={() => handleStatusPrior(stock?._id)}
+                                    disabled={stock?.yamato < 1}
+                                >
+                                    Prior Stage
                                 </button>
-                                <b className="sm:text-xl text-md">{stock.yamato}</b>
-                                <button onClick={() => stockChange(1, stock._id)}>
-                                    <i className="fa-solid fa-add ml-3 text-black"></i>
+                                <b className="sm:text-xl text-md px-40">{stock.yamato}</b>
+                                <button
+                                    className="btn-primary w-24 !pl-0 !pr-0"
+                                    onClick={() => handleStatusNext(stock?._id)}
+                                >
+                                    Next Stage
                                 </button>
                             </div>
-                            <button
-                                className="btn-primary bg-blue text-sm sm:text-base"
-                                onClick={(e) => handleSubmit(e, stock._id)}
-                            >
-                                อัพเดท
-                            </button>
                             <button
                                 className="btn-primary !bg-danger text-sm sm:text-base"
                                 onClick={(e) => handleDelete(e, stock._id)}

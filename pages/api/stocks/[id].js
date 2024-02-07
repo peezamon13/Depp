@@ -27,7 +27,7 @@ const handler = async (req, res) => {
   }
   if (method === "PUT") {
     try {
-      const stock = await Stock.findByIdAndUpdate(id);
+      const stock = await Stock.findByIdAndUpdate(id, req.body, { new: true });
       res.status(200).json(stock);
     } catch (error) {
       console.log(error);
