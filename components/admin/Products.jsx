@@ -41,25 +41,25 @@ const Products = () => {
   };
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 relative min-h-[400px]  lg:max-w-[70%] xl:max-w-none flex flex-col justify-center">
-      <Title addClass="text-[40px]">Products</Title>
+      <Title addClass="text-[40px]">รายการอาหาร</Title>
       <div className="overflow-x-auto w-full mt-5 max-h-[500px] overflow-auto">
         <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
-                IMAGE
+                รูป
               </th>
               <th scope="col" className="py-3 px-6">
                 ID
               </th>
               <th scope="col" className="py-3">
-                TITLE
+                ชื่ออาหาร
               </th>
               <th scope="col" className="py-3 px-6">
-                PRICE
+                ราคา
               </th>
               <th scope="col" className="py-3 px-6">
-                ACTION
+                ลบ
               </th>
             </tr>
           </thead>
@@ -67,27 +67,27 @@ const Products = () => {
             {products &&
               products.map((product) => (
                 <tr
-                  className="transition-all bg-secondary border-gray-700 hover:bg-primary"
+                  className="transition-all bg-secondary"
                   key={product._id}
                 >
-                  <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
+                  <td className="py-4 px-6 font-medium whitespace-nowrap  flex items-center gap-x-1 justify-center">
                     <Image src={product.img} alt="" width={50} height={50} />
                   </td>
-                  <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                    {product._id.substring(0, 5)}...
+                  <td className="py-4 px-6 font-medium whitespace-nowrap ">
+                    {product._id.substring(0, 6)}
                   </td>
-                  <td className="py-4 font-medium whitespace-nowrap hover:text-white">
+                  <td className="py-4 font-medium whitespace-nowrap ">
                     {product.title}
                   </td>
-                  <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                    ${product.prices[0]}
+                  <td className="py-4 px-6 font-medium whitespace-nowrap ">
+                    {product.prices[0]}฿
                   </td>
-                  <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                  <td className="py-4 px-6 font-medium whitespace-nowrap ">
                     <button
                       className="btn-primary !bg-danger"
                       onClick={() => handleDelete(product._id)}
                     >
-                      Delete
+                      ลบ
                     </button>
                   </td>
                 </tr>
