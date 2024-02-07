@@ -4,7 +4,7 @@ import Title from "../ui/Title";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Stock = () => { 
+const Stock = () => {
     const [stocks, setStocks] = useState([]);
     const [inputText, setInputText] = useState("");
     const [inputTex1, setText1] = useState("");
@@ -53,30 +53,37 @@ const Stock = () => {
             console.log(error);
         }
     };
-
+//_________________________________________________________________________________________
     const handleAdd = async (id) => {
         const item = stocks.find((cat) => cat._id === id);
         const currentStatus = item.yamato;
     
         try {
-            const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`, { yamato: currentStatus + 1 });
-            setStocks([res.data, ...stocks.filter((cat) => cat._id !== id)]);
-        }   catch (error) {
-            console.log(error);
+          const res = await axios.put(
+            `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`,
+            { yamato: currentStatus + 1 }
+          );
+          setStocks([res.data, ...stocks.filter((cat) => cat._id !== id)]);
+        } catch (error) {
+          console.log(error);
         }
-    };
+      };
     
-    const handleSubtract = async (id) => {
+      const handleSubtract = async (id) => {
         const item = stocks.find((cat) => cat._id === id);
         const currentStatus = item.yamato;
     
         try {
-            const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`, { yamato: currentStatus - 1 });
-            setStocks([res.data, ...stocks.filter((cat) => cat._id !== id)]);
-        }   catch (error) {
-            console.log(error);
+          const res = await axios.put(
+            `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`,
+            { yamato: currentStatus - 1 }
+          );
+          setStocks([res.data, ...stocks.filter((cat) => cat._id !== id)]);
+        } catch (error) {
+          console.log(error);
         }
-    };
+      };
+//_________________________________________________________________________________________
 
     return (
         <div className="lg:p-8 flex-1 lg:mt-0 mt-5">
