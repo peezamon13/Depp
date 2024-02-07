@@ -9,140 +9,120 @@ import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
 
 const AddProduct = ({ setIsProductModal }) => {
-  const [btnDisabled, setBtnDisabled] = useState(false);
-  const [file, setFile] = useState();
-  const [imageSrc, setImageSrc] = useState();
-  const [imageUrl, setImageUrl] = useState();
+    const [btnDisabled, setBtnDisabled] = useState(false);
+    const [file, setFile] = useState();
+    const [imageSrc, setImageSrc] = useState();
+    const [imageUrl, setImageUrl] = useState();
+    const [title, setTitle] = useState("");
+    const [category, setCategory] = useState("");
+    const [prices, setPrices] = useState([]);
+    const [extra, setExtra] = useState("");
+    const [extraOptions, setExtraOptions] = useState([]);
+    const [categories, setCategories] = useState([]);
 
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [prices, setPrices] = useState([]);
-  const [extra, setExtra] = useState("");
-  const [extraOptions, setExtraOptions] = useState([]);
-  const [categories, setCategories] = useState([]);
+    const getProducts = async () => {
+        try {
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/categories`);
+            setCategories(res.data);
+        }   catch (error) {
+            console.log(error);
+        }
+    }; 
+    useEffect(() => {
+        getProducts();
+    }, []);
 
-  const getProducts = async () => {
-    try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/categories`
-      );
-      setCategories(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
-  };
-
-  const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
-    useFormik({
-      initialValues: {
-        image: imageUrl,
-        title: title,
-        category: category,
-        smallPrice: prices[0],
-        mediumPrice: prices[1],
-        largePrice: prices[2],
-        extras: extraOptions,
-      },
-      onSubmit,
-      validationSchema: productSchema,
-    });
-  const handleOnchange = (changeEvent) => {
-    const reader = new FileReader();
-    reader.onload = function (loadEvent) {
-      setImageSrc(loadEvent.target.result);
-      setFile(changeEvent.target.files[0]);
+    const onSubmit = async (values, actions) => {
+        await new Promise((resolve) => setTimeout(resolve, 4000));
     };
-    reader.readAsDataURL(changeEvent.target.files[0]);
-  };
 
-  const handleCreate = async () => {
+    const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
+        useFormik({
+            initialValues: {
+                image: imageUrl,
+                title: title,
+                category: category,
+                smallPrice: prices[0],
+                mediumPrice: prices[1],
+                largePrice: prices[2],
+                extras: extraOptions,
+            }, onSubmit, validationSchema: productSchema,
+        });
+        const handleOnchange = (changeEvent) => {
+            const reader = new FileReader();
+            reader.onload = function (loadEvent) {
+                setImageSrc(loadEvent.target.result);
+                setFile(changeEvent.target.files[0]);
+            };
+            reader.readAsDataURL(changeEvent.target.files[0]);
+        };
+
+    const handleCreate = async () => {
     setBtnDisabled(true);
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "food-ordering");
 
     try {
-      const uploadRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/dp5whpvw0/image/upload",
-        formData
-      );
-      const { url } = uploadRes.data;
-      setImageUrl(url);
-      const newProuct = {
-        img: url,
-        title,
-        prices,
-        category: category.toLowerCase(),
-        extraOptions,
-      };
+        const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/dp5whpvw0/image/upload", formData);
+        const { url } = uploadRes.data;
+        setImageUrl(url);
+        const newProuct = {
+            img: url,
+            title,
+            prices,
+            category: category.toLowerCase(),
+            extraOptions,
+        };
 
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/products`,
-        newProuct
-      );
-      if (res.status === 201) {
-        setIsProductModal(false);
-        toast.success("Product Created Successfully", {
-          position: "top-right",
-          closeOnClick: true,
-        });
-        getProducts();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    setBtnDisabled(false);
-  };
-
-  const handleExtra = () => {
-    if (extra) {
-      if (extra.text && extra.price) {
-        setExtraOptions([...extraOptions, extra]);
-        setExtra({ text: "", price: "" });
-      }
-    }
-  };
-  const changePrice = (e, index) => {
-    const currentPrices = prices;
-    currentPrices[index] = e.target.value;
-    setPrices(currentPrices);
-  };
-
-  return (
-    <div className="fixed top-0 left-0 w-screen h-screen z-50 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-60 grid place-content-center ">
-      <OutsideClickHandler
-        onOutsideClick={() => {
-          if (confirm("Are you sure you want to exit?")) {
+        const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products`, newProuct);
+        if (res.status === 201) {
             setIsProductModal(false);
-          }
-        }}
-      >
-        <div className="w-full h-full grid place-content-center relative">
-          <form
-            onSubmit={handleSubmit}
-            className="relative z-50 md:w-[600px] w-[370px]  bg-white border-2 p-10 rounded-3xl"
-          >
-            <Title addClass="text-[40px] text-center">Add a New Product</Title>
+            toast.success("Product Created Successfully", {
+                position: "top-right",
+                closeOnClick: true,
+            });
+            getProducts();
+        }
+        }   catch (error) {
+            console.log(error);
+        }   setBtnDisabled(false);
+    };
 
-            <div className="flex flex-row text-sm mt-8 gap-5 h-20">
-              <label className="flex gap-2 items-center">
-                <input
-                  type="file"
-                  className={`hidden 
-                  ${errors.image && touched.image && "border-red-500"}`}
-                  onChange={(e) => {
-                    handleOnchange(e);
-                    handleChange(e);
-                  }}
-                  name="image"
-                />
+    const handleExtra = () => {
+        if (extra) {
+            if (extra.text && extra.price) {
+                setExtraOptions([...extraOptions, extra]);
+                setExtra({ text: "", price: "" });
+            }
+        }
+    };
+    const changePrice = (e, index) => {
+        const currentPrices = prices;
+        currentPrices[index] = e.target.value;
+        setPrices(currentPrices);
+    };
+
+    return (
+        <div className="fixed top-0 left-0 w-screen h-screen z-50 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-60 grid place-content-center ">
+            <OutsideClickHandler
+                onOutsideClick={() => {
+                    if (confirm("Are you sure you want to exit?")) {
+                        setIsProductModal(false);
+                    }
+                }}
+            >
+                <div className="w-full h-full grid place-content-center relative">
+                    <form onSubmit={handleSubmit} className="relative z-50 md:w-[600px] w-[370px] bg-white border-2 p-10 rounded-3xl">
+                        <Title addClass="text-[40px] text-center">Add a New Product</Title>
+                        <div className="flex flex-row text-sm mt-8 gap-5 h-20">
+                            <label className="flex gap-2 items-center">
+                                <input type="file" className={`hidden ${errors.image && touched.image && "border-red-500"}`}
+                                    onChange={(e) => {
+                                        handleOnchange(e);
+                                        handleChange(e);
+                                    }}
+                                    name="image"/>
                 <button className="btn-primary !rounded-none !bg-blue-600 pointer-events-none">
                   Choose an Image
                 </button>

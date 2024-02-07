@@ -10,7 +10,7 @@ const StockSchema = new mongoose.Schema(
             type: Number,
             required: true,
           },
-    },{ timestamps: true }
+    }, { timestamps: true }
 );
 
 export default mongoose.models.Stock ||
