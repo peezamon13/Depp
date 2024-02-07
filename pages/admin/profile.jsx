@@ -7,7 +7,9 @@ import { useState } from "react";
 import Category from "../../components/admin/Category";
 import Order from "../../components/admin/Order";
 import Products from "../../components/admin/Products";
+import Products from "../../components/admin/Stock";
 import { toast } from "react-toastify";
+import Stock from "../../components/admin/Stock";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
@@ -88,6 +90,15 @@ const Profile = () => {
             <button className="ml-1">Report Monthly</button>
           </li>
           <li
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
+              tabs === 5 && "bg-primary text-white"
+            }`}
+            onClick={() => setTabs(4)}
+          >
+            <i className="fa fa-bar-chart"></i>
+            <button className="ml-1">Report Monthly</button>
+          </li>
+          <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
             onClick={() => window.open("/", "_blank")}
           >
@@ -112,6 +123,7 @@ const Profile = () => {
       {tabs === 2 && <Category />}
       {tabs === 3 && <ReportD />}
       {tabs === 4 && <ReportM />}
+      {tabs === 5 && <Stock />}
     </div>
   );
 };
