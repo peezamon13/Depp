@@ -38,17 +38,6 @@ const Stock = () => {
         }
     };
 
-        const handleSubmit = async (e, id) => {
-            try {
-                if (confirm("Are you sure you want to delete this category?")) {
-                    await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`);
-                    setStocks(stocks.filter((cat) => cat._id !== id));
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
     const handleDelete = async (e, id) => {
         e.preventDefault();
         try {
@@ -65,8 +54,8 @@ const Stock = () => {
         }
     };
 //_________________________________________________________________________________________
-    const handleStatusNext = async (id) => {
-        const item = stocks.find((order) => order._id === id);
+    const handleAdd = async (id) => {
+        const item = stocks.find((cat) => cat._id === id);
         const currentStatus = item.yamato;
     
         try {
@@ -74,14 +63,14 @@ const Stock = () => {
             `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`,
             { yamato: currentStatus + 1 }
           );
-          setStocks([res.data, ...stocks.filter((order) => order._id !== id)]);
+          setStocks([res.data, ...stocks.filter((cat) => cat._id !== id)]);
         } catch (error) {
           console.log(error);
         }
       };
     
-      const handleStatusPrior = async (id) => {
-        const item = stocks.find((order) => order._id === id);
+      const handleSubtract = async (id) => {
+        const item = stocks.find((cat) => cat._id === id);
         const currentStatus = item.yamato;
     
         try {
@@ -89,7 +78,7 @@ const Stock = () => {
             `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`,
             { yamato: currentStatus - 1 }
           );
-          setStocks([res.data, ...stocks.filter((order) => order._id !== id)]);
+          setStocks([res.data, ...stocks.filter((cat) => cat._id !== id)]);
         } catch (error) {
           console.log(error);
         }
@@ -125,17 +114,17 @@ const Stock = () => {
                             <div>
                                 <button
                                     className="btn-primary w-24 !pl-0 !pr-0"
-                                    onClick={() => handleStatusPrior(stock?._id)}
+                                    onClick={() => handleSubtract(stock?._id)}
                                     disabled={stock?.yamato < 1}
                                 >
-                                    Prior Stage
+                                    -
                                 </button>
                                 <b className="sm:text-xl text-md px-40">{stock.yamato}</b>
                                 <button
                                     className="btn-primary w-24 !pl-0 !pr-0"
-                                    onClick={() => handleStatusNext(stock?._id)}
+                                    onClick={() => handleAdd(stock?._id)}
                                 >
-                                    Next Stage
+                                    +
                                 </button>
                             </div>
                             <button
