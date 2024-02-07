@@ -7,7 +7,6 @@ import { useState } from "react";
 import Category from "../../components/admin/Category";
 import Order from "../../components/admin/Order";
 import Products from "../../components/admin/Products";
-import Products from "../../components/admin/Stock";
 import { toast } from "react-toastify";
 import Stock from "../../components/admin/Stock";
 
