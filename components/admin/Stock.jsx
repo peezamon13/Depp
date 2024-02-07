@@ -67,12 +67,12 @@ const Stock = () => {
 //_________________________________________________________________________________________
     const handleStatusNext = async (id) => {
         const item = stocks.find((order) => order._id === id);
-        const currentStatus = yamato;
+        const currentStatus = item.yamato;
     
         try {
           const res = await axios.put(
             `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`,
-            { yamato: yamato + 1 }
+            { yamato: currentStatus + 1 }
           );
           setStocks([res.data, ...stocks.filter((order) => order._id !== id)]);
         } catch (error) {
@@ -81,11 +81,13 @@ const Stock = () => {
       };
     
       const handleStatusPrior = async (id) => {
+        const item = stocks.find((order) => order._id === id);
+        const currentStatus = item.yamato;
     
         try {
           const res = await axios.put(
             `${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`,
-            { yamato: yamato - 1 }
+            { yamato: currentStatus - 1 }
           );
           setStocks([res.data, ...stocks.filter((order) => order._id !== id)]);
         } catch (error) {
