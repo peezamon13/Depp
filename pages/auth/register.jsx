@@ -28,7 +28,6 @@ const Register = () => {
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
       initialValues: {
-        fullName: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -40,15 +39,6 @@ const Register = () => {
   const inputs = [
     {
       id: 1,
-      name: "fullName",
-      type: "text",
-      placeholder: "Your Full Name",
-      value: values.fullName,
-      errorMessage: errors.fullName,
-      touched: touched.fullName,
-    },
-    {
-      id: 2,
       name: "email",
       type: "email",
       placeholder: "Your Email Address",
@@ -57,7 +47,7 @@ const Register = () => {
       touched: touched.email,
     },
     {
-      id: 3,
+      id: 2,
       name: "password",
       type: "password",
       placeholder: "Your Password",
@@ -66,7 +56,7 @@ const Register = () => {
       touched: touched.password,
     },
     {
-      id: 4,
+      id: 3,
       name: "confirmPassword",
       type: "password",
       placeholder: "Your Password Again",
