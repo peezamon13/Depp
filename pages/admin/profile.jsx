@@ -91,7 +91,7 @@ const Profile = () => {
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 5 && "bg-primary text-white"
+              tabs === 6 && "bg-primary text-white"
             }`}
             onClick={() => setTabs(4)}
           >
@@ -123,7 +123,7 @@ const Profile = () => {
       {tabs === 2 && <Category />}
       {tabs === 3 && <ReportD />}
       {tabs === 4 && <ReportM />}
-      {tabs === 5 && <Stock />}
+      {tabs === 6 && <Stock />}
     </div>
   );
 };
