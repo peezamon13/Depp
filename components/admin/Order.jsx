@@ -68,34 +68,35 @@ const Order = () => {
 
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5  lg:max-w-[70%] xl:max-w-none flex flex-col justify-center">
-      <Title addClass="text-[40px]">รายการอาหาร</Title>
+      <Title addClass="text-[40px]">รายการสั่งซื้อ</Title>
       <div className="overflow-x-auto w-full mt-5 max-h-[500px] overflow-auto">
         <table className="w-full text-sm text-center text-gray-500">
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
-                เลขสั่งซื้อ
+                เวลา
               </th>
               <th scope="col" className="py-3 px-6">
-                ชื่อลูกค้า
+                ลูกค้า
               </th>
               <th scope="col" className="py-3 px-6">
-                รายการอาหาร
+                อาหาร
               </th>
               <th scope="col" className="py-3">
-                ส่วนเสริม
+                ตัวเลือกเพิ่มเติม
               </th>
               <th scope="col" className="py-3 px-6">
-                ราคาทั้งหมด
+                ราคารวม
               </th>
               <th scope="col" className="py-3 px-6">
-                การจ่ายเงิน
+                รูปแบบการจ่ายเงิน
               </th>
               <th scope="col" className="py-3 px-6">
                 สถานะ
+                สถานะ
               </th>
               <th scope="col" className="py-3 px-6">
-                ลบรายการสั่งซื้อ
+                ลบคำสั่งซื้อ
               </th>
             </tr>
           </thead>
@@ -109,7 +110,8 @@ const Order = () => {
                     key={order._id}
                   >
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white gap-x-1 ">
-                      {order?._id.substring(0, 7)}
+                  {order.createdAt.substring(11, 16)}{" "}
+                    {order.createdAt.substring(0, 10)}
                     </td>
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                       {order?.customer}
@@ -144,12 +146,12 @@ const Order = () => {
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                       {status[order?.status]}
                     </td>
-                    <td className="py-4 px-1 font-small whitespace-nowrap hover:text-white flex gap-3 justify-center">   
+                    <td className="py-3 px-1 font-small whitespace-nowrap hover:text-white flex gap-3 justify-center">   
                       <button
                         className="btn-primary !bg-yellow-600 w-28 !pl-0 !pr-0"
                         onClick={() => handleDelete(order?._id)}
                       >
-                        ลบรายการสั่งซื้อ
+                        ลบ
                       </button>
                       
                     </td>
