@@ -72,7 +72,7 @@ const Register = () => {
         className="flex flex-col items-center my-20 md:w-1/2 w-full mx-auto"
         onSubmit={handleSubmit}
       >
-        <Title addClass="text-[40px] mb-6">Register</Title>
+        <Title addClass="text-[40px] mb-6">สมัครบัญชี</Title>
         <div className="flex flex-col gap-y-3 w-full">
           {inputs.map((input) => (
             <Input
