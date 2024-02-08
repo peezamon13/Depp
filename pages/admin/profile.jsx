@@ -49,7 +49,7 @@ const Profile = () => {
             onClick={() => setTabs(0)}
           >
             <i className="fa fa-cutlery"></i>
-            <button className="ml-1 ">Products</button>
+            <button className="ml-1 ">รายการอาหาร</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -58,7 +58,7 @@ const Profile = () => {
             onClick={() => setTabs(1)}
           >
             <i className="fa fa-list"></i>
-            <button className="ml-1">Orders</button>
+            <button className="ml-1">คำสั่งซื่อ</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -67,7 +67,7 @@ const Profile = () => {
             onClick={() => setTabs(2)}
           >
             <i className="fa fa-ellipsis-h"></i>
-            <button className="ml-1">Categories</button>
+            <button className="ml-1">ประเภทหมวดหมู่</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -76,7 +76,7 @@ const Profile = () => {
             onClick={() => setTabs(3)}
           >
             <i className="fa fa-bar-chart"></i>
-            <button className="ml-1">Report Daily</button>
+            <button className="ml-1">รายงานรายได้ต่อวัน</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -85,7 +85,7 @@ const Profile = () => {
             onClick={() => setTabs(4)}
           >
             <i className="fa fa-bar-chart"></i>
-            <button className="ml-1">Report Monthly</button>
+            <button className="ml-1">รายงานรายได้ต่อเดือน</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
@@ -93,7 +93,7 @@ const Profile = () => {
           >
             <i className="fa-solid fa-house"></i>
             <button className="ml-1">
-              Go to the site <br /> (New Tab)
+              ไปหน้าสั่งอาหาร <br /> (หน้าใหม่)
             </button>
           </li>
           <li
@@ -103,7 +103,7 @@ const Profile = () => {
             onClick={closeAdminAccount}
           >
             <i className="fa fa-sign-out"></i>
-            <button className="ml-1">Exit</button>
+            <button className="ml-1">ออกจากระบบ</button>
           </li>
         </ul>
       </div>
