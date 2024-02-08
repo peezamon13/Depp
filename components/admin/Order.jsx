@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
-  const status = ["preparing", "delivering", "delivered"];
+  const status = ["กำลังดำเนินการ", "เสร็จสิ้น"];
   const [hasExtra, setHasExtra] = useState(false);
 
   useEffect(() => {
@@ -141,7 +141,7 @@ const Order = () => {
                     </td>
 
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                      {order?.method === 0 ? "Cash" : "Card"}
+                      {order?.method === 0 ? "เงินสด" : "โอนจ่าย"}
                     </td>
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                       {status[order?.status]}
