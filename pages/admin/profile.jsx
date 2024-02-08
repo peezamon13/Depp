@@ -95,7 +95,7 @@ const Profile = () => {
             onClick={() => setTabs(6)}
           >
             <i className="fa fa-bar-chart"></i>
-            <button className="ml-1">คลังสินค้า</button>
+            <button className="ml-1">คลังวัตถุดิบ</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}

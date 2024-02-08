@@ -102,7 +102,7 @@ const OrderReport = () => {
 
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5 lg:max-w-[70%] xl:max-w-none flex flex-col justify-start">
-      <h1 className="text-[40px]">Report</h1>
+      <h1 className="text-[40px]">ข้อมูลรายวัน</h1>
 
       <div className="mt-5">
         <DatePicker
