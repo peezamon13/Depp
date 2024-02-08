@@ -119,6 +119,7 @@ const OrderReport = () => {
                 <tr>
                   <th scope="col" className="py-3 px-6">
                     วันที่
+                    วันที่
                   </th>
                   <th scope="col" className="py-3 px-6">
                     รายได้ทั้งหมด

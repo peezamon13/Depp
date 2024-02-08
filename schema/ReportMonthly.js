@@ -85,13 +85,16 @@ const OrderReport = () => {
         </select>
 
         <h3>รายงานรายได้ต่อเดือน</h3>
+        <h3>รายได้รายเดือน</h3>
         <table className="w-full text-sm text-center text-gray-500">
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
                 เดือน-ปี
+                เดือน-ปี
               </th>
               <th scope="col" className="py-3 px-6">
+                รายได้ทั้งหมด
                 รายได้ทั้งหมด
               </th>
             </tr>

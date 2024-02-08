@@ -93,6 +93,7 @@ const Order = () => {
               </th>
               <th scope="col" className="py-3 px-6">
                 สถานะ
+                สถานะ
               </th>
               <th scope="col" className="py-3 px-6">
                 ลบคำสั่งซื้อ
