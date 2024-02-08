@@ -51,7 +51,6 @@ const Profile = () => {
           >
             <i className="fa fa-cutlery"></i>
             <button className="ml-1 ">รายการอาหาร</button>
-            <button className="ml-1 ">รายการอาหาร</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -114,7 +113,6 @@ const Profile = () => {
             onClick={closeAdminAccount}
           >
             <i className="fa fa-sign-out"></i>
-            <button className="ml-1">ออกจากระบบ</button>
             <button className="ml-1">ออกจากระบบ</button>
           </li>
         </ul>
