@@ -40,7 +40,7 @@ const Login = () => {
       id: 1,
       name: "username",
       type: "text",
-      placeholder: "Your Username",
+      placeholder: "ชื่อผู้ใช้",
       value: values.username,
       errorMessage: errors.username,
       touched: touched.username,
@@ -49,7 +49,7 @@ const Login = () => {
       id: 2,
       name: "password",
       type: "password",
-      placeholder: "Your Password",
+      placeholder: "รหัสผ่าน",
       value: values.password,
       errorMessage: errors.password,
       touched: touched.password,
@@ -62,7 +62,7 @@ const Login = () => {
         className="flex flex-col items-center my-20 md:w-1/2 w-full mx-auto"
         onSubmit={handleSubmit}
       >
-        <Title addClass="text-[40px] mb-6">Admin Logina</Title>
+        <Title addClass="text-[40px] mb-6">เข้าสู่ระบบเจ้าของร้าน</Title>
         <div className="flex flex-col gap-y-3 w-full">
           {inputs.map((input) => (
             <Input
@@ -74,10 +74,10 @@ const Login = () => {
           ))}
         </div>
         <div className="flex flex-col w-full gap-y-3 mt-6">
-          <button className="btn-primary">LOGIN</button>
+          <button className="btn-primary">เข้าใช้</button>
           <Link href="/">
             <span className="text-sm underline cursor-pointer text-secondary">
-              Home Page
+              หน้าแรก
             </span>
           </Link>
         </div>
