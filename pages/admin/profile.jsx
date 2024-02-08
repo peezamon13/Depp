@@ -94,7 +94,7 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(6)}
           >
-            <i className="fa fa-bar-chart"></i>
+            <i className="fa fa-sticky-note-o"></i>
             <button className="ml-1">คลังวัตถุดิบ</button>
           </li>
           <li
