@@ -84,7 +84,7 @@ const OrderReport = () => {
           ))}
         </select>
 
-        <h3>Monthly Report</h3>
+        <h3>รายได้รายเดือน</h3>
         <table className="w-full text-sm text-center text-gray-500">
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
