@@ -74,28 +74,28 @@ const Order = () => {
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
-                ORDER ID
+                เลขสั่งซื้อ
               </th>
               <th scope="col" className="py-3 px-6">
-                CUSTOMER
+                ชื่อลูกค้า
               </th>
               <th scope="col" className="py-3 px-6">
-                Products
+                รายการอาหาร
               </th>
               <th scope="col" className="py-3">
-                OPTION
+                ส่วนเสริม
               </th>
               <th scope="col" className="py-3 px-6">
-                TOTAL
+                ราคาทั้งหมด
               </th>
               <th scope="col" className="py-3 px-6">
-                PAYMENT
+                การจ่ายเงิน
               </th>
               <th scope="col" className="py-3 px-6">
-                STATUS
+                สถานะ
               </th>
               <th scope="col" className="py-3 px-6">
-                Delete Order
+                ลบรายการสั่งซื้อ
               </th>
             </tr>
           </thead>
@@ -149,7 +149,7 @@ const Order = () => {
                         className="btn-primary !bg-yellow-600 w-28 !pl-0 !pr-0"
                         onClick={() => handleDelete(order?._id)}
                       >
-                        Delete Order
+                        ลบรายการสั่งซื้อ
                       </button>
                       
                     </td>

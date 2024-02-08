@@ -69,7 +69,7 @@ const OrderReport = () => {
 
       <div className="mt-5">
         <label htmlFor="monthDropdown" className="mr-2">
-          Select Month:
+          เลือกเดือน:
         </label>
         <select
           id="monthDropdown"
@@ -89,10 +89,10 @@ const OrderReport = () => {
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
-                Month-Year
+                เดือน-ปี
               </th>
               <th scope="col" className="py-3 px-6">
-                Total Income
+                รายได้ทั้งหมด
               </th>
             </tr>
           </thead>
