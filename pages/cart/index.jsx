@@ -149,12 +149,12 @@ const Cart = ({ userList }) => {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full">
-              <h1 className="text-2xl font-semibold">Your cart is empty</h1>
+              <h1 className="text-2xl font-semibold">ตะกร้าสินค้าว่าง</h1>
               <button
                 className="btn-primary mt-4"
                 onClick={() => router.push("/menu")}
               >
-                Go to menu
+                ไปหน้าเมนู
               </button>
             </div>
           )}
@@ -165,7 +165,7 @@ const Cart = ({ userList }) => {
           <div className="flex-center mt-1  item-center">
             {/* <b>Subtotal: </b>${cart.total} <br />
             <b className=" inline-block my-1">Discount: </b>$0.00 <br /> */}
-            <b>Total: </b>${cart.total}
+            <b>ราคารวม: </b>${cart.total}
           </div>
 
           <div>
@@ -173,7 +173,7 @@ const Cart = ({ userList }) => {
               className="btn-primary mt-4 md:w-auto w-52"
               onClick={createOrder}
             >
-              CHECKOUT NOW!
+              สั่งอาหาร
             </button>
           </div>
         </div>

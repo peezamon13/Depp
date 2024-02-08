@@ -110,10 +110,10 @@ const Index = ({ food }) => {
           onClick={handleClick}
           
           >
-          Add to Cart
+          เข้าตะกร้า
         </button>
         <Link href="/menu"> 
-          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  "> Back To Menu</a> 
+          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  "> ไปหน้าเมนู</a> 
         </Link>
         
       </div> 
