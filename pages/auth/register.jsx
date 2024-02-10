@@ -43,8 +43,6 @@ const Register = () => {
       type: "email",
       placeholder: "อีเมล",
       value: values.email,
-      errorMessage: errors.email,
-      touched: touched.email,
     },
     {
       id: 2,
