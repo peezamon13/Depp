@@ -102,29 +102,30 @@ const OrderReport = () => {
 
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5 lg:max-w-[70%] xl:max-w-none flex flex-col justify-start">
-      <h1 className="text-[40px]">Report</h1>
+      <h1 className="text-[40px]">รายได้ต่อวัน</h1>
 
       <div className="mt-5">
         <DatePicker
           selected={selectedDate}
           onChange={handleDateChange}
-          placeholderText="Select a date"
+          placeholderText="เลือกวันที่"
         />
 
         {selectedDate && (
           <>
-            <h3>Daily Report</h3>
+            <h3>รายงาน</h3>
             <table className="w-full text-sm text-center text-gray-500">
               <thead className="text-xs text-gray-400 uppercase bg-gray-700">
                 <tr>
                   <th scope="col" className="py-3 px-6">
-                    Date
+                    วันที่
+                    วันที่
                   </th>
                   <th scope="col" className="py-3 px-6">
-                    Total Income
+                    รายได้ทั้งหมด
                   </th>
                   <th scope="col" className="py-3 px-6">
-                    Orders
+                    จำนวนคำสั่งซื้อ
                   </th>
                 </tr>
               </thead>
@@ -135,7 +136,7 @@ const OrderReport = () => {
                       {entry.date}
                     </td>
                     <td className="py-4 px-6 font-medium whitespace-nowrap">
-                      ${entry.total}
+                      ฿{entry.total}
                     </td>
                     <td className="py-4 px-6 font-medium whitespace-nowrap">
                       {entry.orders.length}
@@ -147,19 +148,19 @@ const OrderReport = () => {
 
             <div className="overflow-x-auto w-full mt-5 max-h-[500px] overflow-auto" >
               {/* New table for individual orders */}
-            <h3>Orders on {selectedDate.toLocaleDateString()}</h3>
+            <h3>รายการสั่งซื้อวันที่ {selectedDate.toLocaleDateString()}</h3>
             {selectedOrders && selectedOrders.length > 0 ? (
               <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
                 <thead className="text-xs text-gray-400 uppercase bg-gray-700">
                   <tr>
                     <th scope="col" className="py-3 px-6">
-                      Order ID
+                      รายการที่
                     </th>
                     <th scope="col" className="py-3 px-6">
-                      Product
+                      ชื่ออาหาร
                     </th>
                     <th scope="col" className="py-3 px-6">
-                      Price
+                      ราคารวม
                     </th>
                   </tr>
                 </thead>
@@ -177,14 +178,14 @@ const OrderReport = () => {
                         ))}
                       </td>
                       <td className="py-4 px-6 font-medium whitespace-nowrap">
-                        ${order?.total}
+                        ฿{order?.total}
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             ) : (
-              <p>No orders for the selected date.</p>
+              <p>ไม่มียอดขายในวันนี้</p>
             )}
             </div>
           </>

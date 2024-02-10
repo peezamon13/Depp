@@ -18,16 +18,16 @@ const Order = ({ order }) => {
             <thead className="text-xs text-gray-400 uppercase bg-gray-700">
               <tr>
                 <th scope="col" className="py-3 px-6">
-                  ORDER ID
+                  เลขรหัสรายการอาหาร
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  CUSTOMER
+                  ชื่อผู้ใช้
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  ADDRESS
+                  ที่อยู่
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  TOTAL
+                  ราคารวม
                 </th>
               </tr>
             </thead>
@@ -56,16 +56,16 @@ const Order = ({ order }) => {
             <thead className="text-xs text-gray-400 uppercase bg-gray-700">
               <tr>
                 <th scope="col" className="py-3 px-6">
-                  Product
+                  ชื่อรายการอาหาร
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  Quantity
+                  จำนวน
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  Option
+                  ส่วนเสริม
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  Price
+                  ราคา
                 </th>
               </tr>
             </thead>
@@ -97,7 +97,7 @@ const Order = ({ order }) => {
         <div className="flex justify-end mt-8">
           <Link href="/menu">
             <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-8">
-              Back To Menu
+              กลับไปหน้าเมนู
             </a>
           </Link>
         </div>

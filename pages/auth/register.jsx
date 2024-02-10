@@ -16,7 +16,7 @@ const Register = () => {
         values
       );
       if (res.status === 200) {
-        toast.success("User created successfully");
+        toast.success("สร้างบัญชีเสร็จแล้ว");
         push("/auth/login");
       }
     } catch (err) {
@@ -41,7 +41,7 @@ const Register = () => {
       id: 1,
       name: "email",
       type: "email",
-      placeholder: "Your Email Address",
+      placeholder: "อีเมล",
       value: values.email,
       errorMessage: errors.email,
       touched: touched.email,
@@ -50,7 +50,7 @@ const Register = () => {
       id: 2,
       name: "password",
       type: "password",
-      placeholder: "Your Password",
+      placeholder: "รหัสผ่าน",
       value: values.password,
       errorMessage: errors.password,
       touched: touched.password,
@@ -59,7 +59,7 @@ const Register = () => {
       id: 3,
       name: "confirmPassword",
       type: "password",
-      placeholder: "Your Password Again",
+      placeholder: "ยืนยันรหัสผ่าน",
       value: values.confirmPassword,
       errorMessage: errors.confirmPassword,
       touched: touched.confirmPassword,
@@ -72,7 +72,7 @@ const Register = () => {
         className="flex flex-col items-center my-20 md:w-1/2 w-full mx-auto"
         onSubmit={handleSubmit}
       >
-        <Title addClass="text-[40px] mb-6">Register</Title>
+        <Title addClass="text-[40px] mb-6">สมัครบัญชี</Title>
         <div className="flex flex-col gap-y-3 w-full">
           {inputs.map((input) => (
             <Input
@@ -85,11 +85,11 @@ const Register = () => {
         </div>
         <div className="flex flex-col w-full gap-y-3 mt-6">
           <button className="btn-primary" type="submit">
-            REGISTER
+            สมัครบัญชี
           </button>
           <Link href="/auth/login">
             <span className="text-sm underline cursor-pointer text-secondary">
-              Do you have a account?
+              คุณยังมีบัญชีของเราแล้วใช่ไหม?
             </span>
           </Link>
         </div>
