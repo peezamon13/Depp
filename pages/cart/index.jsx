@@ -25,7 +25,7 @@ const Cart = ({ userList }) => {
   const [productState, setProductState] = useState([]);
 
   const newOrder = {
-    customer: user?.fullName,
+    customer: user?.email,
     address: user?.address ? user?.address : "No address",
     total: cart.total,
     products: productState,
