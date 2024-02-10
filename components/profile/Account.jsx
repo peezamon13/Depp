@@ -26,7 +26,6 @@ const Account = ({ user }) => {
     useFormik({
       enableReinitialize: true,
       initialValues: {
-        fullName: user?.fullName,
         phoneNumber: user?.phoneNumber,
         email: user?.email,
         address: user?.address,
@@ -37,12 +36,12 @@ const Account = ({ user }) => {
   const inputs = [
     {
       id: 1,
-      name: "fullName",
+      name: "email",
       type: "text",
       placeholder: "ชื่อ",
-      value: values.fullName,
-      errorMessage: errors.fullName,
-      touched: touched.fullName,
+      value: values.email,
+      errorMessage: errors.email,
+      touched: touched.email,
     },
     {
       id: 2,
@@ -55,15 +54,6 @@ const Account = ({ user }) => {
     },
     {
       id: 3,
-      name: "email",
-      type: "email",
-      placeholder: "อีเมล",
-      value: values.email,
-      errorMessage: errors.email,
-      touched: touched.email,
-    },
-    {
-      id: 4,
       name: "address",
       type: "text",
       placeholder: "ที่อยู่",

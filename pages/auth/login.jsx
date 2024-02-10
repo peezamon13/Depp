@@ -58,11 +58,8 @@ const Login = () => {
     {
       id: 1,
       name: "email",
-      type: "email",
+      type: "text",
       placeholder: "Your Email Address",
-      value: values.email,
-      errorMessage: errors.email,
-      touched: touched.email,
     },
     {
       id: 2,

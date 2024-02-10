@@ -19,7 +19,7 @@ const Order = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/orders`
         );
         setOrders(
-          res.data.filter((order) => order.customer === currentUser?.fullName)
+          res.data.filter((order) => order.customer === currentUser?.email)
         );
       } catch (error) {
         console.log(error);

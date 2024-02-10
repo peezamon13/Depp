@@ -7,7 +7,6 @@ const UserSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: true,
     },
     phoneNumber: {
       type: String,
@@ -31,7 +30,6 @@ const UserSchema = new mongoose.Schema(
     },
     emailVerified: {
       type: String,
-      default: null,
     },
   },
   { timestamps: true }
