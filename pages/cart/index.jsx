@@ -139,12 +139,24 @@ const Cart = ({ userList }) => {
                         </button>
                       </td>
                       <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                        ${product.prices}
+                        {product.prices}฿
                       </td>
                     </tr>
                   ))}
                 </tbody>
-
+                <div className="flex-center mt-1  item-center">
+                  {/* <b>Subtotal: </b>${cart.total} <br />
+                  <b className=" inline-block my-1">Discount: </b>$0.00 <br /> */}
+                  <b>ราคารวม: </b>{cart.total}฿
+                </div>
+                <div>
+                  <button
+                    className="btn-primary mt-4 md:w-auto w-52"
+                    onClick={createOrder}
+                  >
+                    สั่งอาหาร
+                  </button>
+                </div>
               </table>
             </div>
           ) : (
@@ -159,25 +171,7 @@ const Cart = ({ userList }) => {
             </div>
           )}
         </div>
-        
-        
-
-          <div className="flex-center mt-1  item-center">
-            {/* <b>Subtotal: </b>${cart.total} <br />
-            <b className=" inline-block my-1">Discount: </b>$0.00 <br /> */}
-            <b>ราคารวม: </b>${cart.total}
-          </div>
-
-          <div>
-            <button
-              className="btn-primary mt-4 md:w-auto w-52"
-              onClick={createOrder}
-            >
-              สั่งอาหาร
-            </button>
-          </div>
-        </div>
-      
+      </div>
     </div>
   );
 };
