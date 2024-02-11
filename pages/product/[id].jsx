@@ -81,7 +81,7 @@ const Index = ({ food }) => {
       <div className="md:flex-1  text-center w-full">
         <Title addClass="text-4xl">{food.title}</Title>
         <span className="text-primary text-2xl font-bold underline underline-offset-1 my-4 inline-block">
-          ${price}
+          {price}฿
         </span>
     
       </div>
@@ -98,18 +98,11 @@ const Index = ({ food }) => {
             </label>
           ))}
           </div>
-        <div className="w-full flex justify-center item-center">
-          <input 
-          type="text"
-          className="border border-gray-300 p-0.5 rounded-md w-[70%]" 
-          placeholder="Type something..."/>
-        </div>
        <div className="w-full flex justify-center item-center btn-center ">
         <button
           className="btn-primary justify-center item-center"
           onClick={handleClick}
-          
-          >
+        >
           เข้าตะกร้า
         </button>
         <Link href="/menu"> 
