@@ -30,7 +30,7 @@ const Stock = () => {
             setStocks([...stocks, res?.data]);
             setInputText("");
             setText1("");
-            toast.success("Category Created", {
+            toast.success("สร้างสต๊อกแล้ว", {
                 position: "bottom-left",
             });
         } catch (error) {
@@ -41,10 +41,10 @@ const Stock = () => {
     const handleDelete = async (e, id) => {
         e.preventDefault();
         try {
-            if (confirm("Are you sure you want to delete this category?")) {
+            if (confirm("คุณต้องการลบใช่ไหม")) {
                 await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/stocks/${id}`);
                 setStocks(stocks.filter((cat) => cat._id !== id));
-                toast.warning("Category Deleted", {
+                toast.warning("ลบสต๊อกแล้ว", {
                     position: "bottom-left",
                     theme: "colored",
                 });
