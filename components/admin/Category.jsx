@@ -31,7 +31,7 @@ const Category = () => {
       );
       setCategories([...categories, res?.data]);
       setInputText("");
-      toast.success("Category Created", {
+      toast.success("สร้างสำเร็จ", {
         position: "bottom-left",
       });
     } catch (error) {
@@ -42,12 +42,12 @@ const Category = () => {
   const handleDelete = async (e, id) => {
     e.preventDefault();
     try {
-      if (confirm("Are you sure you want to delete this category?")) {
+      if (confirm("ต้องการลบใช่ไหม")) {
         await axios.delete(
           `${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`
         );
         setCategories(categories.filter((cat) => cat._id !== id));
-        toast.warning("Category Deleted", {
+        toast.warning("ลบสำรเร็จ", {
           position: "bottom-left",
           theme: "colored",
         });
