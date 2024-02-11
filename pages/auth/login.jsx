@@ -67,7 +67,7 @@ const Login = () => {
     {
       id: 1,
       name: "email",
-      type: "email",
+      type: "text",
       placeholder: "อีเมล",
       value: values.email,
       errorMessage: errors.email,
