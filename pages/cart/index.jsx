@@ -20,7 +20,7 @@ const Cart = ({ userList }) => {
 
   const dispatch = useDispatch();
 
-  const user = userList?.find((user) => user.fullName === session?.user?.fullName);
+  const user = userList?.find((user) => user.email === session?.user?.email);
 
   const [productState, setProductState] = useState([]);
 
