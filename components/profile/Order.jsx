@@ -84,7 +84,7 @@ const Order = () => {
                   {order.createdAt.substring(11, 16)}
                 </td>
                 <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  ${order.total}
+                  {order.total}฿
                 </td>
                 <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                   {(order.status === 0 && "Preparing") ||

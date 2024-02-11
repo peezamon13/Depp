@@ -46,6 +46,7 @@ const Cart = ({ userList }) => {
         setProductState(productTitles);
     }, [cart.products]);
     console.log(productState);
+
     const createOrder = async () => {
         try {
             if (session) {
