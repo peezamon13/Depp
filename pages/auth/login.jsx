@@ -12,7 +12,31 @@ import { toast } from "react-toastify";
 const Login = () => {
   const { data: session } = useSession();
   const { push } = useRouter();
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+        const userData = res.data.find((user) => user.email === session?.user?.email);
+        if (userData) {
+          setCurrentUser(userData);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    if (session) {
+      getUser();
+    }
+  }, [session]);
+
+  useEffect(() => {
+    if (currentUser) {
+      push("/profile/" + currentUser._id);
+    }
+  }, [currentUser, push]);
 
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
@@ -28,21 +52,6 @@ const Login = () => {
       console.log(err);
     }
   };
-
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
-        setCurrentUser(
-          res.data?.find((user) => user.email === session?.user?.email)
-        );
-        session && push("/profile/" + currentUser?._id);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getUser();
-  }, [session, push, currentUser]);
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
@@ -96,14 +105,6 @@ const Login = () => {
           <button className="btn-primary" type="submit">
             เข้าสู่ระบบ
           </button>
-          {/* <button
-            className="btn-primary !bg-secondary"
-            type="button"
-            onClick={() => signIn("github")}
-          >
-            <i className="fa fa-github mr-2 text-lg"></i>
-            GITHUB
-          </button> */}
           <Link href="/auth/register">
             <span className="text-sm underline cursor-pointer text-secondary">
               คุณยังไม่มีบัญชีของเราใช่ไหม ?
@@ -119,7 +120,7 @@ export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
 
   const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
-  const user = res.data?.find((user) => user.email === session?.user.email);
+  const user = res.data.find((user) => user.email === session?.user.email);
   if (session && user) {
     return {
       redirect: {
