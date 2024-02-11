@@ -20,12 +20,12 @@ const Cart = ({ userList }) => {
 
   const dispatch = useDispatch();
 
-  const user = userList?.find((user) => user.email === session?.user?.email);
+  const user = userList?.find((user) => user.fullName === session?.user?.fullName);
 
   const [productState, setProductState] = useState([]);
 
   const newOrder = {
-    customer: user?.email,
+    customer: user?.fullName,
     address: user?.address ? user?.address : "No address",
     total: cart.total,
     products: productState,
