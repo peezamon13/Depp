@@ -2,9 +2,9 @@ import * as Yup from "yup";
 
 export const loginSchema = Yup.object({
   email: Yup.string()
-  .required("Username is required.")
-  .min(1, "Username must be at least 3 characters."),
+  .required("ใส่ชื้อผู้ใช้")
+  .min(3, "ความยาวต้องมากกว่า 3"),
   password: Yup.string()
-  .required("Password is required.")
-  .min(1, "Password must be at least 8 characters."),
+  .required("ใส่รหัสผ่าน")
+  .min(1, "ความยาวต้องมากกว่า 1"),
 });
