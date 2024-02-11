@@ -14,7 +14,7 @@ const Account = ({ user }) => {
         values
       );
       if (res.status === 200) {
-        toast.success("Profile Updated Successfully");
+        toast.success("อัพเดทชื่อผู้ใช้สำเร็จ");
       }
     } catch (err) {
       console.log(err);
@@ -28,8 +28,6 @@ const Account = ({ user }) => {
         phoneNumber: user?.phoneNumber,
         email: user?.email,
         address: user?.address,
-        job: user?.job,
-        bio: user?.bio,
       },
       onSubmit,
       validationSchema: profileSchema,
@@ -50,8 +48,6 @@ const Account = ({ user }) => {
       type: "string",
       placeholder: "หมายเลขโทรศัพท์ของคุณ",
       value: values.phoneNumber,
-      errorMessage: errors.phoneNumber,
-      touched: touched.phoneNumber,
     },
     {
       id: 3,
@@ -59,8 +55,6 @@ const Account = ({ user }) => {
       type: "text",
       placeholder: "ที่อยู่ของคุณ",
       value: values.address,
-      errorMessage: errors.address,
-      touched: touched.address,
     },
     
   ];

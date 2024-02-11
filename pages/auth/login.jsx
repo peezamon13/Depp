@@ -44,7 +44,7 @@ const Login = () => {
     try {
       const res = await signIn("credentials", options);
       actions.resetForm();
-      toast.success("Login successfully", {
+      toast.success("ล็อคอินแล้ว", {
         position: "bottom-left",
         theme: "colored",
       });
