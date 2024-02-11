@@ -15,10 +15,10 @@ const Profile = ({ user }) => {
   const { push } = useRouter();
 
   const handleSignOut = () => {
-    if (confirm("มึงจะออกไหม?")) {
+    if (confirm("ออกไหม?")) {
       signOut({ redirect: false });
       push("/auth/login");
-      toast.success("กูไม่ออก ออกแล้วเอาอะไรแดก", {
+      toast.success("ออกแล้ว", {
         position: "bottom-left",
         theme: "colored",
       });
