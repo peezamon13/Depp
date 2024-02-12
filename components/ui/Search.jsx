@@ -47,7 +47,7 @@ const Search = ({ setIsSearchModal }) => {
                                 {filtered.length > 0 ? (
                                     filtered.slice(0, 5).map((item) => (
                                         <li className="flex items-center justify-between p-1 hover:bg-primary transition-all px-3 cursor-pointer" key={item._id} onClick={() => {
-                                            router.push(`/product/${item?.title}`);
+                                            router.push(`/product/${item?.id}`);
                                             setIsSearchModal(false);
                                         }}>
                                             <div className="relative flex">
