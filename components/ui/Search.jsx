@@ -31,7 +31,7 @@ const Search = ({ setIsSearchModal }) => {
 
     const handleSearch = async (e) => {
         setSearch(e.target.value);
-        const searchFilter = product.filter((item) => item._id.toLowerCase().includes(e.target.value.toLowerCase()));
+        const searchFilter = product.filter((item) => item.title.toLowerCase().includes(e.target.value.toLowerCase()));
         setFiltered(searchFilter);
     };
 
