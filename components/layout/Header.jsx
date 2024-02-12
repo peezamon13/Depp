@@ -70,9 +70,9 @@ const Header = () => {
               </span>
             </span>
           </Link>
-          <button onClick={() => setIsSearchModal(true)}>
+{/*           <button onClick={() => setIsSearchModal(true)}>
             <FaSearch className="hover:text-primary transition-all cursor-pointer" />
-          </button>
+          </button> */}
         
          
         </div>
