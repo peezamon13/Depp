@@ -81,14 +81,14 @@ const Cart = ({ userList }) => {
   return (
     <div className="min-h-[calc(100vh_-_433px)]">
       <div className="flex justify-between items-center md:flex-row flex-col">
-        <div className="md:min-h-[calc(100vh_-_433px)] flex items-center flex-1 p-10 overflow-x-auto w-full justify-center">
+        <div className="w-auto md:min-h-[calc(100vh_-_433px)] flex items-center flex-1 p-10 overflow-x-auto w-full justify-center">
           {cart.products.length > 0 ? (
             <div className="max-h-[40rem] overflow-auto">
               <table
-                className="w-full text-sm text-center text-gray-500 lg:text-lg"
+                className="w-full text-xl text-center text-white lg:text-xl"
               >
-                <thead className="text-xs text-gray-400 uppercase bg-gray-700">
-                  <tr>
+                <thead className="text-xl text-white uppercase ">
+                  <tr className="transition-all bg-primary text-black border-[2px] border-black"  >
                     <th scope="col" className="py-3 px-4">
                       อาหาร
                     </th>
@@ -107,13 +107,13 @@ const Cart = ({ userList }) => {
                 <tbody>
                   {cart.products.map((product) => (
                     <tr
-                      className="transition-all bg-secondary border-gray-700"
+                      className="transition-all bg-white text-black border-[2px] border-black  "
                       key={product._id}
                     >
-                      <td className="py-4 px-3 font-medium whitespace-normal hover:text-white ">
-                        <span className="text-blue-500">{product.title}</span>
+                      <td className="py-4 px-3 font-medium whitespace-normal  ">
+                        <span>{product.title}</span>
                       </td>
-                      <td className="py-4 px-4 font-medium whitespace-normal hover:text-white">
+                      <td className="py-4 px-4 font-medium whitespace-normal ">
                         {product.extras.length > 0
                           ? product.extras.map((item) => (
                               <span key={item._id}>
@@ -123,7 +123,7 @@ const Cart = ({ userList }) => {
                             ))
                           : "-"}
                       </td>
-                      <td className="py-4 px-1 font-medium whitespace-nowrap hover:text-white">
+                      <td className="py-4 px-1 font-medium whitespace-nowrap ">
                         <button>
                           <i
                             className="fa-solid fa-subtract mr-2 text-primary"
@@ -138,7 +138,7 @@ const Cart = ({ userList }) => {
                           ></i>
                         </button>
                       </td>
-                      <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                      <td className="py-4 px-6 font-medium whitespace-nowrap ">
                         ${product.prices}
                       </td>
                     </tr>
@@ -149,31 +149,32 @@ const Cart = ({ userList }) => {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full">
-              <h1 className="text-2xl font-semibold">Your cart is empty</h1>
+              <h1 className="text-2xl font-semibold">ตะกร้าของคุณว่างเปล่า</h1>
               <button
                 className="btn-primary mt-4"
                 onClick={() => router.push("/menu")}
               >
-                Go to menu
+                <span className="text-black">กลับไปเลือกเมนู</span>
               </button>
             </div>
           )}
         </div>
         
-        
-
+      
+            
           <div className="flex-center mt-1  item-center">
             {/* <b>Subtotal: </b>${cart.total} <br />
             <b className=" inline-block my-1">Discount: </b>$0.00 <br /> */}
-            <b>Total: </b>${cart.total}
+            <b>ราคารวม: </b>${cart.total}
           </div>
 
           <div>
             <button
-              className="btn-primary mt-4 md:w-auto w-52"
+              className="btn-primary mt-4 md:w-auto w-auto"
               onClick={createOrder}
+              
             >
-              CHECKOUT NOW!
+              <span className="text-black">สั่งเลย!</span>
             </button>
           </div>
         </div>
