@@ -51,7 +51,7 @@ const Profile = ({ user }) => {
             onClick={() => setTabs(0)}
           >
             <i className="fa fa-home"></i>
-            <button className="ml-1 ">Account</button>
+            <button className="ml-1 ">บัญชีผู้ใช้</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -60,7 +60,7 @@ const Profile = ({ user }) => {
             onClick={() => setTabs(1)}
           >
             <i className="fa fa-key"></i>
-            <button className="ml-1">Password</button>
+            <button className="ml-1">รหัสผ่าน</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -69,14 +69,14 @@ const Profile = ({ user }) => {
             onClick={() => setTabs(2)}
           >
             <i className="fa fa-motorcycle"></i>
-            <button className="ml-1">Orders</button>
+            <button className="ml-1">ประวัติการซื้อ</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
             onClick={handleSignOut}
           >
             <i className="fa fa-sign-out"></i>
-            <button className="ml-1">Exit</button>
+            <button className="ml-1">ลงชื่อออก</button>
           </li>
         </ul>
       </div>

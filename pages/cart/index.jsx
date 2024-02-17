@@ -81,14 +81,14 @@ const Cart = ({ userList }) => {
   return (
     <div className="min-h-[calc(100vh_-_433px)]">
       <div className="flex justify-between items-center md:flex-row flex-col">
-        <div className="w-auto md:min-h-[calc(100vh_-_433px)] flex items-center flex-1 p-10 overflow-x-auto w-full justify-center">
+        <div className="w-auto md:min-h-[calc(100vh_-_433px)] flex items-center flex-1 p-10 overflow-x-auto  justify-center">
           {cart.products.length > 0 ? (
             <div className="max-h-[40rem] overflow-auto">
               <table
                 className="w-full text-xl text-center text-white lg:text-xl"
               >
                 <thead className="text-xl text-white uppercase ">
-                  <tr className="transition-all bg-primary text-black border-[2px] border-black"  >
+                  <tr className="transition-all bg-gray-700 text-white "  >
                     <th scope="col" className="py-3 px-4">
                       อาหาร
                     </th>
@@ -107,7 +107,7 @@ const Cart = ({ userList }) => {
                 <tbody>
                   {cart.products.map((product) => (
                     <tr
-                      className="transition-all bg-white text-black border-[2px] border-black  "
+                      className="transition-all bg-white text-black   "
                       key={product._id}
                     >
                       <td className="py-4 px-3 font-medium whitespace-normal  ">

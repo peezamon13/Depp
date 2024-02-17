@@ -72,24 +72,7 @@ const Account = ({ user }) => {
       errorMessage: errors.address,
       touched: touched.address,
     },
-    {
-      id: 5,
-      name: "job",
-      type: "text",
-      placeholder: "Your Job",
-      value: values.job,
-      errorMessage: errors.job,
-      touched: touched.job,
-    },
-    {
-      id: 6,
-      name: "bio",
-      type: "text",
-      placeholder: "Your Bio",
-      value: values.bio,
-      errorMessage: errors.bio,
-      touched: touched.bio,
-    },
+    
   ];
   return (
     <form className="lg:p-8 flex-1 lg:mt-0 mt-5" onSubmit={handleSubmit}>

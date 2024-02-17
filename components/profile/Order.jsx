@@ -44,17 +44,12 @@ const Order = () => {
 
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5">
-      <Title addClass="text-[40px]">Password</Title>
+      <Title addClass="text-[30px]">ประวัติการซื้อ</Title>
       <div className="overflow-x-auto w-full mt-5">
-        <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
+        <table className="w-auto text-sm text-center text-gray-500 ">
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
-              <th scope="col" className="py-3 px-6">
-                ID
-              </th>
-              <th scope="col" className="py-3 px-6">
-                ADRESS
-              </th>
+              
               <th scope="col" className="py-3 px-6">
                 DATE
               </th>
@@ -69,27 +64,21 @@ const Order = () => {
           <tbody>
             {orders.map((order) => (
               <tr
-                className="transition-all bg-secondary border-gray-700 hover:bg-primary  cursor-pointer"
+                className="transition-all bg-white border-gray-700 hover:bg-primary  cursor-pointer"
                 key={order._id}
                 onClick={() => router.push(`/order/${order._id}`)}
               >
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
-                  <span>{order._id.substring(0, 5)}...</span>
-                </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  {currentUser?.address}
-                </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  {order.createdAt.substring(0, 10)}{" "}
+                
+                <td className="py-4 px-6 font-medium whitespace-nowrap ">
+                  {order.createdAt.substring(0, 10)} <br />
                   {order.createdAt.substring(11, 16)}
                 </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  ${order.total}
+                <td className="py-4 px-6 font-medium whitespace-nowrap ">
+                  ฿{order.total}
                 </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  {(order.status === 0 && "Preparing") ||
-                    (order.status === 1 && "On the way") ||
-                    (order.status === 2 && "Delivered")}
+                <td className="py-4 px-6 font-medium whitespace-nowrap ">
+                  {(order.status === 0 && "กำลังเตรียม") ||
+                    (order.status === 1 && "เสร็ตสิ้น") }
                 </td>
               </tr>
             ))}
