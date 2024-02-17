@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { saveAs } from 'file-saver';
+import { PDFDocument, Page, Text, View } from '@react-pdf/renderer';
+import * as XLSX from 'xlsx';
 
 const OrderReport = () => {
   const [loading, setLoading] = useState(true);
@@ -91,6 +94,99 @@ const OrderReport = () => {
       setSelectedOrders([])
     }
   };
+
+  // // Function to generate PDF
+  // const generatePDF = async () => {
+  //   const doc = (
+  //     <PDFDocument>
+  //       <Page size="A4">
+  //         <View>
+  //           <Text>รายงานรายได้ตามวัน</Text>
+  //           {/* Add your report data here */}
+  //           {dailyReport.map((entry, index) => (
+  //             <Text key={index}>
+  //               วันที่: {entry.date} - รายได้ทั้งหมด: ฿{entry.total} - จำนวนคำสั่งซื้อ: {entry.orders.length}
+  //             </Text>
+  //           ))}
+  //         </View>
+  //       </Page>
+  //     </PDFDocument>
+  //   );
+
+  //   const pdfBlob = await PDFDocument.create(doc).toBlob();
+  //   saveAs(pdfBlob, 'daily_report.pdf');
+  // };
+
+  const generateExcel = () => {
+    const data = [];
+    let totalIncome = 0; // เพิ่มตัวแปรสำหรับเก็บราคารวม
+  
+    // Create an object to store order counts for each customer
+    const orderCounts = {};
+  
+    // Iterate through selectedOrders
+    selectedOrders.forEach((order) => {
+      // Create a new object to store order data
+      const orderData = {
+        "ชื่อลูกค้า": order.customer,
+        "ที่อยู่": order.address,
+        "วันที่สั่ง": new Date(order.createdAt).toLocaleDateString(),
+        "รายการอาหาร": order.products.map((product) => `${product.title} (${product.foodQuantity})`).join(', '),
+        "ราคาทั้งหมด": order.total,
+      };
+  
+      // Count orders for each customer
+      if (order.customerName in orderCounts) {
+        orderCounts[order.customerName]++;
+      } else {
+        orderCounts[order.customerName] = 1;
+      }
+  
+      // เพิ่มราคารวม
+      totalIncome += order.total;
+  
+      // Push the order data to the array
+      data.push(orderData);
+    });
+  
+    // เพิ่มข้อมูลราคารวมไปยัง data
+    data.push({
+      "ชื่อลูกค้า": "ราคารวม",
+      "ที่อยู่": "",
+      "วันที่สั่ง": "",
+      "รายการอาหาร": "",
+      "ราคาทั้งหมด": totalIncome, // ราคารวมทั้งหมด
+    });
+  
+    // Find the customer with the most orders
+    let maxOrdersCustomer = "";
+    let maxOrdersCount = 0;
+    for (const customer in orderCounts) {
+      if (orderCounts[customer] > maxOrdersCount) {
+        maxOrdersCustomer = customer;
+        maxOrdersCount = orderCounts[customer];
+      }
+    }
+  
+    // Convert data to worksheet
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Daily Orders");
+  
+    // Convert workbook to excel buffer
+    const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+  
+    // Convert excel buffer to Blob
+    const excelBlob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8" });
+  
+    // Save the Blob as Excel file
+    saveAs(excelBlob, "daily_report.xlsx");
+  
+    console.log(`Customer with the most orders: ${maxOrdersCustomer} (${maxOrdersCount} orders)`);
+  };
+  
+  
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -190,7 +286,11 @@ const OrderReport = () => {
             </div>
           </>
         )}
-      </div>
+        {/* <div>
+          <button onClick={generatePDF}>Export เป็น PDF</button>
+          </div> */}
+          <button onClick={generateExcel}>Export เป็น Excel</button>
+        </div>
     </div>
   );
 };

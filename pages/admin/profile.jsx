@@ -9,6 +9,8 @@ import Order from "../../components/admin/Order";
 import Products from "../../components/admin/Products";
 import { toast } from "react-toastify";
 import Stock from "../../components/admin/Stock";
+import MongoCharts from "../../components/admin/MongoCharts";
+import FoodSalesStatus from "../../components/admin/FoodSalesStatus";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
@@ -97,6 +99,27 @@ const Profile = () => {
             <i className="fa fa-sticky-note-o"></i>
             <button className="ml-1">คลังวัตถุดิบ</button>
           </li>
+
+          <li
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
+              tabs === 7 && "bg-primary text-white"
+            }`}
+            onClick={() => setTabs(7)}
+          >
+            <i className="fa fa-sticky-note-o"></i>
+            <button className="ml-1">สถานะอาหาร</button>
+          </li>
+
+          <li
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
+              tabs === 8 && "bg-primary text-white"
+            }`}
+            onClick={() => setTabs(8)}
+          >
+            <i className="fa fa-sticky-note-o"></i>
+            <button className="ml-1">รายการสั่งเยอะที่สุด</button>
+          </li>
+
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
             onClick={() => window.open("/", "_blank")}
@@ -123,6 +146,8 @@ const Profile = () => {
       {tabs === 3 && <ReportD />}
       {tabs === 4 && <ReportM />}
       {tabs === 6 && <Stock />}
+      {tabs === 7 && <FoodSalesStatus />}
+      {tabs === 8 && <MongoCharts />}
     </div>
   );
 };
