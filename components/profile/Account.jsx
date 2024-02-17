@@ -40,7 +40,7 @@ const Account = ({ user }) => {
       id: 1,
       name: "fullName",
       type: "text",
-      placeholder: "Your Full Name",
+      placeholder: "ชื่อผู้ใช้",
       value: values.fullName,
       errorMessage: errors.fullName,
       touched: touched.fullName,
@@ -49,7 +49,7 @@ const Account = ({ user }) => {
       id: 2,
       name: "phoneNumber",
       type: "string",
-      placeholder: "Your Phone Number",
+      placeholder: "เบอร์โทร",
       value: values.phoneNumber,
       errorMessage: errors.phoneNumber,
       touched: touched.phoneNumber,
@@ -58,7 +58,7 @@ const Account = ({ user }) => {
       id: 3,
       name: "email",
       type: "email",
-      placeholder: "Your Email Address",
+      placeholder: "Email ",
       value: values.email,
       errorMessage: errors.email,
       touched: touched.email,
@@ -67,7 +67,7 @@ const Account = ({ user }) => {
       id: 4,
       name: "address",
       type: "text",
-      placeholder: "Your Address",
+      placeholder: "ที่อยู่ของคุณ",
       value: values.address,
       errorMessage: errors.address,
       touched: touched.address,
@@ -76,8 +76,8 @@ const Account = ({ user }) => {
   ];
   return (
     <form className="lg:p-8 flex-1 lg:mt-0 mt-5" onSubmit={handleSubmit}>
-      <Title addClass="text-[40px]">Account Settings</Title>
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4">
+      <Title addClass="text-[30px]">ตั้งค่าบัญชี</Title>
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-2 mt-2">
         {inputs.map((input) => (
           <Input
             key={input.id}
@@ -87,8 +87,8 @@ const Account = ({ user }) => {
           />
         ))}
       </div>
-      <button className="btn-primary mt-4" type="submit">
-        Update
+      <button className="btn-primary mt-3" type="submit">
+        อัปเดต
       </button>
     </form>
   );
