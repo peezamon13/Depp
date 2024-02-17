@@ -31,7 +31,6 @@ const Index = ({ food }) => {
 
   const handleChange = (e, item) => {
     const checked = e.target.checked;
-
     if (checked) {
       changePrice(item.price);
       setExtras([...extras, item]);
@@ -64,8 +63,6 @@ const Index = ({ food }) => {
   
     console.log(food);
   };
-  
-
   return (
     <div className="flex items-center md:h-[calc(100vh_-_88px)] gap-3 py-10 flex-wrap ">
       <div className="relative  md:w-full md:h-[80%] w-full h-60 mx-auto">
@@ -77,15 +74,12 @@ const Index = ({ food }) => {
           priority
         />
       </div>
-      
       <div className="md:flex-1  text-center w-full">
         <Title addClass="text-4xl">{food.title}</Title>
         <span className="text-primary text-2xl font-bold underline underline-offset-1 my-4 inline-block">
-          ${price}
+          {price}฿
         </span>
-    
       </div>
-
         <div className="w-full flex justify-between grid grid-cols-3 items-center my-1 gap-x-1 px-7 gap-1">
           {extraItems.map((item) => (
             <label className="flex items-center gap-x-1" key={item._id}>
@@ -98,24 +92,16 @@ const Index = ({ food }) => {
             </label>
           ))}
           </div>
-        <div className="w-full flex justify-center item-center">
-          <input 
-          type="text"
-          className="border border-gray-300 p-0.5 rounded-md w-[70%]" 
-          placeholder="Type something..."/>
-        </div>
        <div className="w-full flex justify-center item-center btn-center ">
         <button
           className="btn-primary justify-center item-center"
           onClick={handleClick}
-          
-          >
+        >
           เข้าตะกร้า
         </button>
         <Link href="/menu"> 
-          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  "> ไปหน้าเมนู</a> 
+          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  ">ไปหน้าเมนู</a>
         </Link>
-        
       </div> 
     </div>
   );

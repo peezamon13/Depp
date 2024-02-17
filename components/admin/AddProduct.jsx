@@ -46,8 +46,6 @@ const AddProduct = ({ setIsProductModal }) => {
         title: title,
         category: category,
         smallPrice: prices[0],
-        mediumPrice: prices[1],
-        largePrice: prices[2],
         extras: extraOptions,
       },
       onSubmit,
@@ -89,7 +87,7 @@ const AddProduct = ({ setIsProductModal }) => {
       );
       if (res.status === 201) {
         setIsProductModal(false);
-        toast.success("Product Created Successfully", {
+        toast.success("สร้างเมนูอาหารแล้ว", {
           position: "top-right",
           closeOnClick: true,
         });
@@ -119,7 +117,7 @@ const AddProduct = ({ setIsProductModal }) => {
     <div className="fixed top-0 left-0 w-screen h-screen z-50 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-60 grid place-content-center ">
       <OutsideClickHandler
         onOutsideClick={() => {
-          if (confirm("Are you sure you want to exit?")) {
+          if (confirm("ต้องการที่จะปิดใช่ไหม")) {
             setIsProductModal(false);
           }
         }}
@@ -129,7 +127,7 @@ const AddProduct = ({ setIsProductModal }) => {
             onSubmit={handleSubmit}
             className="relative z-50 md:w-[600px] w-[370px]  bg-white border-2 p-10 rounded-3xl"
           >
-            <Title addClass="text-[40px] text-center">Add a New Product</Title>
+            <Title addClass="text-[40px] text-center">เพิ่มเมนูอาหาร</Title>
 
             <div className="flex flex-row text-sm mt-8 gap-5 h-20">
               <label className="flex gap-2 items-center">
@@ -144,7 +142,7 @@ const AddProduct = ({ setIsProductModal }) => {
                   name="image"
                 />
                 <button className="btn-primary !rounded-none !bg-blue-600 pointer-events-none">
-                  Choose an Image
+                  เลือกรูป
                 </button>
                 {errors.image && touched.image && (
                   <span className="text-xs mt-1 text-danger">
@@ -167,7 +165,7 @@ const AddProduct = ({ setIsProductModal }) => {
               </label>
             </div>
             <div className="flex flex-col text-sm mt-4">
-              <span className="font-semibold mb-1">Title</span>
+              <span className="font-semibold mb-1">ชื่อ</span>
               <input
                 type="text"
                 className={`border border-gray-400 h-8 p-3 text-sm outline-none rounded-md 
@@ -176,7 +174,7 @@ const AddProduct = ({ setIsProductModal }) => {
                     ? "border-red-500"
                     : "border-gray-400"
                 }`}
-                placeholder="Write a Title"
+                placeholder="ชื่อ"
                 name="title"
                 onChange={(e) => {
                   setTitle(e.target.value);
@@ -188,12 +186,12 @@ const AddProduct = ({ setIsProductModal }) => {
               )}
             </div>
             <div className="flex flex-col text-sm mt-4">
-              <span className="font-semibold mb-1">Select Category</span>
+              <span className="font-semibold mb-1">เลือกประเภท</span>
               <select
                 className="border border-gray-400  p-2 text-sm outline-none rounded-md"
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="">Select a Category</option>
+                <option value="">ประเภท</option>
                 {categories.length > 0 &&
                   categories.map((category) => (
                     <option
@@ -206,12 +204,12 @@ const AddProduct = ({ setIsProductModal }) => {
               </select>
             </div>
             <div className="flex flex-col text-sm mt-4">
-              <span className="font-semibold mb-1">Prices</span>
+              <span className="font-semibold mb-1">ราคา</span>
               <input
                   type="number"
                   className={`border border-gray-400 p-1 text-sm outline-none md:w-28
             ${errors.smallPrice && touched.smallPrice && "border-red-500"}`}
-                  placeholder="Price"
+                  placeholder="ราคา"
                   name="smallPrice"
                   onChange={(e) => {
                     changePrice(e, 0);
@@ -222,12 +220,12 @@ const AddProduct = ({ setIsProductModal }) => {
                 />
             </div>
             <div className="flex flex-col text-sm mt-4 mb-16">
-              <span className="font-semibold mb-1">Extras</span>
+              <span className="font-semibold mb-1">พิเศษ</span>
               <div className="flex gap-4 md:flex-row flex-col items-center">
                 <input
                   type="text"
                   className="border border-gray-400 p-1 text-sm outline-none"
-                  placeholder="Item"
+                  placeholder="ชื่อ"
                   name="text"
                   onChange={(e) => {
                     setExtra({ ...extra, [e.target.name]: e.target.value });
@@ -236,7 +234,7 @@ const AddProduct = ({ setIsProductModal }) => {
                 <input
                   type="number"
                   className="border border-gray-400 p-1 text-sm outline-none"
-                  placeholder="Price"
+                  placeholder="ราคา"
                   name="price"
                   onChange={(e) => {
                     setExtra({ ...extra, [e.target.name]: e.target.value });
@@ -246,7 +244,7 @@ const AddProduct = ({ setIsProductModal }) => {
                   className="btn-primary right-8 absolute"
                   onClick={handleExtra}
                 >
-                  Add
+                  เพิ่ม
                 </button>
               </div>
               <div className="mt-2 ">
@@ -287,7 +285,7 @@ const AddProduct = ({ setIsProductModal }) => {
                 onClick={handleCreate}
                 type="submit"
               >
-                Create
+                สร้าง
               </button>
             )}
 

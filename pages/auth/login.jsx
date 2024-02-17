@@ -44,7 +44,7 @@ const Login = () => {
     try {
       const res = await signIn("credentials", options);
       actions.resetForm();
-      toast.success("Login successfully", {
+      toast.success("ล็อคอินแล้ว", {
         position: "bottom-left",
         theme: "colored",
       });
@@ -67,8 +67,8 @@ const Login = () => {
     {
       id: 1,
       name: "email",
-      type: "email",
-      placeholder: "อีเมล",
+      type: "text",
+      placeholder: "ชื่อผู้ใช้",
       value: values.email,
       errorMessage: errors.email,
       touched: touched.email,

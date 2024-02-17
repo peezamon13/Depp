@@ -21,7 +21,7 @@ const Header = () => {
       }`}
     >
       <div className="bg-black py-3 px-5">
-      <div className="flex  bg-black mx-auto text-white  justify-around items-center h-full mx-3">
+      <div className="flex bg-black mx-auto text-white  justify-around items-center h-full mx-3">
         
         <Logo />
         <nav

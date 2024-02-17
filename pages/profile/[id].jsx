@@ -15,10 +15,10 @@ const Profile = ({ user }) => {
   const { push } = useRouter();
 
   const handleSignOut = () => {
-    if (confirm("Are you sure you want to sign out?")) {
+    if (confirm("ออกไหม?")) {
       signOut({ redirect: false });
       push("/auth/login");
-      toast.success("Sign out successfully", {
+      toast.success("ออกแล้ว", {
         position: "bottom-left",
         theme: "colored",
       });
@@ -41,7 +41,7 @@ const Profile = ({ user }) => {
             height={100}
             className="rounded-full"
           />
-          <b className="text-2xl mt-1">{user.fullName}</b>
+          <b className="text-2xl mt-1">{user.email}</b>
         </div>
         <ul className="text-center font-semibold">
           <li

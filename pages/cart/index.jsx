@@ -20,12 +20,12 @@ const Cart = ({ userList }) => {
 
   const dispatch = useDispatch();
 
-  const user = userList?.find((user) => user.fullName === session?.user?.fullName);
+  const user = userList?.find((user) => user.email === session?.user?.email);
 
   const [productState, setProductState] = useState([]);
 
   const newOrder = {
-    customer: user?.fullName,
+    customer: user?.email,
     address: user?.address ? user?.address : "No address",
     total: cart.total,
     products: productState,
@@ -139,7 +139,7 @@ const Cart = ({ userList }) => {
                         </button>
                       </td>
                       <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                        ${product.prices}
+                        {product.prices}฿
                       </td>
                     </tr>
                   ))}
@@ -159,13 +159,10 @@ const Cart = ({ userList }) => {
             </div>
           )}
         </div>
-        
-        
-
           <div className="flex-center mt-1  item-center">
             {/* <b>Subtotal: </b>${cart.total} <br />
             <b className=" inline-block my-1">Discount: </b>$0.00 <br /> */}
-            <b>ราคารวม: </b>${cart.total}
+            <b>ราคารวม: </b>{cart.total}฿
           </div>
 
           <div>

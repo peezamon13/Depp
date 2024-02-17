@@ -40,8 +40,8 @@ const Register = () => {
     {
       id: 1,
       name: "email",
-      type: "email",
-      placeholder: "อีเมล",
+      type: "text",
+      placeholder: "ชื่อผู้ใช้",
       value: values.email,
       errorMessage: errors.email,
       touched: touched.email,

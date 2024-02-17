@@ -1,12 +1,8 @@
 import * as Yup from "yup";
 
 export const profileSchema = Yup.object({
-  fullName: Yup.string()
-    .required("Full name is required.")
-    .min(3, "Full name must be at least 3 characters."),
+  email: Yup.string().required("ต้องการชื้อผู้ใช้"),
   phoneNumber: Yup.string()
-    .required("Phone Number is required.")
-    .min(10, "Phone number must be at least 10 characters."),
-  email: Yup.string().required("Email is required.").email("Email is invalid."),
-  address: Yup.string().required("Address is required."),
+    .min(10, "เบอร์ไม่ครบ"),
+  address: Yup.string(),
 });

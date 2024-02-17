@@ -14,7 +14,7 @@ const Account = ({ user }) => {
         values
       );
       if (res.status === 200) {
-        toast.success("Profile Updated Successfully");
+        toast.success("อัพเดทชื่อผู้ใช้สำเร็จ");
       }
     } catch (err) {
       console.log(err);
@@ -25,12 +25,9 @@ const Account = ({ user }) => {
     useFormik({
       enableReinitialize: true,
       initialValues: {
-        fullName: user?.fullName,
         phoneNumber: user?.phoneNumber,
         email: user?.email,
         address: user?.address,
-        job: user?.job,
-        bio: user?.bio,
       },
       onSubmit,
       validationSchema: profileSchema,
@@ -38,12 +35,12 @@ const Account = ({ user }) => {
   const inputs = [
     {
       id: 1,
-      name: "fullName",
+      name: "email",
       type: "text",
-      placeholder: "ชื่อของคุณ",
-      value: values.fullName,
-      errorMessage: errors.fullName,
-      touched: touched.fullName,
+      placeholder: "ชื่อผู้ใช้ของคุณ",
+      value: values.email,
+      errorMessage: errors.email,
+      touched: touched.email,
     },
     {
       id: 2,
@@ -51,26 +48,13 @@ const Account = ({ user }) => {
       type: "string",
       placeholder: "หมายเลขโทรศัพท์ของคุณ",
       value: values.phoneNumber,
-      errorMessage: errors.phoneNumber,
-      touched: touched.phoneNumber,
     },
     {
       id: 3,
-      name: "email",
-      type: "email",
-      placeholder: "E-mailของคุณ",
-      value: values.email,
-      errorMessage: errors.email,
-      touched: touched.email,
-    },
-    {
-      id: 4,
       name: "address",
       type: "text",
       placeholder: "ที่อยู่ของคุณ",
       value: values.address,
-      errorMessage: errors.address,
-      touched: touched.address,
     },
     
   ];
