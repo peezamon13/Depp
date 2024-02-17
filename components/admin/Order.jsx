@@ -149,10 +149,13 @@ const Order = () => {
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                       {order?.method === 0  ? "เงินสด" : "ไม่เงินสด"}
                     </td>
+
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                       {status[order?.status]}
                     </td>
+
                     <td className="py-4 px-1 font-small whitespace-nowrap hover:text-white flex gap-3">
+
                       <button
                         className="btn-primary !bg-green-700 w-24 !pl-0 !pr-0"
                         onClick={() => handleStatusPrior(order?._id)}
@@ -160,12 +163,14 @@ const Order = () => {
                       >
                         Prior Stage
                       </button>
+
                       <button
                         className="btn-primary !bg-yellow-600 w-28 !pl-0 !pr-0"
                         onClick={() => handleDelete(order?._id)}
                       >
                         Delete Order
                       </button>
+
                       <button
                         className="btn-primary !bg-green-700 w-24 !pl-0 !pr-0"
                         onClick={() => handleStatusNext(order?._id)}
@@ -173,6 +178,7 @@ const Order = () => {
                       >
                         Next Stage
                       </button>
+                      
                     </td>
                   </tr>
                 ))}

@@ -29,7 +29,16 @@ const Header = () => {
           }`}
         >
           <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
+            <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/" && "text-primary"
+              }}`}
+              onClick={() => setIsMenuModal(false)}
+            >
+              <Link href="/">Home</Link>
+            </li>
           </ul>
+
           {isMenuModal && (
             <button
               className="absolute  top-4 right-4 z-50"
@@ -39,6 +48,8 @@ const Header = () => {
             </button>
           )}
         </nav>
+
+
         <div className="flex gap-x-4 items-center">
           <Link href="/auth/login">
             <span>
@@ -74,6 +85,14 @@ const Header = () => {
               </span>
             </span>
           </Link>
+
+          <button
+            className="sm:hidden inline-block"
+            onClick={() => setIsMenuModal(true)}
+          >
+            <GiHamburgerMenu className="text-xl hover:text-primary transition-all" />
+          </button>
+
         </div>
       </div>
       </div>

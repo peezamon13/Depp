@@ -39,7 +39,7 @@ return (
                 ))}
             </div>
         </div>
-      <div className="mt-5 grid md:grid-cols-3 grid-cols-2 gap-4 min-h-[450px]">
+      <div className="mt-5 grid md:grid-cols-4 grid-cols-2 gap-4 min-h-[450px]">
         {filter.length > 0 &&
           filter
             .slice(0, productLimit)

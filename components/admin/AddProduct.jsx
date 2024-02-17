@@ -42,10 +42,9 @@ const AddProduct = ({ setIsProductModal }) => {
                 image: imageUrl,
                 title: title,
                 category: category,
-                smallPrice: prices[0],
-                mediumPrice: prices[1],
-                largePrice: prices[2],
+                Price: prices[0],
                 extras: extraOptions,
+                statusfood: 0,
             }, onSubmit, validationSchema: productSchema,
         });
         const handleOnchange = (changeEvent) => {
@@ -73,6 +72,7 @@ const AddProduct = ({ setIsProductModal }) => {
             prices,
             category: category.toLowerCase(),
             extraOptions,
+            statusfood: 0,
         };
 
         const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products`, newProuct);
@@ -161,8 +161,8 @@ const AddProduct = ({ setIsProductModal }) => {
                         <div className="flex flex-col text-sm mt-4">
                             <span className="font-semibold mb-1">Prices</span>
                             <input type="number" className={`border border-gray-400 p-1 text-sm outline-none md:w-28
-                                ${errors.smallPrice && touched.smallPrice && "border-red-500"}`} 
-                                placeholder="Price" name="smallPrice" onChange={(e) => {changePrice(e, 0); handleChange(e);}} value={values.smallPrice} onBlur={handleBlur}
+                                ${errors.Price && touched.Price && "border-red-500"}`} 
+                                placeholder="Price" name="Price" onChange={(e) => {changePrice(e, 0); handleChange(e);}} value={values.Price} onBlur={handleBlur}
                             />
                         </div>
                         <div className="flex flex-col text-sm mt-4 mb-16">

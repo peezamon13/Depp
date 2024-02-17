@@ -74,7 +74,7 @@ const Products = () => {
                     <Image src={product.img} alt="" width={50} height={50} />
                   </td>
                   <td className="py-4 px-6 font-medium whitespace-nowrap ">
-                    {product._id.substring(0, 6)}
+                    {product.statusfood}
                   </td>
                   <td className="py-4 font-medium whitespace-nowrap ">
                     {product.title}
