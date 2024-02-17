@@ -1,12 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { RiShoppingCart2Fill } from "react-icons/ri";
-import { useSelector, useDispatch } from "react-redux";
-import { addProduct } from "../../redux/cartSlice";
 
 const MenuItem = ({ product }) => {
-    const cart = useSelector((state) => state.cart);
-
     return (
         <div className="bg-secondary relative h-full">
             <div className="w-full bg-[#f1f2f3] md:h-[210px] h-[150px] grid place-content-center">

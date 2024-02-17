@@ -98,7 +98,9 @@ const Stock = () => {
                     </button>
                 </div>
                 <div className="mt-10  max-h-[40rem] overflow-auto p-4 flex flex-col justify-center ">
-                    {stocks.map((stock) => (
+                    {stocks
+                    .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+                    .map((stock) => (
                         <div
                             className="flex justify-between mt-4 border p-3 items-center border-r-4 border-b-8 border-black rounded-lg transition-all"
                             key={stock._id}
