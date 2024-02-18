@@ -31,14 +31,14 @@ const Profile = ({ user }) => {
         }
     }, [session, push]);
     return (
-        <div className="flex px-10 min-h-[calc(100vh_-_433px)] lg:flex-row flex-col lg:mb-0 mb-10">
-            <div className="lg:w-80 w-100 flex-shrink-0 lg:h-[80vh] flex shadow-2xl">
+        <div className="flex px-10 min-h-[calc(100vh_-_433px)] flex-col lg:mb-0 mb-10">
+            <div className="lg:w-80  w-100 flex-shrink-0 flex">
                 <nav
-                    className={`sm:static absolute top-0 left-0 sm:w-full sm:h-auto w-full h-screen sm:text-black text-black sm:bg-transparent bg-white sm:flex hidden z-50 ${
+                    className={`absolute top-0 left-0 w-full h-screen text-black bg-white hidden z-50 ${
                     isMenuModal === true && "!grid place-content-center"
                     }`} onClick= {() => setIsMenuModal(false)}
                 >
-                    <ul className="text-center font-semibold">
+                    <ul className="text-center font-semibold flex grid grid-cols-2 gap-2">
                         <li className={`border w-full p-3 cursor-pointer transition-all ${tabs === 0 && "bg-black text-white"}`} onClick={() => setTabs(0)}>
                             <i className="fa fa-home"></i>
                             <button className="ml-1 ">บัญชี</button>
@@ -67,12 +67,11 @@ const Profile = ({ user }) => {
                 </nav>
             </div>
             <button
-                className="sm:hidden inline-block"
+                className="inline-block"
                 onClick={() => setIsMenuModal(true)}
             >
-                <GiHamburgerMenu className="text-xl hover:text-primary transition-all" />
+                <GiHamburgerMenu className="text-2xl hover:text-primary transition-all" />
             </button>
-
             {tabs === 0 && <Account user={user} />}
             {tabs === 1 && <Password user={user} />}
             {tabs === 2 && <Order />}
