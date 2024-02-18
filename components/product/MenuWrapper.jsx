@@ -44,7 +44,7 @@ return (
           filter
             .slice(0, productLimit)
             .filter((item) => item.statusfood < 1)
-            .map((product) => <MenuItem key={product._id} product={product} />)}
+            .map((product) => <MenuItem key={product._id} product={product} />)} 
       </div>
     </div>
   );
