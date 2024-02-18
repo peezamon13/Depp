@@ -10,7 +10,6 @@ import Products from "../../components/admin/Products";
 import { toast } from "react-toastify";
 import Stock from "../../components/admin/Stock";
 import MongoCharts from "../../components/admin/MongoCharts";
-import FoodSalesStatus from "../../components/admin/FoodSalesStatus";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
