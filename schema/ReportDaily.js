@@ -3,7 +3,6 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { saveAs } from 'file-saver';
-import { PDFDocument, Page, Text, View } from '@react-pdf/renderer';
 import * as XLSX from 'xlsx';
 
 const OrderReport = () => {
