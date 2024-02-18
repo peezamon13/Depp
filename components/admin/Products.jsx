@@ -63,7 +63,14 @@ const Products = () => {
     return (
         <div className="flex-1 flex flex-col ">
             <Title addClass="text-[40px]">รายการอาหาร</Title>
-            <div className="overflow-x-auto w-full mt-5 max-h-[750px] overflow-auto">
+            {isProductModal && <AddProduct setIsProductModal={setIsProductModal} />}
+            <button
+                className="btn-primary w-12 h-12 !p-0  top-5 right-14 text-4xl text-center absolute"
+                onClick={() => setIsProductModal(true)}
+            >
+                +
+            </button>
+            <div className="overflow-x-auto w-full mt-5 overflow-auto">
                 <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
                     <thead className="text-xs text-gray-400 uppercase bg-gray-700">
                         <tr>
@@ -110,14 +117,14 @@ const Products = () => {
                                 </td>
                                 <td className="py-4 px-6 font-medium whitespace-nowrap">
                                     <button
-                                        className="btn-primary w-24 !pl-0 !pr-0"
+                                        className="btn-primary2 w-24 !pl-0 !pr-0"
                                         onClick={() => handleSubtract(product?._id)}
                                         disabled={product?.statusfood < 1}
                                     >
                                         ขาย
                                     </button>
                                     <button
-                                        className="btn-primary w-24 !pl-0 !pr-0"
+                                        className="btn-primary2 w-24 !pl-0 !pr-0"
                                         onClick={() => handleAdd(product?._id)}
                                         disabled={product?.statusfood > 0}
                                     >
@@ -137,13 +144,6 @@ const Products = () => {
                     </tbody>
                 </table>
             </div>
-            {isProductModal && <AddProduct setIsProductModal={setIsProductModal} />}
-            <button
-                className="btn-primary w-12 h-12 !p-0  bottom-14 right-14 text-4xl text-center absolute"
-                onClick={() => setIsProductModal(true)}
-            >
-                +
-            </button>
         </div>
     );
 };
