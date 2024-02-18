@@ -30,36 +30,36 @@ const Products = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/products/${id}`
         );
         if (res.status === 200) {
-          toast.success("Product deleted successfully");
+          toast.success("การลบเสร็จสิ้น");
           getProducts();
         }
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+      toast.error("บางอย่างผิดพลาด");
     }
   };
   return (
-    <div className="lg:p-8 flex-1 lg:mt-0 relative min-h-[400px]  lg:max-w-[70%] xl:max-w-none flex flex-col justify-center">
-      <Title addClass="text-[40px]">Products</Title>
+    <div className="lg:p-8 flex-1 lg:mt-0 relative min-h-[400px]  lg:max-w-[90%] xl:max-w-none flex flex-col justify-center">
+      <Title addClass="text-[35px]">เมนูทั้งหมด</Title>
       <div className="overflow-x-auto w-full mt-5 max-h-[500px] overflow-auto">
-        <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
-          <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+        <table className="w-full text-center text-gray-500 xl:min-w-[1000px]">
+          <thead className="text-xl text-gray-400 bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
-                IMAGE
+                รูป
               </th>
               <th scope="col" className="py-3 px-6">
-                ID
+                ไอดี
               </th>
               <th scope="col" className="py-3">
-                TITLE
+                ชื่อ
               </th>
               <th scope="col" className="py-3 px-6">
-                PRICE
+                ราคา
               </th>
               <th scope="col" className="py-3 px-6">
-                ACTION
+                ลบ
               </th>
             </tr>
           </thead>
@@ -67,14 +67,14 @@ const Products = () => {
             {products &&
               products.map((product) => (
                 <tr
-                  className="transition-all bg-secondary border-gray-700 hover:bg-primary"
+                  className="transition-all bg-[#ececec] text-lg hover:bg-primary"
                   key={product._id}
                 >
                   <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
                     <Image src={product.img} alt="" width={50} height={50} />
                   </td>
                   <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                    {product._id.substring(0, 5)}...
+                    {product._id.substring(0, 3)}...
                   </td>
                   <td className="py-4 font-medium whitespace-nowrap hover:text-white">
                     {product.title}
@@ -87,7 +87,7 @@ const Products = () => {
                       className="btn-primary !bg-danger"
                       onClick={() => handleDelete(product._id)}
                     >
-                      Delete
+                      ลบ
                     </button>
                   </td>
                 </tr>

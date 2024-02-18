@@ -6,14 +6,14 @@ import { space } from "postcss/lib/list";
 const Order = ({ order }) => {
   const status = order?.status;
   const statusClass = (index) => {
-    if (index - status < 1) return "";
-    if (index - status === 1) return "animate-pulse";
-    if (index - status > 1) return "";
+    if ( status < 1) return "กำลังเตรียม";
+    if ( status === 1) return "เสร็จแล้ว";
+    
   };
 
   return (
     <div className="overflow-x-auto w-auto justify-center items-center h-screen mt-1">
-      <div className="container-center p-1  md:min-w-auto lg:min-w-auto bg-white ">
+      <div className="container-center p-2  md:min-w-auto lg:min-w-auto bg-white ">
         <div className="flex flex-col md:flex-row items-center w-auto max-h-auto">
           <table className="text-md text-center text-gray-700 ">
             <thead className="w-auto text-lg text-gray-400 bg-gray-700">
@@ -21,6 +21,9 @@ const Order = ({ order }) => {
                 
                 <th scope="col" className="py-2 px-10">
                   ที่อยู่ของคุณ
+                </th>
+                <th scope="col" className="py-2 px-10">
+                  สถานะ
                 </th>
                 
               </tr>
@@ -31,7 +34,10 @@ const Order = ({ order }) => {
                 <td className="py-3 px-6 font-medium  ">
                   {order?.address}
                 </td>
-                
+                <td className="py-3 px-6 font-medium  ">
+                {statusClass(order?.status)}
+                </td>
+
               </tr>
             </tbody>
           </table>
@@ -51,7 +57,7 @@ const Order = ({ order }) => {
                 <th scope="col" className="py-2 px-4">
                   เพิ่มเติม
                 </th>
-                <th scope="col" className="py-2 px-4">
+                <th scope="col" className="py-2 px-7">
                   ราคา
                 </th>
               </tr>
