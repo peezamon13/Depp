@@ -9,12 +9,10 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
-  const [isMenuModal, setIsMenuModal] = useState(false);
   const cart = useSelector((state) => state.cart);
   const router = useRouter();
 
   useEffect(() => {
-    // Check cookie here when the component mounts or when the user clicks FaUserAlt
     const userLoggedIn = localStorage.getItem('userLoggedIn');
 
     if (!userLoggedIn) {
@@ -23,11 +21,9 @@ const Header = () => {
   }, []);
 
   const handleUserIconClick = () => {
-    // Check cookie here when the user clicks FaUserAlt
     const userLoggedIn = localStorage.getItem('userLoggedIn');
 
     if (userLoggedIn) {
-      // Redirect to profile if the user is logged in
       router.push('/profile');
     } else {
       router.push('/auth/login');
@@ -39,21 +35,10 @@ const Header = () => {
       <div className="bg-black py-3 px-5">
         <div className="flex bg-black mx-auto text-white  justify-around items-center h-full mx-3">
           <Logo />
-          <nav className={`sm:static absolute top-0 left-0 sm:w-auto sm:h-auto w-full h-screen sm:text-white text-black sm:bg-transparent bg-white sm:flex hidden z-50 ${isMenuModal === true && "!grid place-content-center"}`}>
-            {isMenuModal && (
-              <button className="absolute  top-4 right-4 z-50" onClick={() => setIsMenuModal(false)}>
-                <GiCancel size={25} className=" transition-all" />
-              </button>
-            )}
-          </nav>
           <div className="flex w-5"></div>
           <div className="flex gap-x-4 items-center">
             <span onClick={handleUserIconClick}>
-              {router.asPath.includes("auth") ? (
-                <i className={`fa-solid fa-right-to-bracket ${router.asPath.includes("login") && "text-primary"}`}></i>
-              ) : (
-                <FaUserAlt className={`hover:text-primary transition-all cursor-pointer ${(router.asPath.includes("auth") || router.asPath.includes("profile")) && "text-primary"}`} />
-              )}
+              <FaUserAlt className={`hover:text-primary transition-all cursor-pointer ${(router.asPath.includes("auth") || router.asPath.includes("profile")) && "text-primary"}`} />
             </span>
             <Link href="/cart">
               <span className="relative">
