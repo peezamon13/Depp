@@ -19,10 +19,10 @@ const MenuItem = ({ product }) => {
             <Link href={`/product/${product._id}`}>
                 <div className="p-[25px] text-black border-[2px] border-secondary">
                     <div>
-                        <h4 className="text-xl font-semibold mb-3 ">{product.title}</h4>
+                        <h4 className="text-xg font-semibold mb-2 ">{product.title}</h4>
                     </div>
                     <div>
-                        <p className="text-xl font-semibold mb-3 ">{product.prices}฿</p>
+                        <p className="text-xg font-semibold mb-2 ">{product.prices}฿</p>
                     </div>
                 </div>
             </Link>
