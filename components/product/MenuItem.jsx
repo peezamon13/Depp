@@ -2,28 +2,32 @@ import Image from "next/image";
 import Link from "next/link";
 
 const MenuItem = ({ product }) => {
-  return (
-  <Link href={`/product/${product._id}`}>
-    <div className="bg-secondary h-[240px] relative">
-      <div className="w-full  bg-[#f1f2f3] h-[140px] grid place-content-center">
-          <div className="relative w-32 h-32 hover:scale-110 transition-all">
-            <Image
-              src={product.img}
-              alt=""
-              layout="fill"
-              className="rounded-full"
-            />
-          </div>
-      </div>
-      <div className="p-[25px] text-white ">
-        <h4 className="text-xl font-semibold mb-3 ">{product.title}</h4>
-        <div className="flex justify-between items-center mt-4">
-          <span>{product.prices[0]}฿</span>
+    return (
+        <div className="bg-white relative h-full border-[2px] border-black">
+            <div className="w-full bg-[#f1f2f3] md:h-[210px] h-[150px] grid place-content-center">
+                <Link href={`/product/${product._id}`}>
+                    <div className="relative w-36 h-36 hover:scale-110 transition-all">
+                        <Image
+                            src={product.img}
+                            alt=""
+                            layout="fill"
+                            className="rounded-full"
+                        />
+                    </div>
+                </Link>
+            </div>
+            <Link href={`/product/${product._id}`}>
+                <div className="p-[25px] text-black border-[2px] border-secondary">
+                    <div>
+                        <h4 className="text-xl font-semibold mb-3 ">{product.title}</h4>
+                    </div>
+                    <div>
+                        <p className="text-xl font-semibold mb-3 ">{product.prices}฿</p>
+                    </div>
+                </div>
+            </Link>
         </div>
-      </div>
-    </div>
-  </Link>
-  );
+    );
 };
 
 export default MenuItem;

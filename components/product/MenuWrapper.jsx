@@ -5,7 +5,7 @@ import MenuItem from "./MenuItem";
 const MenuWrapper = ({ categoryList, productList }) => {
   const [active, setActive] = useState(0);
   const [filter, setFilter] = useState([]);
-  
+  const [productLimit, setProductLimit] = useState();
 
   useEffect(() => {
     setFilter(
@@ -17,35 +17,35 @@ const MenuWrapper = ({ categoryList, productList }) => {
     );
   }, [categoryList, active, productList]);
 
-  return (
+return (
     <div className="container mx-auto  mb-16">
-      <div className="flex flex-col items-center w-full">
-        <Title addClass="text-[40px]">รายการอาหาร</Title>
-        <div className="mt-1">
-          {categoryList &&
-            categoryList.map((category, index) => (
-              <button
-                className={`px-6 py-2 ${
-                  index === active && "bg-secondary text-white "
-                } ml-4 rounded-3xl `}
-                key={category._id}
-                onClick={() => {
-                  setActive(index);
-                 
-                }}
-              >
-                {category.title}
-              </button>
-            ))}
+        <div className="flex flex-col items-center w-full">
+            <Title addClass="text-[40px]">เมนู</Title>
+            <div className="mt-10">
+                 {categoryList &&
+                  categoryList.map((category, index) => (
+                     <button
+                        className={`px-6 py-2 ${
+                            index === active && "bg-secondary text-white "
+                         } ml-4 rounded-1xl `}
+                         key={category._id}
+                         onClick={() => {
+                             setActive(index);
+                             setProductLimit();
+                         }}
+                    >
+                    {category.title}
+                    </button>
+                ))}
+            </div>
         </div>
-      </div>
-      <div className="mt-4 grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-4 min-h-[450px]">
+      <div className="mt-5 grid md:grid-cols-4 grid-cols-2 gap-4 min-h-[450px]">
         {filter.length > 0 &&
           filter
-            .slice(0)
-            .map((product) => <MenuItem key={product._id} product={product} />)}
+            .slice(0, productLimit)
+            .filter((item) => item.statusfood < 1)
+            .map((product) => <MenuItem key={product._id} product={product} />)} 
       </div>
-      
     </div>
   );
 };
