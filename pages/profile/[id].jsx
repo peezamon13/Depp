@@ -30,6 +30,7 @@ const Profile = ({ user }) => {
         push("/auth/login");
         }
     }, [session, push]);
+    
     return (
         <div className="flex px-10 min-h-[calc(100vh_-_433px)] flex-col lg:mb-0 mb-10">
             <div className="lg:w-80  w-100 flex-shrink-0 flex">

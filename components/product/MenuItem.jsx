@@ -18,7 +18,12 @@ const MenuItem = ({ product }) => {
             </div>
             <Link href={`/product/${product._id}`}>
                 <div className="p-[25px] text-black border-[2px] border-secondary">
-                    <h4 className="text-xl font-semibold mb-3 ">{product.title}</h4>
+                    <div>
+                        <h4 className="text-xl font-semibold mb-3 ">{product.title}</h4>
+                    </div>
+                    <div>
+                        <p className="text-xl font-semibold mb-3 ">{product.prices}฿</p>
+                    </div>
                 </div>
             </Link>
         </div>
