@@ -99,15 +99,6 @@ const Profile = () => {
             <button className="ml-1">คลังวัตถุดิบ</button>
           </li>
 
-          <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 7 && "bg-primary text-white"
-            }`}
-            onClick={() => setTabs(7)}
-          >
-            <i className="fa fa-sticky-note-o"></i>
-            <button className="ml-1">สถานะอาหาร</button>
-          </li>
 
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -145,7 +136,6 @@ const Profile = () => {
       {tabs === 3 && <ReportD />}
       {tabs === 4 && <ReportM />}
       {tabs === 6 && <Stock />}
-      {tabs === 7 && <FoodSalesStatus />}
       {tabs === 8 && <MongoCharts />}
     </div>
   );
