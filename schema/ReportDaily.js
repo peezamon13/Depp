@@ -278,8 +278,11 @@ const OrderReport = () => {
                     </tr>
                   ))}
                 </tbody>
-                <button className="btn-primary"  onClick={generateExcel}>Export to Excel</button>
+                <tfoot>
+                  <button className="btn-primary"  onClick={generateExcel}>Export to Excel</button>
+                </tfoot>
               </table>
+              
             ) : (
               <p>ไม่มียอดขายในวันนี้</p>
             )}
