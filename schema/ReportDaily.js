@@ -278,11 +278,7 @@ const OrderReport = () => {
                     </tr>
                   ))}
                 </tbody>
-                <tfoot>
-                  <button className="btn-primary"  onClick={generateExcel}>Export to Excel</button>
-                </tfoot>
               </table>
-              
             ) : (
               <p>ไม่มียอดขายในวันนี้</p>
             )}
@@ -292,9 +288,7 @@ const OrderReport = () => {
         {/* <div>
           <button onClick={generatePDF}>Export เป็น PDF</button>
           </div> */}
-          {/* <div>
-            <button className="btn-primary"  onClick={generateExcel}>Export to Excel</button>
-          </div> */}
+          <button onClick={generateExcel}>Export เป็น Excel</button>
         </div>
     </div>
   );
