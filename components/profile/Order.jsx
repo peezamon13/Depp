@@ -47,7 +47,7 @@ const Order = () => {
       <Title addClass="text-[40px]">รายการอาหาร</Title>
       <div className="overflow-x-auto w-full mt-5">
         <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
-          <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+          <thead className="text-lg text-white uppercase bg-gray-700">
             <tr>
               
               <th scope="col" className="py-3 px-6">
@@ -67,7 +67,7 @@ const Order = () => {
           <tbody>
             {orders.map((order) => (
               <tr
-                className="transition-all bg-secondary border-gray-700 hover:bg-primary  cursor-pointer"
+                className="transition-all bg-white hover:bg-primary  cursor-pointer"
                 key={order._id}
                 onClick={() => router.push(`/order/${order._id}`)}
               >
@@ -76,7 +76,7 @@ const Order = () => {
                   {currentUser?.address}
                 </td>
                 <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  {order.createdAt.substring(0, 10)}{" "}
+                  {order.createdAt.substring(0, 10)} <br />
                   {order.createdAt.substring(11, 16)}
                 </td>
                 <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
