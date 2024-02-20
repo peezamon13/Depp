@@ -11,14 +11,14 @@ import { toast } from "react-toastify";
 
 const Profile = ({ user }) => {
   const { data: session } = useSession();
-  const [tabs, setTabs] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(0);
   const { push } = useRouter();
 
   const handleSignOut = () => {
-    if (confirm("ออกไหม?")) {
+    if (confirm("Are you sure you want to sign out?")) {
       signOut({ redirect: false });
       push("/auth/login");
-      toast.success("ออกแล้ว", {
+      toast.success("Sign out successfully", {
         position: "bottom-left",
         theme: "colored",
       });
@@ -30,59 +30,44 @@ const Profile = ({ user }) => {
       push("/auth/login");
     }
   }, [session, push]);
+
+  const handleTabChange = (event) => {
+    setSelectedTab(parseInt(event.target.value));
+  };
+
   return (
     <div className="flex px-10 min-h-[calc(100vh_-_433px)] lg:flex-row flex-col lg:mb-0 mb-10">
-      <div className="lg:w-80 w-100 flex-shrink-0 lg:h-[80vh]   justify-center flex flex-col border-l-2 border-r-4 shadow-2xl">
-        <div className="relative flex flex-col items-center px-10 py-5 border border-b-0 ">
+      <div className="lg:w-80 w-100 flex-shrink-0 lg:h-[80vh] justify-center flex flex-col border-l-2 border-r-4 shadow-2xl">
+        <div className="relative flex flex-col items-center px-5 py-1 border border-b-0 ">
           <Image
             src={user.image ? user.image : "/images/admin.png"}
-            alt=""
-            width={100}
-            height={100}
+            alt="USER"
+            width={75}
+            height={75}
             className="rounded-full"
           />
-          <b className="text-2xl mt-1">{user.email}</b>
+          <b className="text-xl ">{user.fullName}</b>
         </div>
-        <ul className="text-center font-semibold">
-          <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 0 && "bg-primary text-white"
-            }`}
-            onClick={() => setTabs(0)}
-          >
-            <i className="fa fa-home"></i>
-            <button className="ml-1 ">บัญชี</button>
-          </li>
-          <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 1 && "bg-primary text-white"
-            }`}
-            onClick={() => setTabs(1)}
-          >
-            <i className="fa fa-key"></i>
-            <button className="ml-1">รหัสผ่าน</button>
-          </li>
-          <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 2 && "bg-primary text-white"
-            }`}
-            onClick={() => setTabs(2)}
-          >
-            <i className="fa fa-motorcycle"></i>
-            <button className="ml-1">คำสั่งซื่อ</button>
-          </li>
-          <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
-            onClick={handleSignOut}
-          >
-            <i className="fa fa-sign-out"></i>
-            <button className="ml-1">ออกจากระบบ</button>
-          </li>
-        </ul>
+        <select
+          className="text-center font-semibold w-full p-4 cursor-pointer border hover:bg-secondary hover:text-white transition-all"
+          onChange={handleTabChange}
+          value={selectedTab}
+        >
+          <option value={0}>บัญชีผู้ใช้</option>
+          <option value={1}>รหัสผ่าน</option>
+          <option value={2}>ประวัติการซื้อ</option>
+        </select>
+        <button
+          className="border w-full p-4 cursor-pointer hover:bg-secondary hover:text-white transition-all"
+          onClick={handleSignOut}
+        >
+          <i className="fa fa-sign-out"></i>
+          <span className="ml-1">ลงชื่อออก</span>
+        </button>
       </div>
-      {tabs === 0 && <Account user={user} />}
-      {tabs === 1 && <Password user={user} />}
-      {tabs === 2 && <Order />}
+      {selectedTab === 0 && <Account user={user} />}
+      {selectedTab === 1 && <Password user={user} />}
+      {selectedTab === 2 && <Order />}
     </div>
   );
 };
