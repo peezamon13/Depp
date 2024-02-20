@@ -1,103 +1,96 @@
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import { space } from "postcss/lib/list";
 
 const Order = ({ order }) => {
   const status = order?.status;
   const statusClass = (index) => {
-    if (index - status < 1) return "";
-    if (index - status === 1) return "animate-pulse";
-    if (index - status > 1) return "";
+    if ( status < 1) return "กำลังเตรียม";
+    if ( status === 1) return "เสร็จแล้ว";
+    
   };
 
   return (
-    <div className="overflow-x-auto flex justify-center items-center h-screen">
-      <div className="container p-5 md:p-10 min-w-[320px] md:min-w-[600px] lg:min-w-[800px] bg-white rounded-md">
-        <div className="flex flex-col md:flex-row items-center w-full max-h-28">
-          <table className="text-sm text-center text-gray-500 w-full">
-            <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+    <div className="overflow-x-auto w-auto justify-center items-center h-screen mt-1">
+      <div className="container-center p-2  md:min-w-auto lg:min-w-auto bg-white ">
+        <div className="flex flex-col md:flex-row items-center w-auto max-h-auto">
+          <table className="text-md text-center text-gray-700 ">
+            <thead className="w-auto text-lg text-gray-400 bg-gray-700">
               <tr>
-                <th scope="col" className="py-3 px-6">
-                  เลขรหัสรายการอาหาร
+                
+                <th scope="col" className="py-2 px-10">
+                 	 ที่อยู่ของคุณ
                 </th>
-                <th scope="col" className="py-3 px-6">
-                  ชื่อผู้ใช้
+                <th scope="col" className="py-2 px-10">
+                	  สถานะ
                 </th>
-                <th scope="col" className="py-3 px-6">
-                  ที่อยู่
-                </th>
-                <th scope="col" className="py-3 px-6">
-                  ราคารวม
-                </th>
+                
               </tr>
             </thead>
             <tbody>
-              <tr className="transition-all bg-secondary border-gray-700  ">
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
-                  {order._id.substring(0, 5)}
-                </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  {order?.customer}
-                </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+              <tr className="transition-all bg-white border-black   ">
+                
+                <td className="py-3 px-6 font-medium  ">
                   {order?.address}
                 </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  ${order?.total}
+                <td className="py-3 px-6 font-medium  ">
+                {statusClass(order?.status)}
                 </td>
+
               </tr>
             </tbody>
           </table>
         </div>
-
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold mb-2">Products in the Order:</h3>
-          <table className="w-full text-sm text-center text-gray-500">
-            <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+    
+        <div className="justify-start mt-2">
+          <h3 className="text-lg font-semibold mb-2">รายการอาหารที่สั่ง:</h3>
+          <table className="w-auto text-lg text-center text-gray-500">
+            <thead className="text-md text-white uppercase bg-gray-700">
               <tr>
-                <th scope="col" className="py-3 px-6">
-                  ชื่อรายการอาหาร
+                <th scope="col" className="py-2 px-4">
+                	อาหาร
                 </th>
-                <th scope="col" className="py-3 px-6">
-                  จำนวน
+                <th scope="col" className="py-2 px-4">
+                 	จำนวน
                 </th>
-                <th scope="col" className="py-3 px-6">
-                  ส่วนเสริม
+                <th scope="col" className="py-2 px-4">
+                 	เพิ่มเติม
                 </th>
-                <th scope="col" className="py-3 px-6">
-                  ราคา
+                <th scope="col" className="py-2 px-7">
+                  	ราคา
                 </th>
               </tr>
             </thead>
             <tbody>
               {order?.products.map((product) => (
                 <tr key={product._id}>
-                  <td className="py-4 px-6 font-medium whitespace-nowrap">
+                  <td className="py-4 px-6 font-medium ">
                     {product.title}
                   </td>
-                  <td className="py-4 px-6 font-medium whitespace-nowrap">
+                  <td className="py-4 px-6 font-medium ">
                     {product.foodQuantity}
                   </td>
-                  <td className="py-4 px-6 font-medium whitespace-nowrap">
+                  <td className="py-4 px-6 font-medium ">
                     {product.extras &&
                       product.extras.length > 0 &&
                       product.extras.map((extra) => (
-                        <span key={extra._id}>{extra.text}, </span>
+                        <span key={extra._id}>{extra.text}, <br /> </span>
                       ))}
                   </td>
-                  <td className="py-4 px-6 font-medium whitespace-nowrap">
-                    ${product.price}
+                  <td className="py-4 px-6 font-medium ">
+                    ฿{product.price}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-
-        <div className="flex justify-end mt-8">
+           <span className="justify-start px-4 text-lg">ราคารวมของคำสั่งซื้อนี้<span className="px-3">{order?.total}</span>บาท</span>
+        <div className="flex justify-end ">
           <Link href="/menu">
-            <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-8">
-              กลับไปหน้าเมนู
+            <a className=" fa-solid fa-mail-reply mt-3">
+              กลับไปเลือกเมนู
             </a>
           </Link>
         </div>
@@ -118,4 +111,3 @@ export const getServerSideProps = async ({ params }) => {
 };
 
 export default Order;
- 
