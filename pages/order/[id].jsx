@@ -16,7 +16,7 @@ const Order = ({ order }) => {
       <div className="container-center p-2  md:min-w-auto lg:min-w-auto bg-white ">
         <div className="flex flex-col md:flex-row items-center w-auto max-h-auto">
           <table className="text-md text-center text-gray-700 ">
-            <thead className="w-auto text-lg text-gray-400 bg-gray-700">
+            <thead className="w-auto text-lg text-white bg-gray-700">
               <tr>
                 
                 <th scope="col" className="py-2 px-10">
