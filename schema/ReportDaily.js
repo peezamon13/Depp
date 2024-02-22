@@ -209,8 +209,8 @@ const OrderReport = () => {
         {selectedDate && (
           <>
             <h3>รายงาน</h3>
-            <table className="w-full text-sm text-center text-gray-500">
-              <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+            <table className="w-full text-lg text-center text-white">
+              <thead className="text-lg text-white uppercase bg-gray-700">
                 <tr>
                   <th scope="col" className="py-3 px-6">
                     วันที่
@@ -245,8 +245,8 @@ const OrderReport = () => {
               {/* New table for individual orders */}
             <h3>รายการสั่งซื้อวันที่ {selectedDate.toLocaleDateString()}</h3>
             {selectedOrders && selectedOrders.length > 0 ? (
-              <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
-                <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+              <table className="w-full text-lg text-center text-white xl:min-w-[1000px]">
+                <thead className="text-lg text-white uppercase bg-gray-700">
                   <tr>
                     <th scope="col" className="py-3 px-6">
                       รายการที่
@@ -291,7 +291,7 @@ const OrderReport = () => {
           </div> */}
           
         </div>
-        <button className="btn-primary justify-start !bg-green-700 w-24 !pl-0 !pr-0"  onClick={generateExcel}>Export to Excel</button>
+        <button className="btn-primary justify-start !bg-green-700 w-auto !pl-0 !pr-0"  onClick={generateExcel}>Export to Excel</button>
     </div>
   );
 };
