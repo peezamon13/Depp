@@ -226,7 +226,7 @@ const OrderReport = () => {
               </thead>
               <tbody>
                 {dailyReport.map((entry) => (
-                  <tr key={entry.date}>
+                  <tr className="text-black" key={entry.date}>
                     <td className="py-4 px-6 font-medium whitespace-nowrap">
                       {entry.date}
                     </td>
@@ -245,8 +245,8 @@ const OrderReport = () => {
               {/* New table for individual orders */}
             <h3>รายการสั่งซื้อวันที่ {selectedDate.toLocaleDateString()}</h3>
             {selectedOrders && selectedOrders.length > 0 ? (
-              <table className="w-full text-lg text-center text-black xl:min-w-[1000px]">
-                <thead className="text-lg text-black uppercase bg-gray-700">
+              <table className="w-full text-lg text-center text-white xl:min-w-[1000px]">
+                <thead className="text-lg text-white uppercase bg-gray-700">
                   <tr>
                     <th scope="col" className="py-3 px-6">
                       รายการที่
@@ -261,7 +261,7 @@ const OrderReport = () => {
                 </thead>
                 <tbody>
                   {selectedOrders.map((order, index) => (
-                    <tr key={order.id}>
+                    <tr className="text-black" key={order.id}>
                       <td className="py-4 px-6 font-medium whitespace-nowrap">
                         {index + 1}
                       </td>
@@ -291,7 +291,7 @@ const OrderReport = () => {
           </div> */}
           
         </div>
-        <button className="btn-primary justify-start !bg-green-700 w-26 !pl-0 !pr-0"  onClick={generateExcel}>Export to Excel</button>
+        <button className="btn-primary justify-start !bg-green-700 w-[100px] !pl-0 !pr-0"  onClick={generateExcel}>Export to Excel</button>
     </div>
   );
 };
