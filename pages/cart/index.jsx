@@ -26,7 +26,7 @@ const Cart = ({ userList }) => {
 
   const newOrder = {
     customer: user?.email,
-    address: user?.address ? user?.address : "No address",
+    address: user.address ? user.address : "No address",
     total: cart.total,
     products: productState,
     method: 0,
