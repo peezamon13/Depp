@@ -67,7 +67,7 @@ const Order = () => {
           <tbody>
             {orders.map((order) => (
               <tr
-                className="transition-all bg-white hover:bg-primary  cursor-pointer"
+                className="transition-all text-black bg-white hover:bg-primary  cursor-pointer"
                 key={order._id}
                 onClick={() => router.push(`/order/${order._id}`)}
               >

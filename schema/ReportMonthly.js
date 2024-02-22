@@ -101,7 +101,7 @@ const OrderReport = () => {
           </thead>
           <tbody>
             {filteredMonthlyReport.map((entry) => (
-              <tr key={entry.monthYear}>
+              <tr className="text-black text-lg" key={entry.monthYear}>
                 <td className="py-4 px-6 font-medium whitespace-nowrap">
                   {entry.monthYear}
                 </td>
