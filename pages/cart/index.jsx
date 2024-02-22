@@ -126,14 +126,14 @@ const Cart = ({ userList }) => {
                       <td className="py-4 px-1 font-medium whitespace-nowrap ">
                         <button>
                           <i
-                            className="fa-solid fa-subtract mr-2 text-primary"
+                            className="fa-solid fa-subtract mr-2 text-black"
                             onClick={() => quantityChange(0, product)}
                           ></i>
                         </button>
                         {product.foodQuantity}
                         <button>
                           <i
-                            className="fa-solid fa-add ml-2 text-primary"
+                            className="fa-solid fa-add ml-2 text-black"
                             onClick={() => quantityChange(1, product)}
                           ></i>
                         </button>

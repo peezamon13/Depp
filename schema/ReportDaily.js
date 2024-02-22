@@ -289,7 +289,7 @@ const OrderReport = () => {
         {/* <div>
           <button onClick={generatePDF}>Export เป็น PDF</button>
           </div> */}
-          <button onClick={generateExcel}>Export เป็น Excel</button>
+          
         </div>
         <button className="btn-primary justify-start !bg-green-700 w-24 !pl-0 !pr-0"  onClick={generateExcel}>Export to Excel</button>
     </div>
