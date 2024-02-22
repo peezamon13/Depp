@@ -209,8 +209,8 @@ const OrderReport = () => {
         {selectedDate && (
           <>
             <h3>รายงาน</h3>
-            <table className="w-full text-sm text-center text-gray-500">
-              <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+            <table className="w-full text-lg text-center text-white">
+              <thead className="text-lg text-white uppercase bg-gray-700">
                 <tr>
                   <th scope="col" className="py-3 px-6">
                     วันที่
@@ -226,7 +226,7 @@ const OrderReport = () => {
               </thead>
               <tbody>
                 {dailyReport.map((entry) => (
-                  <tr key={entry.date}>
+                  <tr className="text-black" key={entry.date}>
                     <td className="py-4 px-6 font-medium whitespace-nowrap">
                       {entry.date}
                     </td>
@@ -245,8 +245,8 @@ const OrderReport = () => {
               {/* New table for individual orders */}
             <h3>รายการสั่งซื้อวันที่ {selectedDate.toLocaleDateString()}</h3>
             {selectedOrders && selectedOrders.length > 0 ? (
-              <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px]">
-                <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+              <table className="w-full text-lg text-center text-white xl:min-w-[1000px]">
+                <thead className="text-lg text-white uppercase bg-gray-700">
                   <tr>
                     <th scope="col" className="py-3 px-6">
                       รายการที่
@@ -261,7 +261,7 @@ const OrderReport = () => {
                 </thead>
                 <tbody>
                   {selectedOrders.map((order, index) => (
-                    <tr key={order.id}>
+                    <tr className="text-black" key={order.id}>
                       <td className="py-4 px-6 font-medium whitespace-nowrap">
                         {index + 1}
                       </td>
@@ -278,7 +278,7 @@ const OrderReport = () => {
                     </tr>
                   ))}
                 </tbody>
-                <button className="btn-primary"  onClick={generateExcel}>Export to Excel</button>
+                
               </table>
             ) : (
               <p>ไม่มียอดขายในวันนี้</p>
@@ -289,10 +289,11 @@ const OrderReport = () => {
         {/* <div>
           <button onClick={generatePDF}>Export เป็น PDF</button>
           </div> */}
-          {/* <div>
-            <button className="btn-primary"  onClick={generateExcel}>Export to Excel</button>
-          </div> */}
+          
         </div>
+          <div className="flex justify-start w-20%">
+          <button className="btn-primary justify-start !bg-green-700 "  onClick={generateExcel}>Export to Excel</button>
+          </div>
     </div>
   );
 };

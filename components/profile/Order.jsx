@@ -59,15 +59,15 @@ const Order = () => {
               <th scope="col" className="py-3 px-6">
                 ยอดรวม
               </th>
-              <th scope="col" className="py-3 px-6">
+              {/* <th scope="col" className="py-3 px-6">
                 สถานะ
-              </th>
+              </th> */}
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
               <tr
-                className="transition-all bg-white hover:bg-primary  cursor-pointer"
+                className="transition-all text-black bg-white hover:bg-primary  cursor-pointer"
                 key={order._id}
                 onClick={() => router.push(`/order/${order._id}`)}
               >
@@ -82,10 +82,10 @@ const Order = () => {
                 <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                   ฿{order.total}
                 </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                {/* <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                   {(order.status === 0 && "กำลังทำอาหาร") ||
                     (order.status === 1 && "เสร็จสิ้น") }
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>
