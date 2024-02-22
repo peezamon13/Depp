@@ -72,8 +72,8 @@ const Order = () => {
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5  lg:max-w-[70%] xl:max-w-none flex flex-col justify-center">
       <Title addClass="text-[35px]">คำสั่งซื้อ</Title>
       <div className="w-full mt-5 max-h-[700px] overflow-auto">
-        <table className="w-full text-sm text-center text-gray-500">
-          <thead className="text-xl text-gray-400 uppercase bg-gray-700">
+        <table className="w-full  text-center text-gray-500">
+          <thead className="text-xl text-white uppercase bg-gray-700">
             <tr>
               {/* <th scope="col" className="py-3 px-6">
                 ORDER ID

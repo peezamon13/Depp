@@ -278,9 +278,9 @@ const OrderReport = () => {
                     </tr>
                   ))}
                 </tbody>
-                <tfoot>
-                  <button className="btn-primary"  onClick={generateExcel}>Export to Excel</button>
-                </tfoot>
+               
+                  
+               
               </table>
               
             ) : (
@@ -296,6 +296,7 @@ const OrderReport = () => {
             <button className="btn-primary"  onClick={generateExcel}>Export to Excel</button>
           </div> */}
         </div>
+        <button className="btn-primary justify-start !bg-green-700 w-24 !pl-0 !pr-0"  onClick={generateExcel}>Export to Excel</button>
     </div>
   );
 };

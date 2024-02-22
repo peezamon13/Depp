@@ -74,7 +74,7 @@ const Products = () => {
             </button>
             <div className="overflow-x-auto w-full mt-5 max-h-[500px] overflow-auto">
                 <table className="w-full text-center text-gray-500 xl:min-w-[1000px]">
-                    <thead className="text-xl text-gray-400 bg-gray-700">
+                    <thead className="text-xl text-white bg-gray-700">
                         <tr>
                             <th scope="col" className="py-3 px-6">
                                 รูป

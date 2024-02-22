@@ -89,7 +89,7 @@ const Profile = () => {
             <i className="fa fa-bar-chart"></i>
             <button className="ml-1">รายได้รายเดือน</button>
           </li>
-          <li
+          {/* <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 6 && "bg-primary text-white"
             }`}
@@ -97,7 +97,7 @@ const Profile = () => {
           >
             <i className="fa fa-sticky-note-o"></i>
             <button className="ml-1">คลังวัตถุดิบ</button>
-          </li>
+          </li> */}
 
 
           <li
@@ -135,7 +135,6 @@ const Profile = () => {
       {tabs === 2 && <Category />}
       {tabs === 3 && <ReportD />}
       {tabs === 4 && <ReportM />}
-      {tabs === 6 && <Stock />}
       {tabs === 8 && <MongoCharts />}
     </div>
   );
