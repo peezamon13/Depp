@@ -291,7 +291,7 @@ const OrderReport = () => {
           </div> */}
           
         </div>
-        <button className="btn-primary justify-start !bg-green-700 w-30 !pl-0 !pr-0"  onClick={generateExcel}>Export to Excel</button>
+        <button className="btn-primary justify-start !bg-green-700 w-26 !pl-0 !pr-0"  onClick={generateExcel}>Export to Excel</button>
     </div>
   );
 };
