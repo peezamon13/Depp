@@ -22,10 +22,10 @@ const OrderHistory = () => {
 
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5  lg:max-w-[70%] xl:max-w-none flex flex-col justify-center">
-      <Title addClass="text-[40px]">ออเดอร์</Title>
-      <div className="overflow-x-auto w-full mt-5">
-        <table className="w-full text-sm text-center text-gray-500">
-          <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+      <Title addClass="text-[35px]">ประวัติคำสั่งซื้อ</Title>
+      <div className="w-full mt-5 max-h-[700px] overflow-auto">
+        <table className="w-full  text-center ">
+          <thead className="text-xl text-white uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
                 ลูกค้า
@@ -57,20 +57,20 @@ const OrderHistory = () => {
                 .filter((item) => item.status > 0)
                 .map((order) => (
                   <tr
-                    className="transition-all bg-secondary border-gray-700 hover:bg-primary "
+                    className="transition-all text-black bg-#ececec text-lg hover:bg-primary"
                     key={order._id}
                   >
-                    <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                    <td className="py-4 px-6 font-medium whitespace-nowrap">
                       {order?.customer}
                     </td>
-                    <td className="py-4 px-6 font-medium  hover:text-white flex-wrap w-[100px] whitespace-nowrap">
+                    <td className="py-4 px-6 font-medium flex-wrap w-[100px] whitespace-nowrap">
                       {order?.products.map((product, index) => (
                         <span key={index}>
                           {product.title} * {product.foodQuantity} <br />
                         </span>
                       ))}
                     </td>
-                    <td className="py-4 font-medium hover:text-white">
+                    <td className="py-4 font-medium">
                       {order?.products.map((item) => {
                         return (
                           <div key={item._id}>
@@ -83,20 +83,20 @@ const OrderHistory = () => {
                         );
                       })}
                     </td>
-                    <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                    <td className="py-4 px-6 font-medium whitespace-nowrap">
                       {order?.total}฿
                     </td>
 
-                    <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                    <td className="py-4 px-6 font-medium whitespace-nowrap">
                       {order.createdAt.substring(0, 10)}{" "}
                       {order.createdAt.substring(11, 16)}
                     </td>
 
-                    <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                    <td className="py-4 px-6 font-medium whitespace-nowrap">
                       {order?.method === 0  ? "เงินสด" : "ไม่เงินสด"}
                     </td>
 
-                    <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                    <td className="py-4 px-6 font-medium whitespace-nowrap">
                       {status[order?.status]}
                     </td>
                   </tr>

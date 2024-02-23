@@ -136,7 +136,7 @@ const Order = () => {
                           })}
                         </td>
                         <td className="py-4 px-6 font-medium whitespace-nowrap">
-                          ${order?.total}
+                          {order?.total}฿
                         </td>
                         <td className="py-4 px-6 font-medium whitespace-nowrap">
                           {order?.method === 0 ? "Cash" : "Card"}

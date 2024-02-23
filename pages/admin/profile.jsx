@@ -62,7 +62,7 @@ const Profile = () => {
             onClick={() => setTabs(1)}
           >
             <i className="fa fa-list"></i>
-            <button className="ml-1">คำสั่งซื่อ</button>
+            <button className="ml-1">คำสั่งซื้อ</button>
           </li>
 
           <li
@@ -71,8 +71,8 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(2)}
           >
-            <i className="fa fa-sticky-note-o"></i>
-            <button className="ml-1">ประวัติการสั่งซื้อ</button>
+            <i className="fa fa-list"></i>
+            <button className="ml-1">ประวัติคำสั่งซื้อ</button>
           </li>
 
           <li
@@ -111,7 +111,7 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(6)}
           >
-            <i className="fa fa-sticky-note-o"></i>
+            <i className="fa fa-list"></i>
             <button className="ml-1">รายการสั่งเยอะที่สุด</button>
           </li>
 
