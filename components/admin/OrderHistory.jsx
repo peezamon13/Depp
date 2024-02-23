@@ -4,7 +4,7 @@ import axios from "axios";
 
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
-  const status = ["","จ่ายแล้ว"];
+  const status = ["","เสร็จสิ้นแล้ว"];
 
   useEffect(() => {
     const getOrders = async () => {
