@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Title from "../ui/Title";
 import axios from "axios";
 
-const Order = () => {
+const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
   const status = ["","จ่ายแล้ว"];
 
@@ -108,4 +108,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default OrderHistory;
