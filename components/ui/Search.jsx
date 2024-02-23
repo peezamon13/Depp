@@ -45,7 +45,9 @@ const Search = ({ setIsSearchModal }) => {
                         {product.length > 0 ? (
                             <ul className="mt-6">
                                 {filtered.length > 0 ? (
-                                    filtered.slice(0, 5).map((item) => (
+                                    filtered
+                                    .filter((item) => item.statusfood < 1)
+                                    .slice(0, 5).map((item) => (
                                         <li className="flex items-center justify-between p-1 hover:bg-primary transition-all px-3 cursor-pointer" key={item._id} onClick={() => {
                                             router.push(`/product/${item?._id}`);
                                             setIsSearchModal(false);
