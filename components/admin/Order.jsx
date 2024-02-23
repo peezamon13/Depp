@@ -21,11 +21,11 @@ const OrderHistory = () => {
   }, []);
 
   return (
-    <div className="lg:p-8 flex-1 lg:mt-0 mt-5  lg:max-w-[70%] xl:max-w-none flex flex-col justify-center">
+    <div className="lg:p-8 flex-1 lg:mt-0 mt-5  lg:max-w-[70%] xl:max-w-none flex flex-col justify-center ">
       <Title addClass="text-[40px]">ออเดอร์</Title>
-      <div className="overflow-x-auto w-full mt-5">
-        <table className="w-full text-sm text-center text-gray-500">
-          <thead className="text-xs text-gray-400 uppercase bg-gray-700">
+      <div className="overflow-x-auto w-full mt-5 ">
+        <table className="w-full text-sm text-center text-gray-500 border border-black">
+          <thead className="text-xs text-gray-400 uppercase bg-gray-700 ">
             <tr>
               <th scope="col" className="py-3 px-6">
                 ลูกค้า
@@ -57,7 +57,7 @@ const OrderHistory = () => {
                 .filter((item) => item.status > 0)
                 .map((order) => (
                   <tr
-                    className="transition-all bg-secondary border-gray-700 hover:bg-primary "
+                    className="transition-all bg-white border-gray-700 hover:bg-primary border border-black"
                     key={order._id}
                   >
                     <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
