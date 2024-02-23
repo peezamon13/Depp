@@ -69,7 +69,7 @@ const Profile = () => {
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 2 && "bg-primary text-white"
             }`}
-            onClick={() => setTabs(5)}
+            onClick={() => setTabs(2)}
           >
             <i className="fa fa-sticky-note-o"></i>
             <button className="ml-1">ประวัติการสั่งซื้อ</button>
@@ -79,7 +79,7 @@ const Profile = () => {
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 3 && "bg-primary text-white"
             }`}
-            onClick={() => setTabs(2)}
+            onClick={() => setTabs(3)}
           >
             <i className="fa fa-ellipsis-h"></i>
             <button className="ml-1">ประเภทหมวดหมู่</button>
@@ -89,7 +89,7 @@ const Profile = () => {
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 4 && "bg-primary text-white"
             }`}
-            onClick={() => setTabs(3)}
+            onClick={() => setTabs(4)}
           >
             <i className="fa fa-bar-chart"></i>
             <button className="ml-1">รายงานรายได้ต่อวัน</button>
@@ -99,7 +99,7 @@ const Profile = () => {
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 5 && "bg-primary text-white"
             }`}
-            onClick={() => setTabs(4)}
+            onClick={() => setTabs(5)}
           >
             <i className="fa fa-bar-chart"></i>
             <button className="ml-1">รายได้รายเดือน</button>
@@ -109,7 +109,7 @@ const Profile = () => {
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 6 && "bg-primary text-white"
             }`}
-            onClick={() => setTabs(8)}
+            onClick={() => setTabs(6)}
           >
             <i className="fa fa-sticky-note-o"></i>
             <button className="ml-1">รายการสั่งเยอะที่สุด</button>
@@ -143,8 +143,7 @@ const Profile = () => {
       {tabs === 3 && <Category />}
       {tabs === 4 && <ReportD />}
       {tabs === 5 && <ReportM />}
-      {tabs === 6 && <OrderHistory />}
-      {tabs === 7 && <MongoCharts />}
+      {tabs === 6 && <MongoCharts />}
     </div>
   );
 };
