@@ -28,7 +28,7 @@ const OrderHistory = () => {
           <thead className="text-xl text-white uppercase bg-gray-700 border border-black">
             <tr>
               <th scope="col" className="py-3 px-6">
-                ลูกค้า1
+                ลูกค้า
               </th>
               <th scope="col" className="py-3 px-6">
                 อาหาร
