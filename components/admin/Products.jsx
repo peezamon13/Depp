@@ -74,7 +74,7 @@ const Products = () => {
             </button>
             <div className="overflow-x-auto w-full mt-5 max-h-[500px] overflow-auto">
                 <table className="w-full text-center text-black xl:min-w-[1000px]">
-                    <thead className="text-xl text-white bg-gray-700 border border-black">
+                    <thead className="text-2xl text-white bg-gray-700 border border-black">
                         <tr>
                             <th scope="col" className="py-3 px-6">
                                 รูป
@@ -102,7 +102,7 @@ const Products = () => {
                         .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
                         .map((product) => (
                             <tr
-                                className="transition-all bg-[#ececec] text-lg hover:bg-white border border-black"
+                                className="transition-all bg-[#ececec] text-xl hover:bg-white border border-black"
                                 key={product._id}
                             >
                                 <td className="py-4 px-6 font-medium whitespace-nowrap  flex items-center gap-x-1 justify-center">
