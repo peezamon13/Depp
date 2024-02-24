@@ -111,10 +111,12 @@ const Index = ({ food }) => {
             onClick={handleClick}>
             เพิ่มเข้าตะกร้า
           </button>
+        </div>
+        <div className="absolute bottom-12 right-5">
         <Link href="/menu"> 
-          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  "> กลับ </a> 
+          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4 "> กลับ </a> 
         </Link>
-      </div> 
+        </div>
     </div>
   );
 };
