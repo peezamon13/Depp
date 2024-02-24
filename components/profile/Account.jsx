@@ -71,7 +71,7 @@ const Account = ({ user }) => {
           />
         ))}
       </div>
-      <button className="btn-primary mt-4" type="submit">
+      <button className="btn-primary3 mt-4 text-black" type="submit">
         อัปเดต
       </button>
     </form>

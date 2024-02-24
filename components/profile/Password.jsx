@@ -54,7 +54,7 @@ const Password = ({ user }) => {
                         <Input key={input.id} {...input} onBlur={handleBlur} onChange={handleChange} />
                     ))}
                 </div>
-                <button className="btn-primary mt-4" type="submit">
+                <button className="btn-primary3 mt-4 text-black" type="submit">
                     อัพเดท
                 </button>
             </form>

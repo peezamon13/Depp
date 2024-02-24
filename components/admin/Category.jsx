@@ -67,7 +67,7 @@ const Category = () => {
             onChange={(e) => setInputText(e.target.value)}
             value={inputText}
           />
-          <button className="btn-primary" onClick={handleCreate}>
+          <button className="btn-primary3 text-black" onClick={handleCreate}>
             เพิ่ม
           </button>
         </div>

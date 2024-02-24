@@ -46,8 +46,8 @@ const Profile = () => {
         </div>
         <ul className="text-center font-semibold">
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 0 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 0 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(0)}
           >
@@ -56,8 +56,8 @@ const Profile = () => {
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 1 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 1 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(1)}
           >
@@ -66,8 +66,8 @@ const Profile = () => {
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 2 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 2 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(2)}
           >
@@ -76,8 +76,8 @@ const Profile = () => {
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 3 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 3 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(3)}
           >
@@ -86,8 +86,8 @@ const Profile = () => {
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 4 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 4 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(4)}
           >
@@ -96,8 +96,8 @@ const Profile = () => {
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 5 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 5 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(5)}
           >
@@ -106,8 +106,8 @@ const Profile = () => {
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 6 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 6 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(6)}
           >
@@ -116,7 +116,7 @@ const Profile = () => {
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all`}
             onClick={() => window.open("/", "_blank")}
           >
             <i className="fa-solid fa-house"></i>
@@ -126,8 +126,8 @@ const Profile = () => {
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 7 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 7 && "bg-primary text-black"
             }`}
             onClick={closeAdminAccount}
           >
