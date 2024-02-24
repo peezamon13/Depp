@@ -99,10 +99,12 @@ const Index = ({ food }) => {
         >
           เข้าตะกร้า
         </button>
+        </div>
+        <div className="absolute bottom-12 right-5">
         <Link href="/menu"> 
-          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4 right-2">ไปหน้าเมนู</a>
+          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4 "> ไปหน้าเมนู </a> 
         </Link>
-      </div> 
+        </div>
     </div>
   );
 };
