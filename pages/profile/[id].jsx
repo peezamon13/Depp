@@ -35,11 +35,11 @@ const Profile = ({ user }) => {
         <div className="flex px-10 min-h-[calc(100vh_-_433px)] flex-col lg:mb-0 mb-10" >
             <div className="lg:w-80 w-100 flex-shrink-0 flex" >
                 <nav
-                    className={`absolute top-[220px] w-[300px] h-[250px] text-black bg-white hidden z-50 border border-black border-2 rounded-2xl ml-1 ${
+                    className={`absolute top-[220px] w-[300px] h-[250px] text-black bg-white hidden z-50 border border-black border-2 rounded-2xl ml-1 bg-opacity-80 ${
                     isMenuModal === true && "!grid place-content-center"
                     }`} onClick= {() => setIsMenuModal(false)}
                 >
-                    <ul className="text-center font-semibold flex grid grid-cols-2 gap-2 px-3">
+                    <ul className="text-center font-semibold flex grid grid-cols-2 gap-2 px-3 bg-white">
                         <li className={`border w-full p-3 cursor-pointer transition-all ${tabs === 0 && "bg-black text-white"}`} onClick={() => setTabs(0)}>
                             <i className="fa fa-home"></i><br/>
                             <button className="ml-1 ">บัญชี</button>
