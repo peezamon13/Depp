@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const MenuItem = ({ product }) => {
     return (
-        <div className="bg-white relative h-full border-[2px] border-black">
-            <div className="w-full bg-[#f1f2f3] md:h-[210px] h-[150px] grid place-content-center">
+        <div className="bg-white relative h-full">
+            <div className="w-full bg-[#f1f2f3] md:h-[210px] h-[150px] grid place-content-center border-[1px] border-black">
                 <Link href={`/product/${product._id}`}>
                     <div className="relative w-36 h-36 hover:scale-110 transition-all">
                         <Image
@@ -17,7 +17,7 @@ const MenuItem = ({ product }) => {
                 </Link>
             </div>
             <Link href={`/product/${product._id}`}>
-                <div className="p-[25px] text-black border-[2px] border-secondary">
+                <div className="p-[25px] text-black border-[1px] border-secondary">
                     <div>
                         <h4 className="text-xl font-semibold mb-3 ">{product.title}</h4>
                     </div>

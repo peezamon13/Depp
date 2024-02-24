@@ -102,7 +102,7 @@ const Products = () => {
                         .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
                         .map((product) => (
                             <tr
-                                className="transition-all bg-[#ececec] text-lg hover:bg-white border border-black"
+                                className="transition-all bg-[#ececec] text-lg hover:bg-white border border-black h-full"
                                 key={product._id}
                             >
                                 <td className="py-4 px-6 font-medium whitespace-nowrap  flex items-center gap-x-1 justify-center">

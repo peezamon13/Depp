@@ -32,37 +32,37 @@ const Profile = ({ user }) => {
     }, [session, push]);
     
     return (
-        <div className="flex px-10 min-h-[calc(100vh_-_433px)] flex-col lg:mb-0 mb-10">
-            <div className="lg:w-80  w-100 flex-shrink-0 flex">
+        <div className="flex px-10 min-h-[calc(100vh_-_433px)] flex-col lg:mb-0 mb-10" >
+            <div className="lg:w-80 w-100 flex-shrink-0 flex" >
                 <nav
-                    className={`absolute top-0 left-0 w-full h-screen text-black bg-white hidden z-50 ${
+                    className={`absolute top-[220px] w-[300px] h-[250px] text-black bg-white hidden z-50 border border-black border-2 rounded-2xl ml-1 ${
                     isMenuModal === true && "!grid place-content-center"
                     }`} onClick= {() => setIsMenuModal(false)}
                 >
-                    <ul className="text-center font-semibold flex grid grid-cols-2 gap-2">
+                    <ul className="text-center font-semibold flex grid grid-cols-2 gap-2 px-3">
                         <li className={`border w-full p-3 cursor-pointer transition-all ${tabs === 0 && "bg-black text-white"}`} onClick={() => setTabs(0)}>
-                            <i className="fa fa-home"></i>
+                            <i className="fa fa-home"></i><br/>
                             <button className="ml-1 ">บัญชี</button>
                         </li>
                         <li className={`border w-full p-3 cursor-pointer transition-all ${tabs === 1 && "bg-black text-white"}`} onClick={() => setTabs(1)}>
-                            <i className="fa fa-key"></i>
+                            <i className="fa fa-key"></i><br/>
                             <button className="ml-1">รหัสผ่าน</button>
                         </li>
                         <li className={`border w-full p-3 cursor-pointer transition-all ${tabs === 2 && "bg-black text-white"}`} onClick={() => setTabs(2)}>
-                            <i className="fa fa-motorcycle"></i>
+                            <i className="fa fa-motorcycle"></i><br/>
                             <button className="ml-1">รายการสั่งซื้อ</button>
                         </li>
                         <li className={`border w-full p-3 cursor-pointer transition-all`} onClick={handleSignOut}>
-                            <i className="fa fa-sign-out"></i>
+                            <i className="fa fa-sign-out"></i><br/>
                             <button className="ml-1">ลงชื่ออก</button>
                         </li>
                     </ul>
                     {isMenuModal && (
                         <button
-                            className="absolute  top-4 right-4 z-50"
+                            className="absolute  top-1 right-2 z-50"
                             onClick={() => setIsMenuModal(false)}
                         >
-                            <GiCancel size={25} className=" transition-all" />
+                            <GiCancel size={30} className=" transition-all" />
                         </button>
                     )}
                 </nav>
