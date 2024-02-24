@@ -77,9 +77,9 @@ const Category = () => {
               className="flex justify-between mt-4 border p-3 items-center border-r-4 border-b-8 border-black rounded-lg transition-all"
               key={category._id}
             >
-              <b className="sm:text-xl text-md">{category.title}</b>
+              <b className="sm:text-xl text-xl">{category.title}</b>
               <button
-                className="btn-primary !bg-danger text-sm sm:text-base"
+                className="btn-primary !bg-danger text-md sm:text-base"
                 onClick={(e) => handleDelete(e, category._id)}
               >
                 ลบ

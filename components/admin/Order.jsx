@@ -73,7 +73,7 @@ const Order = () => {
       <Title addClass="text-[35px]">คำสั่งซื้อ</Title>
       <div className="w-full mt-5 max-h-[700px] overflow-auto">
         <table className="w-full  text-center ">
-          <thead className="text-xl text-white uppercase bg-gray-700">
+          <thead className="text-2xl text-white uppercase bg-gray-700">
             <tr>
               {/* <th scope="col" className="py-3 px-6">
                 ORDER ID
@@ -109,7 +109,7 @@ const Order = () => {
                   if (order.status !== 1) {
                     return (
                       <tr
-                        className="transition-all text-black bg-#ececec text-lg hover:bg-primary"
+                        className="transition-all text-black bg-#ececec text-xl hover:bg-primary"
                         key={order._id}
                       >
                         <td className="py-4 px-6 font-medium whitespace-nowrap">

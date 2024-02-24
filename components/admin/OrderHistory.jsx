@@ -25,7 +25,7 @@ const OrderHistory = () => {
       <Title addClass="text-[35px]">ประวัติคำสั่งซื้อ</Title>
       <div className="w-full mt-5 max-h-[700px] overflow-auto">
         <table className="w-full  text-center ">
-          <thead className="text-xl text-white uppercase bg-gray-700 border border-black">
+          <thead className="text-2xl text-white uppercase bg-gray-700 border border-black">
             <tr>
               <th scope="col" className="py-3 px-6">
                 ลูกค้า
@@ -57,7 +57,7 @@ const OrderHistory = () => {
                 .filter((item) => item.status > 0)
                 .map((order) => (
                   <tr
-                    className="transition-all text-black bg-#ececec text-lg hover:bg-primary border border-black"
+                    className="transition-all text-black bg-#ececec text-xl hover:bg-primary border border-black"
                     key={order._id}
                   >
                     <td className="py-4 px-6 font-medium whitespace-nowrap">
