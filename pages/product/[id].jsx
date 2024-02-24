@@ -94,7 +94,7 @@ const Index = ({ food }) => {
           </div>
        <div className="w-full flex justify-center item-center btn-center">
         <button
-          className="btn-primary justify-center item-center text-black"
+          className="btn-primary3 justify-center item-center text-black"
           onClick={handleClick}
         >
           เข้าตะกร้า

@@ -59,7 +59,7 @@ const Profile = ({ user }) => {
                     </ul>
                     {isMenuModal && (
                         <button
-                            className="absolute  top-1 right-2 z-50"
+                            className="absolute top-1 right-2 z-50"
                             onClick={() => setIsMenuModal(false)}
                         >
                             <GiCancel size={30} className=" transition-all" />
