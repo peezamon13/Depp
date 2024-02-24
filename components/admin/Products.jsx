@@ -25,16 +25,16 @@ const Products = () => {
 
     const handleDelete = async (id) => {
         try {
-            if (confirm("Are you sure you want to delete this product?")) {
+            if (confirm("ต้องการที่จะลบเมนูใช่ไหม")) {
                 const res = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`);
                 if (res.status === 200) {
-                    toast.success("Product deleted successfully");
+                    toast.success("ลบเมนูสำเร็จ");
                     getProducts();
                 }
             }
         }   catch (error) {
             console.log(error);
-            toast.error("Something went wrong");
+            toast.error("มีบางอย่างผิดพลาด");
         }
     };
 

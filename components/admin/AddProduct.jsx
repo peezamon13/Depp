@@ -78,7 +78,7 @@ const AddProduct = ({ setIsProductModal }) => {
         const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products`, newProuct);
         if (res.status === 201) {
             setIsProductModal(false);
-            toast.success("Product Created Successfully", {
+            toast.success("สร้างเมนูสำเร็จ", {
                 position: "top-right",
                 closeOnClick: true,
             });
@@ -107,7 +107,7 @@ const AddProduct = ({ setIsProductModal }) => {
         <div className="fixed top-0 left-0 w-screen h-screen z-50 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-60 grid place-content-center ">
             <OutsideClickHandler
                 onOutsideClick={() => {
-                    if (confirm("Are you sure you want to exit?")) {
+                    if (confirm("ต้องการจะออกใช่ไหม")) {
                         setIsProductModal(false);
                     }
                 }}
@@ -200,7 +200,7 @@ const AddProduct = ({ setIsProductModal }) => {
                             </button>
                         )}
                         <button className="absolute  top-4 right-4" onClick={() => {
-                            if (confirm("Are you sure you want to exit?")) {
+                            if (confirm("ต้องการที่จะออกใช่ไหม")) {
                                 setIsProductModal(false);
                             }
                         }}>

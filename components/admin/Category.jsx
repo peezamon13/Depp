@@ -47,7 +47,7 @@ const Category = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`
         );
         setCategories(categories.filter((cat) => cat._id !== id));
-        toast.warning("ลบสำรเร็จ", {
+        toast.warning("ลบสำเร็จ", {
           position: "bottom-left",
           theme: "colored",
         });

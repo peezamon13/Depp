@@ -53,14 +53,14 @@ const Order = () => {
   };
 
   const handleDelete = async (id) => {
-    if (confirm("Are you sure you want to delete this order?")) {
+    if (confirm("ต้องการที่จะลบใช่ไหม")) {
       try {
         const res = await axios.delete(
           `${process.env.NEXT_PUBLIC_API_URL}/orders/${id}`
         );
         setOrders(orders.filter((order) => order._id !== id));
         if (res.data) {
-          toast.success("Order deleted successfully");
+          toast.success("ลบสำเร็จ");
         }
       } catch (error) {
         console.log(error);
