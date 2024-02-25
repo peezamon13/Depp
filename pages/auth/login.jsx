@@ -125,7 +125,7 @@ export async function getServerSideProps({ req }) {
     return {
       redirect: {
         destination: "/profile/" + user._id,
-        permanent: false,
+        permanent: true,
       },
     };
   }
