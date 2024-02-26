@@ -86,7 +86,7 @@ const Products = () => {
                                 ราคา
                             </th>
                             <th scope="col" className="py-3 px-6">
-                                ID
+                                สถานะ
                             </th>
                             <th scope="col" className="py-3 px-6">
                                 
