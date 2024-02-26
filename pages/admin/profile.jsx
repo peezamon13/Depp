@@ -71,7 +71,7 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(2)}
           >
-            <i className="fa fa-list"></i>
+            <i className="fa fa-clock-o"></i>
             <button className="ml-1">ประวัติคำสั่งซื้อ</button>
           </li>
 
@@ -111,7 +111,7 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(6)}
           >
-            <i className="fa fa-list"></i>
+            <i className="fa bar-chart"></i>
             <button className="ml-1">รายการสั่งเยอะที่สุด</button>
           </li>
 

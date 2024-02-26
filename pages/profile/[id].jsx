@@ -49,7 +49,7 @@ const Profile = ({ user }) => {
                             <button className="ml-1">รหัสผ่าน</button>
                         </li>
                         <li className={`border w-full p-3 cursor-pointer transition-all ${tabs === 2 && "bg-black text-white"}`} onClick={() => setTabs(2)}>
-                            <i className="fa fa-motorcycle"></i><br/>
+                            <i className="fa fa-list"></i><br/>
                             <button className="ml-1">รายการสั่งซื้อ</button>
                         </li>
                         <li className={`border w-full p-3 cursor-pointer transition-all`} onClick={handleSignOut}>
