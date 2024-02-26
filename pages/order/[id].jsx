@@ -29,7 +29,7 @@ const Order = ({ order }) => {
               </tr>
             </thead>
             <tbody>
-              <tr className="transition-all bg-white border-black   ">
+              <tr className="transition-all bg-white border-black text-black  ">
                 
                 <td className="py-3 px-6 font-medium  ">
                   {order?.address}
