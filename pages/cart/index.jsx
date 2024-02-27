@@ -139,7 +139,7 @@ const Cart = ({ userList }) => {
                         </button>
                       </td>
                       <td className="py-4 px-6 font-medium whitespace-nowrap ">
-                         ฿{product.prices}
+                        ${product.price}
                       </td>
                     </tr>
                   ))}
