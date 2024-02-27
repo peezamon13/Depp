@@ -139,7 +139,7 @@ const Cart = ({ userList }) => {
                         </button>
                       </td>
                       <td className="py-4 px-6 font-medium whitespace-nowrap ">
-                        ${product.price}
+                        {product.price}฿
                       </td>
                     </tr>
                   ))}
@@ -165,7 +165,7 @@ const Cart = ({ userList }) => {
           <div className="flex-center mt-1  item-center">
             {/* <b>Subtotal: </b>${cart.total} <br />
             <b className=" inline-block my-1">Discount: </b>$0.00 <br /> */}
-            <b>ราคารวม: </b>${cart.total}
+            <b>ราคารวม: </b>{cart.total}฿
           </div>
 
           <div>
