@@ -59,9 +59,6 @@ const Order = () => {
               <th scope="col" className="py-3 px-6">
                 ยอดรวม
               </th>
-              {/* <th scope="col" className="py-3 px-6">
-                สถานะ
-              </th> */}
             </tr>
           </thead>
           <tbody>
@@ -82,10 +79,6 @@ const Order = () => {
                 <td className="py-4 px-6 font-medium whitespace-nowrap ">
                   ฿{order.total}
                 </td>
-                {/* <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                  {(order.status === 0 && "กำลังทำอาหาร") ||
-                    (order.status === 1 && "เสร็จสิ้น") }
-                </td> */}
               </tr>
             ))}
           </tbody>

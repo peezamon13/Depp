@@ -163,8 +163,6 @@ const Cart = ({ userList }) => {
       
             
           <div className="flex-center mt-1  item-center">
-            {/* <b>Subtotal: </b>${cart.total} <br />
-            <b className=" inline-block my-1">Discount: </b>$0.00 <br /> */}
             <b>ราคารวม: </b>{cart.total}฿
           </div>
 
@@ -194,5 +192,3 @@ export const getServerSideProps = async () => {
 };
 
 export default Cart;
-
-
