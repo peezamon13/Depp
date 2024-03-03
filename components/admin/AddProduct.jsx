@@ -134,6 +134,7 @@ const AddProduct = ({ setIsProductModal }) => {
                                     )}
                                     {imageSrc && (
                                         <div>
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img className="rounded-full border-2 border-primary" src={imageSrc} alt="" width={90} height={90} />
                                         </div>
                                     )}

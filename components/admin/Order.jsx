@@ -75,6 +75,9 @@ const Order = () => {
         <table className="w-full  text-center ">
           <thead className="text-2xl text-white uppercase bg-gray-700 border border-black">
             <tr>
+              {/* <th scope="col" className="py-3 px-6">
+                ORDER ID
+              </th> */}
               <th scope="col" className="py-3 px-3">
                 ลูกค้า
               </th>
@@ -159,7 +162,7 @@ const Order = () => {
                       </tr>
                     );
                   } else {
-                    return null; 
+                    return null; // Hide orders with status 1
                   }
                 })}
           </tbody>
