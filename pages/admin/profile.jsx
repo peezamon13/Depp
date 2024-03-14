@@ -6,6 +6,7 @@ import ReportM from "../../schema/ReportMonthly";
 import { useState } from "react";
 import Category from "../../components/admin/Category";
 import Order from "../../components/admin/Order";
+import OrderHistory from "../../components/admin/OrderHistory";
 import Products from "../../components/admin/Products";
 import { toast } from "react-toastify";
 import Stock from "../../components/admin/Stock";
@@ -45,73 +46,77 @@ const Profile = () => {
         </div>
         <ul className="text-center font-semibold">
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 0 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 0 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(0)}
           >
             <i className="fa fa-cutlery"></i>
             <button className="ml-1 ">รายการอาหาร</button>
           </li>
+
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 1 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 1 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(1)}
           >
             <i className="fa fa-list"></i>
-            <button className="ml-1">คำสั่งซื่อ</button>
+            <button className="ml-1">คำสั่งซื้อ</button>
           </li>
+
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 2 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 2 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(2)}
+          >
+            <i className="fa fa-clock-o"></i>
+            <button className="ml-1">ประวัติคำสั่งซื้อ</button>
+          </li>
+
+          <li
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 3 && "bg-primary text-black"
+            }`}
+            onClick={() => setTabs(3)}
           >
             <i className="fa fa-ellipsis-h"></i>
             <button className="ml-1">ประเภทหมวดหมู่</button>
           </li>
+
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 3 && "bg-primary text-white"
-            }`}
-            onClick={() => setTabs(3)}
-          >
-            <i className="fa fa-bar-chart"></i>
-            <button className="ml-1">รายงานรายได้ต่อวัน</button>
-          </li>
-          <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 4 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 4 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(4)}
           >
             <i className="fa fa-bar-chart"></i>
+            <button className="ml-1">รายงานรายได้ต่อวัน</button>
+          </li>
+
+          <li
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 5 && "bg-primary text-black"
+            }`}
+            onClick={() => setTabs(5)}
+          >
+            <i className="fa fa-bar-chart"></i>
             <button className="ml-1">รายได้รายเดือน</button>
           </li>
-          {/* <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 6 && "bg-primary text-white"
+
+          <li
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 6 && "bg-primary text-black"
             }`}
             onClick={() => setTabs(6)}
           >
-            <i className="fa fa-sticky-note-o"></i>
-            <button className="ml-1">คลังวัตถุดิบ</button>
-          </li> */}
-
-
-          <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 8 && "bg-primary text-white"
-            }`}
-            onClick={() => setTabs(8)}
-          >
-            <i className="fa fa-sticky-note-o"></i>
+            <i className="fa bar-chart"></i>
             <button className="ml-1">รายการสั่งเยอะที่สุด</button>
           </li>
 
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all`}
             onClick={() => window.open("/", "_blank")}
           >
             <i className="fa-solid fa-house"></i>
@@ -119,23 +124,26 @@ const Profile = () => {
               ไปหน้าสั่งอาหาร <br /> (หน้าใหม่)
             </button>
           </li>
+
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
-              tabs === 5 && "bg-primary text-white"
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-black transition-all ${
+              tabs === 7 && "bg-primary text-black"
             }`}
             onClick={closeAdminAccount}
           >
             <i className="fa fa-sign-out"></i>
             <button className="ml-1">ออกจากระบบ</button>
           </li>
+
         </ul>
       </div>
       {tabs === 0 && <Products />}
       {tabs === 1 && <Order />}
-      {tabs === 2 && <Category />}
-      {tabs === 3 && <ReportD />}
-      {tabs === 4 && <ReportM />}
-      {tabs === 8 && <MongoCharts />}
+      {tabs === 2 && <OrderHistory />}
+      {tabs === 3 && <Category />}
+      {tabs === 4 && <ReportD />}
+      {tabs === 5 && <ReportM />}
+      {tabs === 6 && <MongoCharts />}
     </div>
   );
 };

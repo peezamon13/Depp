@@ -29,7 +29,7 @@ const Order = ({ order }) => {
               </tr>
             </thead>
             <tbody>
-              <tr className="transition-all bg-white border-black   ">
+              <tr className="transition-all bg-white border-black text-black  ">
                 
                 <td className="py-3 px-6 font-medium  ">
                   {order?.address}
@@ -64,7 +64,7 @@ const Order = ({ order }) => {
             </thead>
             <tbody>
               {order?.products.map((product) => (
-                <tr key={product._id}>
+                <tr className="text-black" key={product._id}>
                   <td className="py-4 px-6 font-medium ">
                     {product.title}
                   </td>

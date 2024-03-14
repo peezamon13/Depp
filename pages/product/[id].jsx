@@ -92,17 +92,19 @@ const Index = ({ food }) => {
             </label>
           ))}
           </div>
-       <div className="w-full flex justify-center item-center btn-center ">
+       <div className="w-full flex justify-center item-center btn-center">
         <button
-          className="btn-primary justify-center item-center"
+          className="btn-primary3 justify-center item-center text-black"
           onClick={handleClick}
         >
           เข้าตะกร้า
         </button>
+        </div>
+        <div className="absolute bottom-12 right-5">
         <Link href="/menu"> 
-          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4  ">ไปหน้าเมนู</a>
+          <a className="btn-secondary ml-3 fa-solid fa-mail-reply mt-4 "> ไปหน้าเมนู </a> 
         </Link>
-      </div> 
+        </div>
     </div>
   );
 };

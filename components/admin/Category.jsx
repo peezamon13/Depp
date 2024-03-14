@@ -47,7 +47,7 @@ const Category = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`
         );
         setCategories(categories.filter((cat) => cat._id !== id));
-        toast.warning("ลบสำรเร็จ", {
+        toast.warning("ลบสำเร็จ", {
           position: "bottom-left",
           theme: "colored",
         });
@@ -67,7 +67,7 @@ const Category = () => {
             onChange={(e) => setInputText(e.target.value)}
             value={inputText}
           />
-          <button className="btn-primary" onClick={handleCreate}>
+          <button className="btn-primary3 text-black" onClick={handleCreate}>
             เพิ่ม
           </button>
         </div>
@@ -77,9 +77,9 @@ const Category = () => {
               className="flex justify-between mt-4 border p-3 items-center border-r-4 border-b-8 border-black rounded-lg transition-all"
               key={category._id}
             >
-              <b className="sm:text-xl text-md">{category.title}</b>
+              <b className="sm:text-xl text-xl">{category.title}</b>
               <button
-                className="btn-primary !bg-danger text-sm sm:text-base"
+                className="btn-primary !bg-danger text-md sm:text-base"
                 onClick={(e) => handleDelete(e, category._id)}
               >
                 ลบ

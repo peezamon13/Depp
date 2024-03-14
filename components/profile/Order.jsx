@@ -72,14 +72,14 @@ const Order = () => {
                 onClick={() => router.push(`/order/${order._id}`)}
               >
                 
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                <td className="py-4 px-6 font-medium whitespace-nowrap ">
                   {currentUser?.address}
                 </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                <td className="py-4 px-6 font-medium whitespace-nowrap ">
                   {order.createdAt.substring(0, 10)} <br />
                   {order.createdAt.substring(11, 16)}
                 </td>
-                <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
+                <td className="py-4 px-6 font-medium whitespace-nowrap ">
                   ฿{order.total}
                 </td>
                 {/* <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">

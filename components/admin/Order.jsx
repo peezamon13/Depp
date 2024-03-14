@@ -53,14 +53,14 @@ const Order = () => {
   };
 
   const handleDelete = async (id) => {
-    if (confirm("Are you sure you want to delete this order?")) {
+    if (confirm("ต้องการที่จะลบใช่ไหม")) {
       try {
         const res = await axios.delete(
           `${process.env.NEXT_PUBLIC_API_URL}/orders/${id}`
         );
         setOrders(orders.filter((order) => order._id !== id));
         if (res.data) {
-          toast.success("Order deleted successfully");
+          toast.success("ลบสำเร็จ");
         }
       } catch (error) {
         console.log(error);
@@ -73,7 +73,7 @@ const Order = () => {
       <Title addClass="text-[35px]">คำสั่งซื้อ</Title>
       <div className="w-full mt-5 max-h-[700px] overflow-auto">
         <table className="w-full  text-center ">
-          <thead className="text-xl text-white uppercase bg-gray-700">
+          <thead className="text-2xl text-white uppercase bg-gray-700 border border-black">
             <tr>
               {/* <th scope="col" className="py-3 px-6">
                 ORDER ID
@@ -109,7 +109,7 @@ const Order = () => {
                   if (order.status !== 1) {
                     return (
                       <tr
-                        className="transition-all text-black bg-#ececec text-lg hover:bg-primary"
+                        className="transition-all text-black bg-#ececec text-xl hover:bg-primary border border-black"
                         key={order._id}
                       >
                         <td className="py-4 px-6 font-medium whitespace-nowrap">
@@ -136,7 +136,7 @@ const Order = () => {
                           })}
                         </td>
                         <td className="py-4 px-6 font-medium whitespace-nowrap">
-                          ${order?.total}
+                          {order?.total}฿
                         </td>
                         <td className="py-4 px-6 font-medium whitespace-nowrap">
                           {order?.method === 0 ? "Cash" : "Card"}
